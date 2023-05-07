@@ -1,0 +1,11 @@
+#confirmBtn{
+    -fx-background-color: #1652F0;
+    -fx-text-fill: white;
+}
+#confirmBtn:hover{
+    -fx-background-color: #1C84FF;
+    -fx-cursor: hand;
+}
+#confirmBtn:pressed{
+    -fx-background-color: #006AE8;
+}

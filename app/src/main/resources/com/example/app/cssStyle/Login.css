@@ -1,0 +1,21 @@
+#leftSide{
+    -fx-background-color: white;
+    -fx-pref-height: 600;
+}
+#linkRegister{
+    -fx-text-fill: blue;
+}
+#linkRegister:hover{
+    -fx-cursor: hand;
+}
+#confirmBtn{
+    -fx-background-color: #1652F0;
+    -fx-text-fill: white;
+}
+#confirmBtn:hover{
+    -fx-background-color: #1C84FF;
+    -fx-cursor: hand;
+}
+#confirmBtn:pressed{
+    -fx-background-color: #006AE8;
+}
