@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../cssStyle/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.HomeScene">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../cssStyle/Home.css">
+         <children>
+            <AnchorPane id="btn1" fx:id="quanlyphong" layoutX="26.0" layoutY="183.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-radius: 5; -fx-region-border: none;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text=" Quản Lý Phòng">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="26.0" layoutY="306.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Đồng Bộ Dữ Liệu">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="26.0" layoutY="428.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Tích Hợp Marketing Thông Minh">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="150.0" layoutY="183.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Quản Lý Khách Hàng">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="150.0" layoutY="306.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Thanh Toán">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="150.0" layoutY="428.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Quản Lý Tập Trung">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="273.0" layoutY="183.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Chat Trực Tuyến">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="273.0" layoutY="306.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Vận Chuyển">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="273.0" layoutY="428.0" prefHeight="97.0" prefWidth="108.0" style="-fx-background-color: Blue; -fx-background-radius: 5;">
+               <children>
+                  <Button layoutX="12.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Hệ Thống CRM">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Text layoutX="288.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="App Quản Lý Chung Cư Mini" wrappingWidth="372.5403747558594">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
