@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="leftSide" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="660.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/Register.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.RegisterScene">
    <children>
       <Label layoutX="145.0" layoutY="18.0" text="Appartment Management" textFill="#2c2c2c">
@@ -30,9 +29,16 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField layoutX="90.0" layoutY="230.0" prefHeight="40.0" prefWidth="280.0" promptText="your email" />
-      <PasswordField layoutX="90.0" layoutY="367.0" prefHeight="40.0" prefWidth="280.0" promptText="your password" />
-      <Button id="confirmBtn" layoutX="90.0" layoutY="492.0" mnemonicParsing="false" text="Confirm">
+      <TextField fx:id="emailForm" layoutX="90.0" layoutY="230.0" prefHeight="40.0" prefWidth="280.0" promptText="your email" />
+      <TextField fx:id="nameForm" layoutX="90.0" layoutY="300.0" prefHeight="40.0" prefWidth="280.0" promptText="your name" />
+      <PasswordField fx:id="passForm" layoutX="90.0" layoutY="367.0" prefHeight="40.0" prefWidth="280.0" promptText="your password" />
+      <Label layoutX="92.0" layoutY="203.0" text="Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="repassForm" layoutX="90.0" layoutY="444.0" prefHeight="40.0" prefWidth="280.0" promptText="retype your password" />
+      <Button id="confirmBtn" fx:id="confirmBtn" layoutX="90.0" layoutY="501.0" mnemonicParsing="false" text="Confirm">
          <font>
             <Font size="14.0" />
          </font>
@@ -40,13 +46,6 @@
             <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
          </padding>
       </Button>
-      <Label layoutX="92.0" layoutY="203.0" text="Email">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <PasswordField layoutX="90.0" layoutY="435.0" prefHeight="40.0" prefWidth="280.0" promptText="retype your password" />
-      <TextField layoutX="90.0" layoutY="300.0" prefHeight="40.0" prefWidth="280.0" promptText="your name" />
       <Label layoutX="92.0" layoutY="280.0" text="User name">
          <font>
             <Font size="14.0" />
@@ -57,16 +56,25 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="415.0" text="Retype Password">
+      <Label layoutX="92.0" layoutY="424.0" text="Retype Password">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <Label layoutX="94.0" layoutY="167.0" text="get your account" />
-      <Button id="linkRegister" fx:id="linkLogin" layoutX="83.0" layoutY="545.0" mnemonicParsing="false" style="-fx-background-color: none;" text="&lt; Get back to Login" underline="true">
+      <Button id="linkRegister" fx:id="linkLogin" layoutX="83.0" layoutY="554.0" mnemonicParsing="false" style="-fx-background-color: none;" text="&lt; Get back to Login" underline="true">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Button>
+      <Label id="validation" fx:id="passwordVal" layoutX="390.0" layoutY="379.0" prefHeight="17.0" prefWidth="232.0" />
+      <Label id="validation" fx:id="repassVal" layoutX="390.0" layoutY="447.0" prefHeight="17.0" prefWidth="243.0" />
+      <Label layoutX="92.0" layoutY="407.0" prefHeight="17.0" prefWidth="423.0" text="(*Password includes 1 uppercase letter, 1 number and more than 8 characters )" textFill="#9a9a9a">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label id="validation" fx:id="mailVal" layoutX="390.0" layoutY="242.0" prefHeight="17.0" prefWidth="232.0" />
+      <Label id="validation" fx:id="nameVal" layoutX="390.0" layoutY="310.0" prefHeight="17.0" prefWidth="232.0" />
    </children>
 </AnchorPane>

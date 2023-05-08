@@ -1,13 +1,16 @@
 
 package com.example.app;
 
+import com.example.app.Entity.Validation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class HelloApplication extends Application {
     @Override
