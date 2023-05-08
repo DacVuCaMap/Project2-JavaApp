@@ -9,3 +9,6 @@
 #confirmBtn:pressed{
     -fx-background-color: #006AE8;
 }
+#validation{
+    -fx-text-fill: red;
+}
