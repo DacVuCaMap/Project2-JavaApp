@@ -1,3 +1,21 @@
-#btn1{
-    -fx-background-color: red   ;
+
+#background{
+    -fx-background-color: white;
+}
+
+#bottom{
+    -fx-background-color: lightgray;
+}
+
+#Btn1{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+#Btn1:hover {
+    -fx-text-fill: #7B68EE;
+}
+
+#image{
+    -fx-background-image: url(@../../../../imageData/imageMenu.jpg);
 }

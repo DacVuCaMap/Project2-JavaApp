@@ -3,7 +3,7 @@
     requires javafx.fxml;
 
     //mysql
-     requires mysql.connector.java;
+     requires mysql.connector.j;
      requires java.sql;
      //jBcrypt
      requires jBCrypt;
