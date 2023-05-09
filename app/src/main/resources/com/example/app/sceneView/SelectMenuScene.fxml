@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: whte;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.SelectMenuController">
+   <children>
+      <AnchorPane fx:id="slideScene" layoutX="200.0" layoutY="100.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DCDCDC;" />
+      <VBox prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #0A66C2;">
+         <children>
+            <Pane prefHeight="98.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="31.0" text="Management" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button id="selectBtn" fx:id="clientBtn" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Client" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="selectBtn" fx:id="roomBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Room">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="selectBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Host">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="selectBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Apartment">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Pane prefHeight="47.0" prefWidth="202.0" />
+            <Line endX="100.29289245605469" startX="-100.0" stroke="#f2f2f2" />
+            <Button id="selectBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="chua nghi ra">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="315.0" layoutY="21.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
+      <Pane layoutX="462.0" layoutY="21.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
+      <Pane layoutX="598.0" layoutY="20.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
+      <Pane layoutX="748.0" layoutY="20.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
+   </children>
+</AnchorPane>
