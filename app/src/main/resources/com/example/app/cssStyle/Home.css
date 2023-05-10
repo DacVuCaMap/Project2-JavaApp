@@ -1,15 +1,15 @@
 
 #background{
-    -fx-background-color: black;
+    -fx-background-color: #FFFAFA;
 }
 
 #bottom{
-    -fx-background-color: lightgray;
+    -fx-background-color: #FFFAF0;
 }
 
 #Btn1{
-    -fx-background-color: black;
-    -fx-text-fill: white;
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: black;
 }
 
 #Btn1:hover {
@@ -17,15 +17,18 @@
 }
 
 #menuButton{
-    -fx-background-color: gray;
+    -fx-background-color: lightgray;
     -fx-text-fill: white;
 }
 
 #menuButton:hover {
     -fx-background-color: black;
     -fx-text-fill: #7B68EE;
+    -fx-cursor: hand;
 }
 
 #menuBar{
-    -fx-background-color: #333333;
+    -fx-background-color: #FFFAF0;
 }
+
+
