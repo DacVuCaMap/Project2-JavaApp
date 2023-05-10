@@ -1,0 +1,14 @@
+#itemBox{
+    -fx-background-color:  #DCDCDC;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 2, 2);
+}
+#itemBox:hover{
+    -fx-background-color: #B0C4DE;
+}
+#btnDetail{
+    -fx-background-color:  #A9A9A9;
+}
+#btnDetail:hover{
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}

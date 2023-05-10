@@ -15,7 +15,11 @@ import java.util.UUID;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/HomeScene.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/SelectMenuScene.fxml"));
+
         Scene scene = new Scene(fxmlLoader.load());
         //remove title bar buttons
         stage.setTitle("Apartment Management");

@@ -1,6 +1,6 @@
 
 #background{
-    -fx-background-color: white;
+    -fx-background-color: black;
 }
 
 #bottom{
@@ -16,6 +16,16 @@
     -fx-text-fill: #7B68EE;
 }
 
-#image{
-    -fx-background-image: url(@../../../../imageData/imageMenu.jpg);
+#menuButton{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+#menuButton:hover {
+    -fx-background-color: black;
+    -fx-text-fill: #7B68EE;
+}
+
+#menuBar{
+    -fx-background-color: #333333;
 }

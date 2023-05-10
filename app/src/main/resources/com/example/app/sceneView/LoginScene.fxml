@@ -67,7 +67,7 @@
             <Label fx:id="pwdLable" layoutX="380.0" layoutY="385.0" prefHeight="17.0" prefWidth="191.0" style="-fx-text-fill: red;" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="600.0" fitWidth="500.0" layoutX="638.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="500.0" layoutX="638.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../imageData/login.jpg" />
          </image>

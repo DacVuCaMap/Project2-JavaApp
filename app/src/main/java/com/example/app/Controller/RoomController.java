@@ -1,4 +1,4 @@
 package com.example.app.Controller;
 
-public class HomeScene {
+public class RoomController {
 }
