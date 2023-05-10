@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../cssStyle/Home.css" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.app.Controller.HomeScene">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../cssStyle/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="menuBar" layoutY="-1.0" prefHeight="80.0" prefWidth="900.0">
          <children>
-            <Text id="userAdmin" fill="WHITE" layoutX="430.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nam Vu" />
-            <Text id="gmailAdmin" fill="WHITE" layoutX="430.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NamVu123@gmail.com" />
-            <Avatar id="imageAdmin" layoutX="388.0" layoutY="28.0">
-               <image>
-                  <Image url="@../../../../imageData/login.jpg" />
-               </image>
-            </Avatar>
+             <AnchorPane fx:controller="com.example.app.Controller.HomeController">
+                <TextField fx:id="nameAdmin" layoutX="400.0" layoutY="15.0" />
+                <TextField fx:id="gmailAdmin" layoutX="400.0" layoutY="50.0" />
+            </AnchorPane>
+             <Circle fill="DODGERBLUE" layoutX="360.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
       <Button id="Btn1" layoutX="100.0" layoutY="160.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="173.0" text="Hồ Sơ Cá Nhân" textFill="WHITE" />

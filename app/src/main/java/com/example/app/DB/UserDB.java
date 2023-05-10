@@ -9,6 +9,8 @@ import java.util.List;
 
 public class UserDB implements DBGeneric<User>{
     private Connection conn;
+
+
     @Override
     public void insertData(User user) {
         String sql="insert into admintbl(adminId,adminName,adminMail,adminPass) VALUES (?,?,?,?)";
