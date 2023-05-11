@@ -1,60 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: whte;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.SelectMenuController">
+<AnchorPane fx:id="mainScene" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: whte;" stylesheets="@../cssStyle/SelectMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.SelectMenuController">
    <children>
-      <AnchorPane fx:id="slideScene" layoutX="200.0" layoutY="100.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DCDCDC;" />
-      <VBox prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #0A66C2;">
+      <AnchorPane fx:id="slideScene" layoutX="200.0" layoutY="100.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" />
+      <VBox prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #041E42;">
          <children>
-            <Pane prefHeight="98.0" prefWidth="200.0">
+            <Pane prefHeight="67.0" prefWidth="202.0" style="-fx-background-color: #1F305E;">
                <children>
-                  <Label layoutX="33.0" layoutY="31.0" text="Management" textFill="WHITE">
+                  <Label layoutX="63.0" layoutY="14.0" text="nam vu" textFill="WHITE">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="34.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Label layoutX="63.0" layoutY="36.0" text="namvu11@gmail.com" textFill="#9e9e9e">
+                     <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Pane>
+            <Pane prefHeight="38.0" prefWidth="200.0">
+               <children>
+                  <Line endX="120.0" endY="19.0" layoutX="63.0" layoutY="19.0" startX="-49.0" startY="19.0" stroke="#9499a8" strokeWidth="0.5" />
+                  <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="47.0" text="General" textFill="#9e9e9e">
+                     <font>
+                        <Font name="Calibri Bold" size="10.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Button id="selectBtn" fx:id="clientBtn" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Client" textFill="WHITE">
+            <Button fx:id="clientBtn" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Client" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="10.0" />
+               </VBox.margin>
             </Button>
-            <Button id="selectBtn" fx:id="roomBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Room">
+            <Button id="selectBtn" fx:id="roomBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Room" textFill="#9e9e9e">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="15.0" right="15.0" />
+               </VBox.margin>
             </Button>
-            <Button id="selectBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Host">
+            <Button id="selectBtn" fx:id="hostBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Host" textFill="#9e9e9e">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="15.0" right="15.0" />
+               </VBox.margin>
             </Button>
-            <Button id="selectBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Apartment">
+            <Button id="selectBtn" fx:id="apartmentBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Apartment" textFill="#9e9e9e">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="15.0" />
+               </VBox.margin>
             </Button>
-            <Pane prefHeight="47.0" prefWidth="202.0" />
-            <Line endX="100.29289245605469" startX="-100.0" stroke="#f2f2f2" />
-            <Button id="selectBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="chua nghi ra">
-               <font>
-                  <Font size="14.0" />
-               </font>
+            <Pane prefHeight="38.0" prefWidth="200.0">
+               <children>
+                  <Line endX="120.0" endY="19.0" layoutX="63.0" layoutY="19.0" startX="-49.0" startY="19.0" stroke="#9499a8" strokeWidth="0.5" />
+                  <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="61.0" text="Back to Menu" textFill="#9e9e9e">
+                     <font>
+                        <Font name="Calibri Bold" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button id="backToMenu" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Menu">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Pane layoutX="315.0" layoutY="21.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
-      <Pane layoutX="462.0" layoutY="21.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
-      <Pane layoutX="598.0" layoutY="20.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
-      <Pane layoutX="748.0" layoutY="20.0" prefHeight="56.0" prefWidth="60.0" style="-fx-background-color: red;" />
+      <Pane id="headBar" layoutX="260.0" layoutY="15.0" prefHeight="70.0" prefWidth="580.0" stylesheets="@../cssStyle/SelectMenu.css">
+         <children>
+            <Pane layoutX="14.0" prefHeight="70.0" prefWidth="100.0">
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="19.0" layoutY="40.0" size="30" />
+                  <Label layoutX="13.0" layoutY="48.0" text="CLient" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="13.0" text="10" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="466.0" prefHeight="70.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="48.0" text="Apartment" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="13.0" text="10" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="15.0" layoutY="40.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="160.0" prefHeight="70.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="11.0" layoutY="48.0" text="Room" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="13.0" text="10" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fill="WHITE" layoutX="11.0" layoutY="40.0" size="30" text="" />
+               </children>
+            </Pane>
+            <Pane layoutX="320.0" prefHeight="70.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="13.0" layoutY="48.0" text="Host" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="13.0" text="10" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fill="WHITE" layoutX="11.0" layoutY="39.0" size="30" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

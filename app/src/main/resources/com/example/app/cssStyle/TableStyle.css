@@ -1,0 +1,7 @@
+#addClientBtn{
+    -fx-background-color:  #0A66C2;
+}
+#addClientBtn:hover{
+    -fx-background-color: #87CEEB;
+    -fx-cursor: hand;
+}

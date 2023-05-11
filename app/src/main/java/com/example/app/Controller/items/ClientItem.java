@@ -45,6 +45,8 @@ public class ClientItem implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        labelDetail.setOnAction(e->{
+            System.out.println(labelName.getText());
+        });
     }
 }

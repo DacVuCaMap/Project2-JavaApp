@@ -62,9 +62,9 @@
          </font>
       </Label>
       <Label layoutX="94.0" layoutY="167.0" text="get your account" />
-      <Button id="linkRegister" fx:id="linkLogin" layoutX="83.0" layoutY="554.0" mnemonicParsing="false" style="-fx-background-color: none;" text="&lt; Get back to Login" underline="true">
+      <Button id="linkRegister" fx:id="linkLogin" layoutX="83.0" layoutY="554.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Back " underline="true">
          <font>
-            <Font name="System Bold Italic" size="14.0" />
+            <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Button>
       <Label id="validation" fx:id="passwordVal" layoutX="390.0" layoutY="379.0" prefHeight="17.0" prefWidth="232.0" />

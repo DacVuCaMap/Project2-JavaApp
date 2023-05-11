@@ -1,4 +1,47 @@
-#selectBtn{
-    -fx-background-color: none;
 
+.disableBtn{
+    -fx-background-color: none;
+    -fx-text-fill: #9e9e9e;
+}
+
+.disableBtn:hover{
+    -fx-background-color:  #1F305E;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+.selectedBtn:selected{
+    -fx-background-color: #9e9e9e;
+}
+.selectedBtn{
+    -fx-background-color: #1F305E;
+    -fx-text-fill: white;
+}
+.selectedBtn:hover{
+    -fx-cursor: hand;
+}
+#selectBtn:hover{
+    -fx-background-color:  #1F305E;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+#headBar{
+    -fx-background-color: #1F75FE;
+    -fx-background-radius: 5px;
+}
+#backToMenu{
+    -fx-background-color: none;
+    -fx-text-fill: #9e9e9e;
+    -fx-font-family: Calibri;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+#backToMenu:hover{
+    -fx-background-color:  #1F305E;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-text-fill: white;
+}
+#backToMenu:pressed{
+    -fx-background-color:#9e9e9e ;
 }
