@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/TableStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.ClientController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/TableStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.HostController">
    <children>
       <TextField alignment="CENTER_RIGHT" layoutX="274.0" layoutY="14.0" prefHeight="25.0" prefWidth="168.0" promptText="search..." style="-fx-background-color: none;" />
       <Label layoutX="7.0" layoutY="9.0" text="Host list">
@@ -27,22 +27,22 @@
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="128.0" text="Host">
+            <Label prefHeight="30.0" prefWidth="173.0" text="Host">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="139.0" text="Email">
+            <Label prefHeight="30.0" prefWidth="167.0" text="Email">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="143.0" text="Phone Number">
+            <Label prefHeight="30.0" prefWidth="91.0" text="Phone">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="149.0" text="Address">
+            <Label prefHeight="30.0" prefWidth="138.0" text="Address">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
