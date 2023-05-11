@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySQLConnection {
-    private static String user = "namvu";
-    private static String pwd = "namnam123";
+    private static String user = "root";
+    private static String pwd = "123456";
     private static String url = "jdbc:mysql://localhost:3306/ApartmentManagement";
     public static Connection getConnection(){
         Connection conn = null;

@@ -86,7 +86,7 @@ public class LoginScene implements Initializable {
             DBGeneric<User> userDBGeneric = new UserDB();
             if (userDBGeneric.checkUser(user)){
                 System.out.println("vaoo game");
-                // vao app
+                //
             }
         }
     }
