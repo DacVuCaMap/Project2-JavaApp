@@ -58,13 +58,18 @@
                </font>
             </Label>
             <CheckBox layoutX="184.0" layoutY="440.0" mnemonicParsing="false" text="Remember me" />
-            <Button id="linkRegister" fx:id="linkRegister" layoutX="80.0" layoutY="550.0" mnemonicParsing="false" style="-fx-background-color: none;" text="If you don't have account click here to register" underline="true">
+            <Button id="linkRegister" fx:id="linkRegister" layoutX="143.0" layoutY="541.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Register" underline="true">
                <font>
-                  <Font name="System Bold Italic" size="14.0" />
+                  <Font name="Calibri Bold Italic" size="14.0" />
                </font>
             </Button>
             <Label fx:id="emailLable" layoutX="380.0" layoutY="300.0" prefHeight="17.0" prefWidth="191.0" style="-fx-text-fill: red;" />
             <Label fx:id="pwdLable" layoutX="380.0" layoutY="385.0" prefHeight="17.0" prefWidth="191.0" style="-fx-text-fill: red;" />
+            <Label layoutX="87.0" layoutY="544.0" prefHeight="20.0" prefWidth="80.0" text="New User?" textFill="#616161">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <ImageView fitHeight="600.0" fitWidth="500.0" layoutX="638.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">

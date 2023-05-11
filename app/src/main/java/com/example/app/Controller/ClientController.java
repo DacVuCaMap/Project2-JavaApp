@@ -35,9 +35,9 @@ public class ClientController implements Initializable {
 //        List<Client> clientList = clientDBGeneric.getAllData();
         List<Client> clientList = new ArrayList<>();
         clientList.add(new Client("KH01","/imageData/login.jpg","Nam vu","namvu12@gmail.com"
-                ,"0393623488","TP Ha Noi", LocalDate.of(2000,11,04)));
+                ,"0393623488","TP Ha Noi", LocalDate.of(2000,11,04),"012345"));
         clientList.add(new Client("KH02","/imageData/login.jpg","Nam le","namvu32@gmail.com"
-                ,"0123623488","TP cc Noi", LocalDate.of(2002,11,04)));
+                ,"0123623488","TP cc Noi", LocalDate.of(2002,11,04),"012345"));
         for (Client client : clientList){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/ClientItem.fxml"));

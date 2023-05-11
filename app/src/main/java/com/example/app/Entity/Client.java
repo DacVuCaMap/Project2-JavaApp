@@ -10,8 +10,9 @@ public class Client {
     private String clientPhone;
     private String clientAddress;
     private LocalDate clientDOB;
+    private String citizenID;
 
-    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB) {
+    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID) {
         this.clientId = clientId;
         this.clientImage = clientImage;
         this.clientName = clientName;
@@ -19,6 +20,7 @@ public class Client {
         this.clientPhone = clientPhone;
         this.clientAddress = clientAddress;
         this.clientDOB = clientDOB;
+        this.citizenID = citizenID;
     }
 
     public String getClientId() {
@@ -77,6 +79,14 @@ public class Client {
         this.clientDOB = clientDOB;
     }
 
+    public String getCitizenID() {
+        return citizenID;
+    }
+
+    public void setCitizenID(String citizenID) {
+        this.citizenID = citizenID;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -87,6 +97,7 @@ public class Client {
                 ", clientPhone='" + clientPhone + '\'' +
                 ", clientAddress='" + clientAddress + '\'' +
                 ", clientDOB=" + clientDOB +
+                ", citizenID='" + citizenID + '\'' +
                 '}';
     }
 }

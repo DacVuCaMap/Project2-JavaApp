@@ -15,44 +15,39 @@
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/TableStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.ClientController">
    <children>
       <TextField alignment="CENTER_RIGHT" layoutX="274.0" layoutY="14.0" prefHeight="25.0" prefWidth="168.0" promptText="search..." style="-fx-background-color: none;" />
-      <Label layoutX="7.0" layoutY="9.0" text="Room list">
+      <Label layoutX="7.0" layoutY="9.0" text="Host list">
          <font>
             <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
       <HBox id="headTable" layoutY="50.0" prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: #D3D3D3;">
          <children>
-            <Label prefHeight="30.0" prefWidth="61.0" text="ID">
+            <Label prefHeight="32.0" prefWidth="52.0" text="ID">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="80.0" text="Number">
+            <Label prefHeight="30.0" prefWidth="128.0" text="Host">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="144.0" text="Client">
+            <Label prefHeight="30.0" prefWidth="139.0" text="Email">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="121.0" text="Price/month">
+            <Label prefHeight="30.0" prefWidth="143.0" text="Phone Number">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="133.0" text="Apartment Name">
+            <Label prefHeight="30.0" prefWidth="149.0" text="Address">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="79.0" text="Status">
-               <font>
-                  <Font name="Corbel Bold" size="15.0" />
-               </font>
-            </Label>
-            <Label prefHeight="30.0" prefWidth="69.0" text="Details">
+            <Label prefHeight="30.0" prefWidth="59.0" text="Details">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
@@ -78,7 +73,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Button>
-      <Button id="addClientBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add Room" textFill="WHITE">
+      <Button id="addClientBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add Host" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
