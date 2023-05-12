@@ -1,17 +1,15 @@
 create database ApartmentManagement;
 use ApartmentManagement;
-
--- user
+--admin
 
 create table admintbl(
 	adminId varchar(10) primary key,
     adminName varchar(40),
     adminMail varchar(40),
     adminPass varchar(100)
-)
+);
 
 -- host
-
 
 CREATE TABLE tblHost (
     hostId varchar(10) primary key
@@ -23,35 +21,18 @@ CREATE TABLE tblHost (
     ,image text
     ,email varchar(100)
 );
+
 -- apartment 
 
-
-create database ApartmentManagement;
-use ApartmentManagement;
-create table admintbl(
-	adminId varchar(10) primary key,
-    adminName varchar(40),
-    adminMail varchar(40),
-    adminPass varchar(100)
-)
-select * from admintbl;
-delete from admintbl where adminName='nam vu';
-
--- client them can cuoc cong dan
-create TABLE tblClient (
-    clientId varchar(10) primary key
-    ,clientName varchar(40)
-    ,dob date
+CREATE TABLE tblApartment (
+    apartmentId varchar(10) primary key
+    ,hostId varchar(10) 
+    ,apartmentName varchar(255)
     ,address varchar(255)
-    ,phone varchar(255)
     ,image text
-    ,email varchar(100)
-    ,roomId varchar(10)
-    ,citizenID varchar(20)
-    ,foreign key (roomId) references tblRoom(roomId)
+    ,foreign key (hostId) references tblHost(hostID)
 );
 
-select * from tblClient
 -- room
 
 CREATE TABLE tblRoom (
@@ -72,35 +53,22 @@ Create table tblRoomImg(
     ,linkTo text
     ,foreign key (roomId) references tblRoom(roomId)
 )
--- apartment 
 
-CREATE TABLE tblApartment (
-    apartmentId varchar(10) primary key
-    ,hostId varchar(10) 
-    ,apartmentName varchar(255)
-    ,address varchar(255)
-    ,image text
-    ,foreign key (hostId) references tblHost(hostID)
-);
--- host
 
-CREATE TABLE tblHost (
-    hostId varchar(10) primary key
-    ,hostName varchar(40)
+-- client 
+
+create TABLE tblClient (
+    clientId varchar(10) primary key
+    ,clientName varchar(40)
     ,dob date
     ,address varchar(255)
-    ,citizenID varchar(20)
     ,phone varchar(255)
     ,image text
     ,email varchar(100)
+    ,roomId varchar(10)
+    ,citizenID varchar(20)
+    ,foreign key (roomId) references tblRoom(roomId)
 );
 
 
 
--- lenh sua bo sung
-	-- sua room
-    alter table tblRoom modify column roomNumber varchar(20);
-    alter table tblRoom drop column image;
-    alter table tblRoom add roomStatus enum('AVALIBLE','OCCUPIED','MAINTENANCE');
-    alter table tblRoom modify column typeRoom enum('Studio','k1n1','Duplex','k2n1');
-    
