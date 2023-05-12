@@ -3,12 +3,15 @@ package com.example.app.Controller;
 import com.example.app.DB.DBGeneric;
 import com.example.app.DB.UserDB;
 import com.example.app.Entity.User;
+import com.example.app.HelloApplication;
 import com.example.app.MyFXMLLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -46,6 +49,7 @@ public class LoginScene implements Initializable {
     Label emailLable;
     @FXML
     Label pwdLable;
+    public static Stage getStage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         linkRegister.setOnAction(e->{
@@ -62,13 +66,13 @@ public class LoginScene implements Initializable {
         confirmBtn.setOnAction(e->{
             checkToLogin();
         });
-        scenePane.setOnKeyPressed(keyEvent ->{
-            if (keyEvent.getCode().toString().equals("ENTER")){
+        scenePane.setOnKeyPressed(e ->{
+            if (e.getCode().toString().equals("ENTER")){
                 checkToLogin();
             }
         });
     }
-    public void checkToLogin(){
+    public void checkToLogin() {
         String email = emailForm.getText();
         String pwd = pwdForm.getText();
         boolean flag=true;
@@ -86,7 +90,19 @@ public class LoginScene implements Initializable {
             DBGeneric<User> userDBGeneric = new UserDB();
             if (userDBGeneric.checkUser(user)){
                 System.out.println("vaoo game");
-                // vao app
+                // vao home
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/HomeScene.fxml"));
+                    Scene scene = new Scene(root);
+                    getStage.setScene(scene);
+                    getStage.setTitle("Apartment Management");
+                    getStage.show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            else {
+                System.out.println("sai mat khau");
             }
         }
     }

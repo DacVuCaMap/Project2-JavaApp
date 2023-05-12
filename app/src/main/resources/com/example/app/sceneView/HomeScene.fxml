@@ -10,13 +10,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
 <AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../cssStyle/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+=======
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../cssStyle/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.HomeController">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
    <children>
       <AnchorPane id="menuBar" layoutY="-7.0" prefHeight="80.0" prefWidth="900.0">
          <children>
             <TextField fx:id="nameAdmin" layoutX="400.0" layoutY="15.0" />
             <TextField fx:id="gmailAdmin" layoutX="400.0" layoutY="50.0" />
+<<<<<<< HEAD
             <Circle fill="#e6e8eb" layoutX="360.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"  />
+=======
+            <Circle id="imageAdmin" fill="#e6e8eb" layoutX="360.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          </children>
       </AnchorPane>
       <Button id="Btn1" layoutX="100.0" layoutY="160.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="173.0" textFill="WHITE" />
@@ -50,50 +58,98 @@
             <Text layoutX="12.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\@ No Copy Right" />
          </children>
       </AnchorPane>
+<<<<<<< HEAD
       <Text fill="#070707" layoutX="138.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Hồ Sơ Cá Nhân">
+=======
+      <Text id="textBtn1" fill="#070707" layoutX="138.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hồ Sơ Cá Nhân">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#2f2b2b" layoutX="140.0" layoutY="233.0" opacity="0.71" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Xem Thông Tin Của Bạn">
+=======
+      <Text id="textBtn1" fill="#2f2b2b" layoutX="140.0" layoutY="233.0" opacity="0.71" strokeType="OUTSIDE" strokeWidth="0.0" text="Xem Thông Tin Của Bạn">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="11.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#222020" layoutX="407.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Mục Quản Lí">
+=======
+      <Text id="textBtn1" fill="#222020" layoutX="407.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mục Quản Lí">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#363434" layoutX="399.0" layoutY="232.0" opacity="0.79" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Quản Lí Chung Cư Của Bạn" wrappingWidth="159.4270782470703">
+=======
+      <Text id="textBtn1" fill="#363434" layoutX="399.0" layoutY="232.0" opacity="0.79" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản Lí Chung Cư Của Bạn" wrappingWidth="159.4270782470703">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="10.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#100f0f" layoutX="650.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Hợp Đồng">
+=======
+      <Text id="textBtn1" fill="#100f0f" layoutX="650.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hợp Đồng">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#242222" layoutX="170.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Cài Đặt">
+=======
+      <Text id="textBtn1" fill="#242222" layoutX="170.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cài Đặt">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#1f1f1f" layoutX="145.0" layoutY="384.0" opacity="0.58" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Chỉnh Sửa Giao Diện" />
       <Text fill="#1d1c1c" layoutX="592.0" layoutY="249.0" opacity="0.6" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Danh sách Hợp Đồng Với Khách Hàng">
+=======
+      <Text id="textBtn1" fill="#1f1f1f" layoutX="151.0" layoutY="387.0" opacity="0.58" strokeType="OUTSIDE" strokeWidth="0.0" text="Chỉnh Sửa Giao Diện">
+         <font>
+            <Font size="11.0" />
+         </font></Text>
+      <Text id="textBtn1" fill="#1d1c1c" layoutX="592.0" layoutY="249.0" opacity="0.6" strokeType="OUTSIDE" strokeWidth="0.0" text="Danh sách Hợp Đồng Với Khách Hàng">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="10.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#2b2a2a" layoutX="420.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="About Us">
+=======
+      <Text id="textBtn1" fill="#2b2a2a" layoutX="420.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Us">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+<<<<<<< HEAD
       <Text fill="#242323" layoutX="366.0" layoutY="394.0" opacity="0.51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Thông Tin Về Chúng Tôi" />
       <Text fill="#383838" layoutX="635.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Hướng Dẫn Sử Dụng" />
       <Text fill="#2d2c2c" layoutX="623.0" layoutY="383.0" opacity="0.63" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Courier New;" text="Từ A-Z Cho Người Mới Bắt Đầu">
+=======
+      <Text id="textBtn1" fill="#242323" layoutX="384.0" layoutY="395.0" opacity="0.51" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông Tin Về Chúng Tôi">
+         <font>
+            <Font size="11.0" />
+         </font></Text>
+      <Text id="textBtn1" fill="#383838" layoutX="638.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hướng Dẫn Sử Dụng">
+         <font>
+            <Font size="11.0" />
+         </font></Text>
+      <Text id="textBtn1" fill="#2d2c2c" layoutX="623.0" layoutY="383.0" opacity="0.63" strokeType="OUTSIDE" strokeWidth="0.0" text="Từ A-Z Cho Người Mới Bắt Đầu">
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
          <font>
             <Font size="10.0" />
          </font>

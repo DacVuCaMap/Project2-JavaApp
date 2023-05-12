@@ -1,6 +1,7 @@
 package com.example.app.Entity;
 
 import java.time.LocalDate;
+
 public class Host {
     private String hostId;
     private String hostName;
@@ -11,6 +12,7 @@ public class Host {
     private String hostEmail;
     private String hostPhone;
     public Host(){;}
+
 
     public Host(String hostId, String hostName, LocalDate dob, String address, String citizenId, String hostImage, String hostEmail, String hostPhone) {
         this.hostId = hostId;

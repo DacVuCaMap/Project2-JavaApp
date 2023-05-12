@@ -1,10 +1,74 @@
 create database ApartmentManagement;
 use ApartmentManagement;
+--admin
+
 create table admintbl(
 	adminId varchar(10) primary key,
     adminName varchar(40),
     adminMail varchar(40),
     adminPass varchar(100)
+);
+
+-- host
+
+CREATE TABLE tblHost (
+    hostId varchar(10) primary key
+    ,hostName varchar(40)
+    ,dob date
+    ,address varchar(255)
+    ,citizenID varchar(20)
+    ,phone varchar(255)
+    ,image text
+    ,email varchar(100)
+);
+
+-- apartment 
+
+CREATE TABLE tblApartment (
+    apartmentId varchar(10) primary key
+    ,hostId varchar(10) 
+    ,apartmentName varchar(255)
+    ,address varchar(255)
+    ,image text
+    ,foreign key (hostId) references tblHost(hostID)
+);
+
+-- room
+
+CREATE TABLE tblRoom (
+	roomId varchar(10) primary key
+	,roomNumber varchar(20)
+	,price double
+	,typeRoom enum('Studio','k1n1','Duplex','k2n1')
+	,desRoom text
+	,roomStatus enum('AVALIBLE','OCCUPIED','MAINTENANCE')
+	,apartmentId varchar(10)
+    ,foreign key (apartmentId) references tblApartment(apartmentId)
+);
+select * from tblRoom
+
+-- room image
+Create table tblRoomImg(
+	roomId varchar(10)
+    ,linkTo text
+    ,foreign key (roomId) references tblRoom(roomId)
 )
-select * from admintbl;
-delete from admintbl where adminName='nam vu'
+
+
+-- client 
+
+create TABLE tblClient (
+    clientId varchar(10) primary key
+    ,clientName varchar(40)
+    ,dob date
+    ,address varchar(255)
+    ,phone varchar(255)
+    ,image text
+    ,email varchar(100)
+    ,roomId varchar(10)
+    ,citizenID varchar(20)
+    ,foreign key (roomId) references tblRoom(roomId)
+);
+
+
+

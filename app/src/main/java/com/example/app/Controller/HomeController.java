@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class HomeController {
+<<<<<<< HEAD
     @FXML
     private TextField nameTextField;
 
@@ -51,6 +52,8 @@ public class HomeController {
             throw new RuntimeException(ex);
         }
     }
+=======
+>>>>>>> 354f44274b007986d8fdee3176743d72889cde95
 }
 
 

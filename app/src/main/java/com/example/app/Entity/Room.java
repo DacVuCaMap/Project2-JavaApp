@@ -1,4 +1,5 @@
 package com.example.app.Entity;
+
 import com.example.app.Entity.Enum.RoomType;
 
 public class Room {
