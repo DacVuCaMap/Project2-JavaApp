@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.sceneView.EditClient">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditClientController">
    <children>
-      <VBox layoutX="52.0" layoutY="108.0" prefHeight="300.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <VBox layoutX="52.0" layoutY="108.0" prefHeight="350.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <children>
             <HBox prefHeight="60.0" prefWidth="700.0">
                <children>
@@ -86,7 +87,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="address" layoutX="115.0" layoutY="9.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
+                              <TextArea fx:id="address" editable="false" layoutX="115.0" layoutY="9.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -137,6 +138,16 @@
                         </AnchorPane>
                      </children>
                   </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="110.0" prefWidth="700.0">
+               <children>
+                  <AnchorPane prefHeight="110.0" prefWidth="700.0">
+                     <children>
+                        <ImageView fx:id="avatar" fitHeight="110.0" fitWidth="159.0" layoutX="137.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="btnImg" disable="true" layoutX="314.0" layoutY="43.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="72.0" text="Chọn ảnh" />
+                     </children>
+                  </AnchorPane>
                </children>
             </HBox>
          </children>

@@ -1,0 +1,34 @@
+
+#background{
+    -fx-background-color: #FFFAFA;
+}
+
+#bottom{
+    -fx-background-color: #FFFAF0;
+}
+
+#Btn1{
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: black;
+}
+
+#Btn1:hover {
+    -fx-text-fill: #7B68EE;
+}
+
+#menuButton{
+    -fx-background-color: lightgray;
+    -fx-text-fill: white;
+}
+
+#menuButton:hover {
+    -fx-background-color: black;
+    -fx-text-fill: #7B68EE;
+    -fx-cursor: hand;
+}
+
+#menuBar{
+    -fx-background-color: #FFFAF0;
+}
+
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.UserManualController">
+   <children>
+      <Text layoutX="249.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hướng Dẫn Sử Dụng" wrappingWidth="376.6666259765625">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ App Quản Lí Chung Cư Mini của chúng tôi có đầy đủ các chức năng để giúp bạn tự quản lí nhiều căn chung cư mini, các phòng và khách hàng " wrappingWidth="880.6904602050781">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ App có các chức năng như quản lý toà, các dạng phòng khác nhau, quản lí khách thuê và quản lí hợp đồng thuê. Bên cạnh đó bạn còn được trải nghiệm tính năng tự động tính điện nước và dịch vụ của toà nhà" wrappingWidth="901.8268222808838">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ Ở trang chính khi bạn vừa Login xong, sẽ có 1 menu có các mục như :  ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-&gt; Hồ Sơ Cá Nhân">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-&gt; Mục Quản Lí">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-&gt; Hợp Đồng ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-&gt; .......">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trong mục quản lí, bạn có thể xem được :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Căn Hộ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chủ Căn Hộ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toà Nhà">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ Những hợp đồng đã kí kết bạn cũng có thể xem được ở mục Hợp Đồng">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ Chúng tôi luôn update thêm tính năng trong app của mình để phục vụ khách hàng">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

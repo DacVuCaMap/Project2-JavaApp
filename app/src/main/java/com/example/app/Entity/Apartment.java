@@ -1,35 +1,36 @@
 package com.example.app.Entity;
 
 public class Apartment {
-    private String apartermentId;
-    private String apartermentName;
+
+    private String apartmentId;
+    private String apartmentName;
     private String address;
-    private String image;
+    private String apartmentImage;
     private Host host;
     public Apartment(){;}
 
-    public Apartment(String apartermentId, String apartermentName, String address, String image, Host host) {
-        this.apartermentId = apartermentId;
-        this.apartermentName = apartermentName;
-        this.address = address;
-        this.image = image;
+    public Apartment(String apartmentId, Host host, String apartmentName, String address, String apartmentImage) {
+        this.apartmentId = apartmentId;
         this.host = host;
+        this.apartmentName = apartmentName;
+        this.address = address;
+        this.apartmentImage = apartmentImage;
     }
 
-    public String getApartermentId() {
-        return apartermentId;
+    public String getApartmentId() {
+        return apartmentId;
     }
 
-    public void setApartermentId(String apartermentId) {
-        this.apartermentId = apartermentId;
+    public void setApartmentId(String apartmentId) {
+        this.apartmentId = apartmentId;
     }
 
-    public String getApartermentName() {
-        return apartermentName;
+    public String getApartmentName() {
+        return apartmentName;
     }
 
-    public void setApartermentName(String apartermentName) {
-        this.apartermentName = apartermentName;
+    public void setApartmentName(String apartmentName) {
+        this.apartmentName = apartmentName;
     }
 
     public String getAddress() {
@@ -40,12 +41,12 @@ public class Apartment {
         this.address = address;
     }
 
-    public String getImage() {
-        return image;
+    public String getApartmentImage() {
+        return apartmentImage;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setApartmentImage(String apartmentImage) {
+        this.apartmentImage = apartmentImage;
     }
 
     public Host getHost() {
@@ -58,11 +59,11 @@ public class Apartment {
 
     @Override
     public String toString() {
-        return "Aparterment{" +
-                "apartermentId='" + apartermentId + '\'' +
-                ", apartermentName='" + apartermentName + '\'' +
+        return "Apartment{" +
+                "apartmentId='" + apartmentId + '\'' +
+                ", apartmentName='" + apartmentName + '\'' +
                 ", address='" + address + '\'' +
-                ", image='" + image + '\'' +
+                ", apartmentImage='" + apartmentImage + '\'' +
                 ", host=" + host +
                 '}';
     }

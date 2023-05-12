@@ -1,15 +1,22 @@
 package com.example.app.Controller;
 
+import com.example.app.DB.ClientDAO;
 import com.example.app.Entity.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicBoolean;
+
 
 public class EditClientController implements Initializable {
     @FXML TextField name;
@@ -20,37 +27,79 @@ public class EditClientController implements Initializable {
     @FXML TextField room;
     @FXML TextArea address;
     @FXML TextField clientId;
+    @FXML ImageView avatar;
+    @FXML Button btnImg;
     @FXML Button btnEdit;
     @FXML Button btnSave;
     @FXML Button btnDelete;
     @FXML Button btnRefresh;
-    TextField[] textFieldArray = {clientId, name, dob, phone, email, citizenID};
+    Image image = null;
     public void setDetail(Client client){
+        image = new Image(client.getClientImage());
         clientId.setText(client.getClientId());
+        avatar.setImage(image);
         name.setText(client.getClientName());
         dob.setText(String.valueOf(client.getClientDOB()));
         phone.setText(String.valueOf(client.getClientPhone()));
         email.setText(client.getClientEmail());
         address.setText(client.getClientAddress());
         citizenID.setText(client.getClientId());
-        room.setText(String.valueOf(client.getRoom().getRoomNumber()));
-
+        room.setText(client.getRoom().getRoomNumber());
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TextField textFields[] = {clientId, name, dob, phone, email, citizenID};
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        ClientDAO clientDAO = new ClientDAO();
+//        Sự kiện khi click vào nút Edit sẽ cho phép sửa các ô input
         btnEdit.setOnMouseClicked(e->{
-            name.setEditable(true);
-            dob.setEditable(true);
-            phone.setEditable(true);
-            email.setEditable(true);
-            address.setEditable(true);
-            citizenID.setEditable(true);
-            AtomicBoolean isChange = new AtomicBoolean(false);
-            for(TextField i : textFieldArray){
-                if(i.getText().equals(i.))
+            for(TextField i : textFields){
+                i.setEditable(true);
             }
+            address.setEditable(true);
+            btnImg.setDisable(false);
+//            Sự kiện click vào nút chọn ảnh
+            btnImg.setOnMouseClicked(event1->{
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Chọn tệp tin hình ảnh");
+                // Lấy tệp tin được chọn
+                File selectedFile = fileChooser.showOpenDialog(null);
+                if (selectedFile != null) {
+                    // Tải ảnh từ tệp tin được chọn lên ImageView
+                    Image image = new Image(selectedFile.toURI().toString());
+                    avatar.setImage(image);
+                }});
+//            Sự kiện khi chọn nút Save
+            btnSave.setOnMouseClicked(event->{
+                Client newClient = new Client(
+                        clientId.getText(),
+                        avatar.getImage().getUrl(),
+                        name.getText(),
+                        email.getText(),
+                        phone.getText(),
+                        address.getText(),
+                        LocalDate.parse(dob.getText(), formatter),
+                        citizenID.getText()
+                );
 
+                clientDAO.update(newClient);
+                for(TextField i: textFields){
+                    i.setEditable(false);
+                }
+                address.setEditable(false);
+                btnImg.setDisable(true);
+            });
+        });
+
+//        Sự kiện khi click vào nút nạp lại
+        btnRefresh.setOnMouseClicked(event->{
 
         });
+//        Sự kiện khi click vào nút delete
+        btnDelete.setOnMouseClicked(event->{
+
+        });
+
     }
 }

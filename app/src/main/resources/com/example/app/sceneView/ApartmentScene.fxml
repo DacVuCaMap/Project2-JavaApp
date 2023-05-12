@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/TableStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.ClientController">
+   <children>
+      <TextField alignment="CENTER_RIGHT" layoutX="274.0" layoutY="14.0" prefHeight="25.0" prefWidth="168.0" promptText="search..." style="-fx-background-color: none;" />
+      <Label layoutX="7.0" layoutY="9.0" text="Apartment list">
+         <font>
+            <Font name="Calibri Bold" size="30.0" />
+         </font>
+      </Label>
+      <HBox id="headTable" layoutY="50.0" prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: #D3D3D3;">
+         <children>
+            <Label prefHeight="30.0" prefWidth="69.0" text="ID">
+               <font>
+                  <Font name="Corbel Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="144.0" text="Host">
+               <font>
+                  <Font name="Corbel Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="157.0" text="Apartment Name">
+               <font>
+                  <Font name="Corbel Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="162.0" text="Address">
+               <font>
+                  <Font name="Corbel Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="77.0" text="Room">
+               <font>
+                  <Font name="Corbel Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="59.0" text="Details">
+               <font>
+                  <Font name="Corbel Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <ScrollPane id="scrollPane" layoutY="80.0" prefHeight="400.0" prefWidth="700.0">
+         <content>
+            <VBox fx:id="vboxList" layoutX="10.0" prefHeight="800.0" prefWidth="680.0">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Line endX="168.0" layoutX="274.0" layoutY="39.0" opacity="0.5" />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="448.0" layoutY="34.0" size="18" />
+      <Button layoutX="443.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: none;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button id="addClientBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="560.0" layoutY="33.0" size="15" />
+   </children>
+</AnchorPane>

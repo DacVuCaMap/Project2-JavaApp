@@ -1,24 +1,26 @@
 package com.example.app.Entity;
 
+import java.time.LocalDate;
 public class Host {
     private String hostId;
     private String hostName;
+    private LocalDate dob;
     private String address;
-    private String dob;
-    private String emai;
-    private int phone;
-    private int citizenID;
-    private String image;
+    private String citizenId;
+    private String hostImage;
+    private String hostEmail;
+    private String hostPhone;
     public Host(){;}
-    public Host(String hostId, String hostName, String address, String dob, String emai, int phone, int citizenID, String image) {
+
+    public Host(String hostId, String hostName, LocalDate dob, String address, String citizenId, String hostImage, String hostEmail, String hostPhone) {
         this.hostId = hostId;
         this.hostName = hostName;
-        this.address = address;
         this.dob = dob;
-        this.emai = emai;
-        this.phone = phone;
-        this.citizenID = citizenID;
-        this.image = image;
+        this.address = address;
+        this.citizenId = citizenId;
+        this.hostImage = hostImage;
+        this.hostEmail = hostEmail;
+        this.hostPhone = hostPhone;
     }
 
     public String getHostId() {
@@ -37,6 +39,14 @@ public class Host {
         this.hostName = hostName;
     }
 
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -45,44 +55,36 @@ public class Host {
         this.address = address;
     }
 
-    public String getDob() {
-        return dob;
+    public String getCitizenId() {
+        return citizenId;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setCitizenId(String citizenId) {
+        this.citizenId = citizenId;
     }
 
-    public String getEmai() {
-        return emai;
+    public String getHostImage() {
+        return hostImage;
     }
 
-    public void setEmai(String emai) {
-        this.emai = emai;
+    public void setHostImage(String hostImage) {
+        this.hostImage = hostImage;
     }
 
-    public int getPhone() {
-        return phone;
+    public String getHostEmail() {
+        return hostEmail;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setHostEmail(String hostEmail) {
+        this.hostEmail = hostEmail;
     }
 
-    public int getCitizenID() {
-        return citizenID;
+    public String getHostPhone() {
+        return hostPhone;
     }
 
-    public void setCitizenID(int citizenID) {
-        this.citizenID = citizenID;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setHostPhone(String hostPhone) {
+        this.hostPhone = hostPhone;
     }
 
     @Override
@@ -90,12 +92,12 @@ public class Host {
         return "Host{" +
                 "hostId='" + hostId + '\'' +
                 ", hostName='" + hostName + '\'' +
+                ", dob=" + dob +
                 ", address='" + address + '\'' +
-                ", dob='" + dob + '\'' +
-                ", emai='" + emai + '\'' +
-                ", phone=" + phone +
-                ", citizenID=" + citizenID +
-                ", image='" + image + '\'' +
+                ", citizenId='" + citizenId + '\'' +
+                ", hostImage='" + hostImage + '\'' +
+                ", hostEmail='" + hostEmail + '\'' +
+                ", hostPhone='" + hostPhone + '\'' +
                 '}';
     }
 }

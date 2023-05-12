@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.AboutUsController">
+   <children>
+      <Text layoutX="335.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Us" wrappingWidth="230.0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#5252d2" layoutX="15.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liên hệ với chúng tôi" wrappingWidth="290.6666145324707">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nếu bạn cần trợ giúp, vui lòng truy cập Trung tâm trợ giúp của chúng tôi. Ở đó, bạn sẽ tìm thấy câu trả lời cho nhiều câu hỏi thường gặp " wrappingWidth="875.757568359375">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nếu bạn không thể tìm thấy những điều mình đang tìm kiếm trong Trung tâm trợ giúp, chúng tôi khuyên bạn nên truy cập Diễn đàn trợ giúp cộng đồng của chúng tôi. Bạn gặp phải lỗi? Hãy xem trang Các vấn đề hiện tại trên trang web của chúng tôi để xem danh sách các vấn đề đã biết mà chúng tôi đang cố gắng khắc phục" wrappingWidth="779.50927734375" />
+      <Text fill="#5778cc" layoutX="15.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ truyền thông">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#7da0d4" layoutX="15.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phòng họp báo">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khu vực này chứa thông tin liên hệ truyền thông, thông cáo báo chí, cảnh quay bổ sung, câu hỏi thường gặp và dòng thời gian tương tác của chúng tôi" />
+      <Text fill="#7da0d4" layoutX="15.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chương trình đối tác">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nếu bạn muốn tham gia Chương trình đối tác , hãy truy cập trang thông tin của chúng tôi để tìm hiểu thêm về chương trình." />
+      <Text fill="#5778cc" layoutX="15.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bảo mật">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#7da0d4" layoutX="15.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vấn đề lạm dụng">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đối với bất kỳ vấn đề lạm dụng nào trên ứng dụng, hãy liên hệ với chúng tôi qua Trung tâm chính sách và lạm dụng." />
+      <Text fill="#7da0d4" layoutX="15.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sự cố bảo mật ứng dụng">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="18.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nếu bạn muốn báo cáo sự cố bảo mật xảy ra với ứng dụng, vui lòng liên hệ với chúng tôi tại đây." />
+      <Text fill="#5778cc" layoutX="15.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin liên hệ bổ sung">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#7da0d4" layoutX="15.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nhà phát triển" />
+      <Text layoutX="15.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nếu bạn là nhà phát triển hoặc quan tâm đến API của chúng tôi, vui lòng truy cập Khu vực dành cho nhà phát triển." />
+      <Text fill="#7da0d4" layoutX="15.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ của chúng tôi" />
+      <Text layoutX="15.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email : Qkhanh0290@gmail.com" />
+      <Text layoutX="15.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone : +84902288529" />
+      <Text layoutX="15.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address : 285 Đội Cấn" />
+   </children>
+</AnchorPane>
