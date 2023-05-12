@@ -14,7 +14,7 @@ public class Client {
 
     private Room room;
 
-    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, Room room, String citizenID) {
+    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID, Room room) {
         this.room = room;
         this.clientId = clientId;
         this.clientImage = clientImage;

@@ -38,15 +38,7 @@ public class AddApartment implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnAdd.setOnAction(e->{
-            //valiadation
 
-            getHost(hostId.getText());
-            Apartment apartment = new Apartment(apartmentId.getText(),hostId.getText(),name.getText(),address.getText(),image.getText());
-            DBGeneric<Apartment> apartmentDBGeneric = new ApartmentDAO();
-            apartmentDBGeneric.insertData(apartment);
         });
-    }
-    public Host getHost(String hostId){
-
     }
 }

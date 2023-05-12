@@ -1,6 +1,7 @@
 
 package com.example.app;
 
+import com.example.app.Controller.LoginScene;
 import com.example.app.DB.DBGeneric;
 import com.example.app.DB.HostDAO;
 import com.example.app.Entity.Host;
@@ -19,11 +20,9 @@ import java.util.UUID;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/Add/AddHost.fxml"));
-
+        LoginScene.getStage = stage;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/LoginScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        //remove title bar buttons
         stage.setTitle("Apartment Management");
         stage.setScene(scene);
         stage.show();

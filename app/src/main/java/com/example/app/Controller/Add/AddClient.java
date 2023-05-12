@@ -50,13 +50,7 @@ public class AddClient implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnAdd.setOnAction(e->{
-            //valiadation
 
-            LocalDate date = dob.getValue();
-
-            Client client = new Client(clientId.getText(),image.getText(),name.getText(),email.getText(),phone.getText(),address.getText(),date,citizenID.getText());
-            DBGeneric<Client> clientDBGeneric = new ClientDAO();
-            clientDBGeneric.insertData(client);
         });
     }
 }
