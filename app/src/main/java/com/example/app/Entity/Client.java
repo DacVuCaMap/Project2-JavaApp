@@ -12,7 +12,10 @@ public class Client {
     private LocalDate clientDOB;
     private String citizenID;
 
-    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID) {
+    private Room room;
+
+    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID, Room room) {
+        this.room = room;
         this.clientId = clientId;
         this.clientImage = clientImage;
         this.clientName = clientName;
@@ -77,6 +80,14 @@ public class Client {
 
     public void setClientDOB(LocalDate clientDOB) {
         this.clientDOB = clientDOB;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public String getCitizenID() {

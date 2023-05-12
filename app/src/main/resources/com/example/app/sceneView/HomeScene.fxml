@@ -16,7 +16,7 @@
          <children>
             <TextField fx:id="nameAdmin" layoutX="400.0" layoutY="15.0" />
             <TextField fx:id="gmailAdmin" layoutX="400.0" layoutY="50.0" />
-            <Circle fill="#e6e8eb" layoutX="360.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"  />
+            <Circle id="imageAdmin" fill="#e6e8eb" layoutX="360.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
       <Button id="Btn1" layoutX="100.0" layoutY="160.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="173.0" textFill="WHITE" />

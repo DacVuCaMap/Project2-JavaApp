@@ -22,7 +22,6 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         LoginScene.getStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/LoginScene.fxml"));
-
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Apartment Management");
         stage.setScene(scene);
