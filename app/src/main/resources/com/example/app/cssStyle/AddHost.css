@@ -1,0 +1,26 @@
+#leftSide{
+    -fx-background-color: #2a2a72, #009ffd;
+}
+#addBtn{
+    -fx-background-radius: 50;
+    -fx-cursor: hand;
+
+}
+#circleK{
+    -fx-fill: #1B2845;
+}
+#addNew{
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
+#addNew:hover{
+    -fx-background-color: #1B2845;
+    -fx-text-fill: white;
+}
+#cancleBtn{
+    -fx-background-color: #DC143C
+}
+#cancleBtn:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #8B0000;
+}

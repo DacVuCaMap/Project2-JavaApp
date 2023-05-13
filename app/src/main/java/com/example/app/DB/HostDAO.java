@@ -12,6 +12,7 @@ public class HostDAO implements DBGeneric<Host>{
 
     @Override
     public void insertData(Host host) {
+        System.out.println("het1");
         String sql = "INSERT INTO tblHost(hostId,hostName,dob,address,citizenID,phone,image,email)" +
                 " VALUES(?,?,?,?,?,?,?,?) ";
         try{

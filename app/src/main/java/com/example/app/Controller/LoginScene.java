@@ -25,7 +25,6 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 public class LoginScene implements Initializable {
     @FXML
     AnchorPane scenePane;
@@ -92,7 +91,7 @@ public class LoginScene implements Initializable {
                 System.out.println("vaoo game");
                 // vao home
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/HomeScene.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/SelectMenuScene.fxml"));
                     Scene scene = new Scene(root);
                     getStage.setScene(scene);
                     getStage.setTitle("Apartment Management");
