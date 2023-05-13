@@ -13,17 +13,17 @@ public class ApartmentDAO implements DBGeneric<Apartment>{
     @Override
     public void insertData(Apartment apartment) {
         String sql = "INSERT INTO tblApartment(apartmentId,host,apartmentName,address,apartmentImage)" +
-                " VALUES(?,?,?,?,?) ";
+                " VALUES(?,?,?,?,?,?) ";
         try{
             //Convert string sql to SQL Statement
             conn = MySQLConnection.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, apartment.getApartmentId());
             pst.setString(2, apartment.getHost().getHostId());
-            pst.setString(2, apartment.getHost().getHostId());
-            pst.setString(3, apartment.getApartmentName());
-            pst.setString(4, apartment.getAddress());
-            pst.setString(5, apartment.getApartmentImage());
+            pst.setString(3, apartment.getHost().getHostId());
+            pst.setString(4, apartment.getApartmentName());
+            pst.setString(5, apartment.getAddress());
+            pst.setString(6, apartment.getApartmentImage());
             pst.executeUpdate();
             //con.commit(); con.close(); transaction;
         }catch(SQLException e){
@@ -31,6 +31,10 @@ public class ApartmentDAO implements DBGeneric<Apartment>{
         }
     }
 
+    @Override
+    public void update(Apartment apartment) {
+
+    }
 
 
     @Override

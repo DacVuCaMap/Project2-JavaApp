@@ -30,6 +30,11 @@ public class UserDB implements DBGeneric<User>{
     }
 
     @Override
+    public void update(User user) {
+
+    }
+
+    @Override
     public List<User> getAllData() {
         List<User> userList = new ArrayList<>();
         String sql="SELECT * from admintbl";

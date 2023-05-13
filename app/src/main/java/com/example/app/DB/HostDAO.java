@@ -1,6 +1,10 @@
 package com.example.app.DB;
 
 import com.example.app.Entity.Host;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import com.example.app.Entity.User;
 
 import java.sql.*;
@@ -12,7 +16,30 @@ public class HostDAO implements DBGeneric<Host>{
 
     @Override
     public void insertData(Host host) {
-        System.out.println("het1");
+        String sql = "INSERT INTO tblHost(hostId,hostName,dob,address,citizenID,phone,image,email)" +
+                " VALUES(?,?,?,?,?,?,?,?) ";
+        try{
+            //Convert string sql to SQL Statement
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, host.getHostId());
+            pst.setString(2, host.getHostName());
+            Date date = Date.valueOf(host.getDob());
+            pst.setDate(3, date);
+            pst.setString(4, host.getAddress());
+            pst.setString(5, host.getCitizenId());
+            pst.setString(6, host.getHostPhone());
+            pst.setString(7, host.getHostImage());
+            pst.setString(8, host.getHostEmail());
+            pst.executeUpdate();
+            //con.commit(); con.close(); transaction;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(Host host) {
         String sql = "INSERT INTO tblHost(hostId,hostName,dob,address,citizenID,phone,image,email)" +
                 " VALUES(?,?,?,?,?,?,?,?) ";
         try{

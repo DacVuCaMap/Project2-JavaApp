@@ -11,7 +11,6 @@ public class Client {
     private String clientAddress;
     private LocalDate clientDOB;
     private String citizenID;
-
     private Room room;
 
     public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID, Room room) {
@@ -82,6 +81,7 @@ public class Client {
         this.clientDOB = clientDOB;
     }
 
+
     public Room getRoom() {
         return room;
     }
@@ -89,14 +89,15 @@ public class Client {
     public void setRoom(Room room) {
         this.room = room;
     }
-
     public String getCitizenID() {
         return citizenID;
     }
-
     public void setCitizenID(String citizenID) {
         this.citizenID = citizenID;
     }
+
+
+
 
     @Override
     public String toString() {
@@ -109,6 +110,9 @@ public class Client {
                 ", clientAddress='" + clientAddress + '\'' +
                 ", clientDOB=" + clientDOB +
                 ", citizenID='" + citizenID + '\'' +
+
+                ", room=" + room +
+
                 '}';
     }
 }

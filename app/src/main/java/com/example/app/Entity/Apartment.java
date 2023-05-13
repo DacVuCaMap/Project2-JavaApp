@@ -23,6 +23,7 @@ public class Apartment {
         this.apartmentId = apartmentId;
     }
 
+
     public Host getHost() {
         return host;
     }
@@ -54,7 +55,6 @@ public class Apartment {
     public void setApartmentImage(String apartmentImage) {
         this.apartmentImage = apartmentImage;
     }
-
     @Override
     public String toString() {
         return "Apartment{" +
