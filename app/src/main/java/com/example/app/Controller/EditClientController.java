@@ -82,7 +82,8 @@ public class EditClientController implements Initializable {
                         phone.getText(),
                         address.getText(),
                         LocalDate.parse(dob.getText(), formatter),
-                        citizenID.getText()
+                        citizenID.getText(),
+                        null
                 );
 
                 clientDAO.update(newClient, clientId.getText());

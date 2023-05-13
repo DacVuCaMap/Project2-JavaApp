@@ -35,7 +35,7 @@ public class ClientController implements Initializable {
 //        List<Client> clientList = clientDBGeneric.getAllData();
         List<Client> clientList = new ArrayList<>();
         clientList.add(new Client("KH01","/imageData/login.jpg","Nam vu","namvu12@gmail.com"
-                ,"0393623488","TP Ha Noi", LocalDate.of(2000,11,04),"1102",null));
+                ,"0393623488","TP Ha Noi", LocalDate.of(2000,11,04),"021930193",null));
         clientList.add(new Client("KH02","/imageData/login.jpg","Nam le","namvu32@gmail.com"
                 ,"0123623488","TP cc Noi", LocalDate.of(2002,11,04),"123801923",null));
         for (Client client : clientList){

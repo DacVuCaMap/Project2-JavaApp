@@ -3,11 +3,11 @@ package com.example.app.Entity;
 public class Apartment {
 
     private String apartmentId;
+    private Host host;
     private String apartmentName;
     private String address;
     private String apartmentImage;
-    private Host host;
-    public Apartment(){;}
+
     public Apartment(String apartmentId, Host host, String apartmentName, String address, String apartmentImage) {
         this.apartmentId = apartmentId;
         this.host = host;
@@ -23,7 +23,6 @@ public class Apartment {
     public void setApartmentId(String apartmentId) {
         this.apartmentId = apartmentId;
     }
-
     public Host getHost() {
         return host;
     }
@@ -55,15 +54,14 @@ public class Apartment {
     public void setApartmentImage(String apartmentImage) {
         this.apartmentImage = apartmentImage;
     }
-
     @Override
     public String toString() {
         return "Apartment{" +
                 "apartmentId='" + apartmentId + '\'' +
+                ", host=" + host +
                 ", apartmentName='" + apartmentName + '\'' +
                 ", address='" + address + '\'' +
                 ", apartmentImage='" + apartmentImage + '\'' +
-                ", host=" + host +
                 '}';
     }
 }

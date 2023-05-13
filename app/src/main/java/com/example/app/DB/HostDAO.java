@@ -1,7 +1,6 @@
 package com.example.app.DB;
 
 import com.example.app.Entity.Host;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,11 +16,6 @@ public class HostDAO implements DBGeneric<Host>{
 
     @Override
     public void insertData(Host host) {
-
-    }
-
-    @Override
-    public void update(Host host, String id) {
 
         String sql = "INSERT INTO tblHost(hostId,hostName,dob,address,citizenID,phone,image,email)" +
                 " VALUES(?,?,?,?,?,?,?,?) ";
@@ -46,9 +40,14 @@ public class HostDAO implements DBGeneric<Host>{
     }
 
     @Override
-    public void delete(String i) {
+    public void update(Host host, String i) {
 
     }
+
+    @Override
+    public void delete(String i) {}
+
+
 
     @Override
     public List<Host> getAllData() {
