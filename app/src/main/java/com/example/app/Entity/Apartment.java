@@ -1,7 +1,6 @@
 package com.example.app.Entity;
 
 public class Apartment {
-<<<<<<< HEAD
 
     private String apartmentId;
     private String apartmentName;
@@ -9,14 +8,6 @@ public class Apartment {
     private String apartmentImage;
     private Host host;
     public Apartment(){;}
-=======
-    private String apartmentId;
-    private Host host;
-    private String apartmentName;
-    private String address;
-    private String apartmentImage;
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
-
     public Apartment(String apartmentId, Host host, String apartmentName, String address, String apartmentImage) {
         this.apartmentId = apartmentId;
         this.host = host;
@@ -33,8 +24,6 @@ public class Apartment {
         this.apartmentId = apartmentId;
     }
 
-<<<<<<< HEAD
-=======
     public Host getHost() {
         return host;
     }
@@ -43,7 +32,6 @@ public class Apartment {
         this.host = host;
     }
 
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
     public String getApartmentName() {
         return apartmentName;
     }
@@ -68,32 +56,14 @@ public class Apartment {
         this.apartmentImage = apartmentImage;
     }
 
-<<<<<<< HEAD
-    public Host getHost() {
-        return host;
-    }
-
-    public void setHost(Host host) {
-        this.host = host;
-    }
-
-=======
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
     @Override
     public String toString() {
         return "Apartment{" +
                 "apartmentId='" + apartmentId + '\'' +
-<<<<<<< HEAD
                 ", apartmentName='" + apartmentName + '\'' +
                 ", address='" + address + '\'' +
                 ", apartmentImage='" + apartmentImage + '\'' +
                 ", host=" + host +
-=======
-                ", host=" + host +
-                ", apartmentName='" + apartmentName + '\'' +
-                ", address='" + address + '\'' +
-                ", apartmentImage='" + apartmentImage + '\'' +
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
                 '}';
     }
 }

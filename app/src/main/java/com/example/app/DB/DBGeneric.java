@@ -7,8 +7,8 @@ import java.util.List;
 public interface DBGeneric<T> {
     void insertData(T t);
 
-    void update(T t);
-
+    void update(T t, String i);
+    void delete(String i);
     List<T> getAllData();
     boolean checkUser(T t);
 }

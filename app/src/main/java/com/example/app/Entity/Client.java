@@ -25,6 +25,17 @@ public class Client {
         this.citizenID = citizenID;
     }
 
+    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID) {
+        this.clientId = clientId;
+        this.clientImage = clientImage;
+        this.clientName = clientName;
+        this.clientEmail = clientEmail;
+        this.clientPhone = clientPhone;
+        this.clientAddress = clientAddress;
+        this.clientDOB = clientDOB;
+        this.citizenID = citizenID;
+    }
+
     public String getClientId() {
         return clientId;
     }
@@ -110,7 +121,6 @@ public class Client {
                 ", clientAddress='" + clientAddress + '\'' +
                 ", clientDOB=" + clientDOB +
                 ", citizenID='" + citizenID + '\'' +
-
                 ", room=" + room +
 
                 '}';

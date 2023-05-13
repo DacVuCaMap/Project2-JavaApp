@@ -38,11 +38,7 @@ public class HostItem implements Initializable {
         labelId.setText(host.getHostId());;
 //        Image image = new Image(getClass().getResourceAsStream("/imageData/login.jpg"));
 //        circleImage.setFill(new ImagePattern(image));;
-<<<<<<< HEAD
         labelName.setText(host.getHostName());;
-=======
-        labelName.setText(host.getHostName());
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
         labelMail.setText(host.getHostEmail());
         labelPhone.setText(host.getHostPhone());
         labelAddress.setText(host.getAddress());

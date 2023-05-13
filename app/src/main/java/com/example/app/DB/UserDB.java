@@ -30,9 +30,15 @@ public class UserDB implements DBGeneric<User>{
     }
 
     @Override
-    public void update(User user) {
+    public void update(User user, String i) {
 
     }
+
+    @Override
+    public void delete(String i) {
+
+    }
+
 
     @Override
     public List<User> getAllData() {

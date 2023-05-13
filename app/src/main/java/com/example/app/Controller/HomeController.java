@@ -18,14 +18,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class HomeController {
-<<<<<<< HEAD
     @FXML
     private TextField nameTextField;
 
     public void initialize() {
-        String url = "jdbc:mysql://localhost:3306/apartmentmanager";
+        String url = "jdbc:mysql://localhost:3306/ApartmentManagement";
         String username = "root";
-        String password = "123456";
+        String password = "hoangpr0";
 
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             String query = "SELECT adminName,adminEmail FROM tbladmin WHERE id = 1";
@@ -52,8 +51,6 @@ public class HomeController {
             throw new RuntimeException(ex);
         }
     }
-=======
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
 }
 
 

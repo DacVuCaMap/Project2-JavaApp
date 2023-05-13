@@ -31,6 +31,15 @@ public class ApartmentDAO implements DBGeneric<Apartment>{
         }
     }
 
+    @Override
+    public void update(Apartment apartment, String id) {
+
+    }
+
+    @Override
+    public void delete(String i) {
+
+    }
 
 
     @Override
