@@ -30,20 +30,26 @@ public class UserDB implements DBGeneric<User>{
     }
 
     @Override
-    public void update(User user) {
+    public void update(User user, String i) {
 
     }
 
     @Override
+    public void delete(String i) {
+
+    }
+
+
+    @Override
     public List<User> getAllData() {
         List<User> userList = new ArrayList<>();
-        String sql="SELECT * from admintbl";
+        String sql="SELECT * from tbladmin";
         try {
             conn = MySQLConnection.getConnection();
             Statement stm=conn.createStatement();
             ResultSet rs =stm.executeQuery(sql);
             while (rs.next()){
-                userList.add(new User(rs.getString("adminId"),rs.getString("adminMail"),rs.getString("adminName"),rs.getString("adminPass")));
+                userList.add(new User(rs.getString("id"),rs.getString("adminEmail"),rs.getString("adminName"),rs.getString("adminPass")));
 
             }
         } catch (SQLException e) {
@@ -54,13 +60,13 @@ public class UserDB implements DBGeneric<User>{
 
     @Override
     public boolean checkUser(User user) {
-        String sql="SELECT * FROM admintbl";
+        String sql="SELECT * FROM tbladmin";
         try{
          conn = MySQLConnection.getConnection();
          Statement stm = conn.createStatement();
          ResultSet rs = stm.executeQuery(sql);
          while (rs.next()){
-             if (rs.getString("adminMail").equals(user.getUserMail())){
+             if (rs.getString("adminEmail").equals(user.getUserMail())){
                  if (BCrypt.checkpw(user.getPwd(),rs.getString("adminPass"))){
                      return true;
                  }

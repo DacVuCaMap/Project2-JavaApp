@@ -7,8 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefWidth="680.0" stylesheets="@../../cssStyle/ClientItem.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.example.app.Controller.items.ClientItem">
+<HBox prefWidth="680.0" stylesheets="@../../cssStyle/ClientItem.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.items.ClientItem">
    <children>
       <HBox id="itemBox" prefHeight="50.0" prefWidth="680.0">
          <children>

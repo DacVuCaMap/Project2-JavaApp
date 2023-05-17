@@ -36,26 +36,43 @@ public class ClientDAO implements DBGeneric<Client>{
     }
 
     @Override
-    public void update(Client client) {
-        String sql="UPDATE tblClient SET clientId = ?, clientImage = ?, clientName = ?," +
-                "email = ?, phone = ?, dob = ?, addess = ?, citizenID = ? WHERE clientId  = ?";
+    public void update(Client client, String id) {
+        String sql="UPDATE tblClient SET clientId = ?, clientName = ?, dob = ?, " +
+                "addess = ?, phone = ?,  clientImage = ?, email = ?, citizenID = ? WHERE clientId  = ?";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,client.getClientId());
-            pstm.setString(2,client.getClientImage());
-            pstm.setString(3,client.getClientName());
-            pstm.setString(4,client.getClientEmail());
+            pstm.setString(2,client.getClientName());
+            pstm.setString(3, String.valueOf(client.getClientDOB()));
+            pstm.setString(4,client.getClientAddress());
             pstm.setString(5, client.getClientPhone());
-            pstm.setString(6,client.getClientAddress());
-            pstm.setString(7, String.valueOf(client.getClientDOB()));
+            pstm.setString(6,client.getClientImage());
+            pstm.setString(7,client.getClientEmail());
             pstm.setString(8, client.getCitizenID());
+            pstm.setString(9,id);
             pstm.executeUpdate();
             pstm.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void delete(String i) {
+        String sql="DELETE FROM tblClient WHERE clientId = ?";
+
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,i);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @Override
     public List<Client> getAllData() {

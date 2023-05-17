@@ -1,6 +1,7 @@
 package com.example.app.Controller;
 
 
+import com.example.app.DB.MySQLConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,15 +21,15 @@ import java.sql.Statement;
 public class HomeController {
     @FXML
     private TextField nameTextField;
+    private Connection conn;
 
     public void initialize() {
-        String url = "jdbc:mysql://localhost:3306/apartmentmanager";
-        String username = "root";
-        String password = "123456";
 
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+
+        try {
+            conn = MySQLConnection.getConnection();
             String query = "SELECT adminName,adminEmail FROM tbladmin WHERE id = 1";
-            Statement statement = connection.createStatement();
+            Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
             if (resultSet.next()) {

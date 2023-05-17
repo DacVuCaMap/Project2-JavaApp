@@ -36,7 +36,12 @@ public class RoomDAO implements DBGeneric<Room>{
     }
 
     @Override
-    public void update(Room room) {
+    public void update(Room room,String str) {
+
+    }
+
+    @Override
+    public void delete(String i) {
 
     }
 
