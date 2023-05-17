@@ -1,11 +1,11 @@
 package com.example.app.DB;
 
 import com.example.app.Entity.Client;
+import com.example.app.Entity.Room;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDAO implements DBGeneric<Client>{
@@ -25,8 +25,9 @@ public class ClientDAO implements DBGeneric<Client>{
             pst.setString(4, client.getClientAddress());
             pst.setString(5, client.getClientPhone());
             pst.setString(6, client.getClientImage());
-            pst.setString(7, client.getRoom().getRoomId());
-            pst.setString(8, client.getClientEmail());
+            pst.setString(7, client.getClientEmail());
+            pst.setString(8, client.getRoom().getRoomId());
+            pst.setString(9,client.getCitizenID());
             pst.executeUpdate();
             //con.commit(); con.close(); transaction;
         }catch(SQLException e){
@@ -58,8 +59,28 @@ public class ClientDAO implements DBGeneric<Client>{
 
     @Override
     public List<Client> getAllData() {
-
-        return null;
+        List<Client> clientList = new ArrayList<>();
+        String sql = "Select * from tblClient";
+        try{
+            conn = MySQLConnection.getConnection();
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while (rs.next()){
+                String id = rs.getString("clientId");
+                String image = rs.getString("image");
+                String name = rs.getString("clientName");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                String address = rs.getString("address");
+                LocalDate dob = rs.getDate("dob").toLocalDate();
+                String citizentId = rs.getString("citizenID");
+                Room room = new RoomDAO().findRoomById(rs.getString("roomId"));
+                clientList.add(new Client(id,image,name,email,phone,address,dob,citizentId,room));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return clientList;
     }
 
     @Override

@@ -22,12 +22,12 @@
       </Label>
       <HBox id="headTable" layoutY="50.0" prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: #D3D3D3;">
          <children>
-            <Label prefHeight="32.0" prefWidth="52.0" text="ID">
+            <Label prefHeight="30.0" prefWidth="62.0" text="ID">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="128.0" text="Client">
+            <Label prefHeight="30.0" prefWidth="161.0" text="Client">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
@@ -37,17 +37,17 @@
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="143.0" text="Phone Number">
+            <Label prefHeight="30.0" prefWidth="136.0" text="Phone Number">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="149.0" text="Address">
+            <Label prefHeight="30.0" prefWidth="122.0" text="Address">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="59.0" text="Details">
+            <Label prefHeight="30.0" prefWidth="50.0" text="Details">
                <font>
                   <Font name="Corbel Bold" size="15.0" />
                </font>
@@ -73,7 +73,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Button>
-      <Button id="addClientBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add Client" textFill="WHITE">
+      <Button id="addClientBtn" fx:id="addBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add Client" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

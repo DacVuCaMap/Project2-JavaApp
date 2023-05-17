@@ -1,6 +1,7 @@
 package com.example.app.Entity;
 
 import com.example.app.Entity.Enum.RoomType;
+import com.example.app.Entity.Enum.StatusRoom;
 
 public class Room {
     private String roomId;
@@ -17,9 +18,6 @@ public class Room {
     private String desRoom;
 
     //define enum
-    enum StatusRoom{
-        AVAILIBLE,OCCUPIED,MAINTENANCE;
-    }
     public Room(){;}
 
     public Room(String roomId, String roomNumber, double price, RoomType roomType, String img1, String img2, String img3, String img4, String img5, StatusRoom status, Apartment apartment, String desRoom) {

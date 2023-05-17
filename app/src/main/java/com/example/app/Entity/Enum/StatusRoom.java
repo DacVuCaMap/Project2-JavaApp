@@ -1,11 +1,11 @@
 package com.example.app.Entity.Enum;
 
-public enum RoomType {
-    //define enum
-    Studio("Studio"),k1n1("k1n1"),Duplex("Duplex"),k2n1("k2n1");
+public enum StatusRoom {
+    A("AVAILABLE"),O("OCCUPIED"),M("MAINTENANCE");
+
     private String label;
 
-    RoomType(String label) {
+    StatusRoom(String label) {
         this.label = label;
     }
 

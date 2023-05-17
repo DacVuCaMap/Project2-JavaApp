@@ -1,6 +1,6 @@
 package com.example.app.Entity;
 
-public class Apartment {
+public class    Apartment {
     private String apartmentId;
     private Host host;
     private String apartmentName;

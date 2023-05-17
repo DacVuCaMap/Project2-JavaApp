@@ -93,7 +93,7 @@
             </Button>
          </children>
       </VBox>
-      <Pane id="headBar" layoutX="260.0" layoutY="15.0" prefHeight="70.0" prefWidth="580.0" stylesheets="@../cssStyle/SelectMenu.css">
+      <Pane id="headBar" layoutX="210.0" layoutY="15.0" prefHeight="70.0" prefWidth="680.0" stylesheets="@../cssStyle/SelectMenu.css">
          <children>
             <Pane layoutX="14.0" prefHeight="70.0" prefWidth="100.0">
                <children>
@@ -110,7 +110,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="466.0" prefHeight="70.0" prefWidth="100.0">
+            <Pane layoutX="573.0" prefHeight="70.0" prefWidth="100.0">
                <children>
                   <Label layoutX="3.0" layoutY="48.0" text="Apartment" textFill="WHITE">
                      <font>
@@ -125,7 +125,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="15.0" layoutY="40.0" size="30" />
                </children>
             </Pane>
-            <Pane layoutX="160.0" prefHeight="70.0" prefWidth="100.0">
+            <Pane layoutX="187.0" prefHeight="70.0" prefWidth="100.0">
                <children>
                   <Label layoutX="11.0" layoutY="48.0" text="Room" textFill="WHITE">
                      <font>
@@ -140,7 +140,7 @@
                   <FontAwesomeIconView fill="WHITE" layoutX="11.0" layoutY="40.0" size="30" text="" />
                </children>
             </Pane>
-            <Pane layoutX="320.0" prefHeight="70.0" prefWidth="100.0">
+            <Pane layoutX="388.0" prefHeight="70.0" prefWidth="100.0">
                <children>
                   <Label layoutX="13.0" layoutY="48.0" text="Host" textFill="WHITE">
                      <font>

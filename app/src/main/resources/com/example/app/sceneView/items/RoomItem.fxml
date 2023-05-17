@@ -9,28 +9,33 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefWidth="680.0" stylesheets="@../../cssStyle/ClientItem.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefWidth="680.0" stylesheets="@../../cssStyle/ClientItem.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.items.RoomItem">
    <children>
       <HBox id="itemBox" prefHeight="50.0" prefWidth="680.0">
          <children>
-            <Label fx:id="roomID" prefHeight="50.0" prefWidth="58.0" text="KH011">
+            <Label fx:id="roomID" prefHeight="50.0" prefWidth="58.0">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="number" prefHeight="50.0" prefWidth="72.0" text="102" />
+            <Label fx:id="number" prefHeight="50.0" prefWidth="72.0" />
             <Circle fx:id="clientImage" fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
             </Circle>
             <Label prefHeight="50.0" prefWidth="17.0" text="  " />
-            <Label fx:id="ClientName" prefHeight="50.0" prefWidth="94.0" text="Nam vu" />
-            <Label fx:id="price" prefHeight="50.0" prefWidth="120.0" text="1.000.000 vnd" />
-            <Label fx:id="apartment" prefHeight="50.0" prefWidth="132.0" text="CENTER HOAN KIEM" />
-            <Pane prefHeight="50.0" prefWidth="73.0">
+            <Label fx:id="ClientName" prefHeight="50.0" prefWidth="94.0" text="Vu Hai Nam" />
+            <Label fx:id="price" prefHeight="50.0" prefWidth="120.0" />
+            <Label fx:id="apartment" prefHeight="50.0" prefWidth="132.0" />
+            <Pane prefHeight="50.0" prefWidth="82.0">
                <children>
-                  <Rectangle fx:id="status" arcHeight="5.0" arcWidth="5.0" fill="#38ff1f" height="18.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="53.0" />
+                  <Rectangle fx:id="status" arcHeight="5.0" arcWidth="5.0" fill="#ff2121" height="18.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="65.0" />
+                  <Label fx:id="statusText" alignment="CENTER" layoutX="-1.0" layoutY="17.0" prefHeight="17.0" prefWidth="65.0" text="AVAILABLE" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="10.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Button id="btnDetail" fx:id="labelDetail" mnemonicParsing="false" prefHeight="23.0" prefWidth="44.0" text="...">

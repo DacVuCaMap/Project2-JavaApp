@@ -12,19 +12,17 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../cssStyle/AddHost.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.example.app.Controller.Add.AddHost">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../cssStyle/AddHost.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.Add.AddHost">
    <children>
       <Pane id="leftSide" prefHeight="400.0" prefWidth="200.0">
          <children>
-            <Circle id="circleK" fill="DODGERBLUE" layoutX="100.0" layoutY="98.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle id="circleK" fx:id="circleImg" fill="DODGERBLUE" layoutX="100.0" layoutY="98.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
             <Button id="addBtn" fx:id="imgBtn" layoutX="130.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0">
                <graphic>
                   <FontAwesomeIconView glyphName="PLUS" size="15" />
                </graphic>
             </Button>
-            <Label layoutX="76.0" layoutY="87.0" text="Avatar" textFill="WHITE">
+            <Label fx:id="circleText" layoutX="76.0" layoutY="87.0" text="Avatar" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
@@ -60,16 +58,31 @@ fx:controller="com.example.app.Controller.Add.AddHost">
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="hostName" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
-                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Name" />
-                  <TextField fx:id="citizenId" layoutX="241.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" />
-                  <Label layoutX="241.0" layoutY="6.0" prefHeight="17.0" prefWidth="63.0" text="CitizenID" />
+                  <TextField fx:id="hostMail" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="337.0" />
+                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Email" />
+                  <Label fx:id="mailNof" layoutX="37.0" layoutY="48.0" prefHeight="17.0" prefWidth="337.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="hostMail" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="223.0" />
-                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Email" />
+                  <TextField fx:id="hostName" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
+                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Name" />
+                  <TextField fx:id="citizenId" layoutX="241.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" />
+                  <Label layoutX="241.0" layoutY="6.0" prefHeight="17.0" prefWidth="76.0" text="ID (citizenID)" />
+                  <Label fx:id="nameNof" layoutX="37.0" layoutY="48.0" prefHeight="17.0" prefWidth="171.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idNof" layoutX="241.0" layoutY="48.0" prefHeight="17.0" prefWidth="131.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">
@@ -78,17 +91,32 @@ fx:controller="com.example.app.Controller.Add.AddHost">
                   <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="92.0" text="Phone number" />
                   <Label layoutX="241.0" layoutY="6.0" prefHeight="17.0" prefWidth="82.0" text="Date of birth" />
                   <DatePicker fx:id="hostDob" layoutX="241.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" />
+                  <Label fx:id="phoneNof" layoutX="35.0" layoutY="48.0" prefHeight="17.0" prefWidth="171.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dobNof" layoutX="242.0" layoutY="48.0" prefHeight="17.0" prefWidth="127.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="117.0" prefWidth="400.0">
                <children>
-                  <TextField fx:id="hostaddress" alignment="TOP_LEFT" layoutX="37.0" layoutY="23.0" prefHeight="61.0" prefWidth="238.0" />
+                  <TextField fx:id="hostaddress" alignment="TOP_LEFT" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="337.0" />
                   <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Address" />
                   <Button id="cancleBtn" fx:id="cancleBtn" layoutX="319.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Cancle" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <Label fx:id="addressNof" layoutX="37.0" layoutY="50.0" prefHeight="17.0" prefWidth="221.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

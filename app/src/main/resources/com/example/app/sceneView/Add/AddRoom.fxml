@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../cssStyle/AddHost.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.Add.AddRoom">
+   <children>
+      <Pane id="leftSide" prefHeight="400.0" prefWidth="200.0">
+         <children>
+            <Button id="addBtn" fx:id="imgBtn1" layoutX="34.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Import img" />
+            <Line endX="91.5" layoutX="85.0" layoutY="216.0" startX="-60.5" strokeWidth="0.5" />
+            <Label layoutX="24.0" layoutY="203.0" text="Set image">
+               <font>
+                  <Font name="Calibri Bold" size="10.0" />
+               </font>
+            </Label>
+            <Button id="addNew" fx:id="btnAdd" layoutX="24.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="ADD NEW">
+               <font>
+                  <Font name="Calibri Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button id="addBtn" fx:id="imgBtn2" layoutX="34.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Import img" />
+            <Button id="addBtn" fx:id="imgBtn3" layoutX="34.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Import img" />
+            <Button id="addBtn" fx:id="imgBtn4" layoutX="34.0" layoutY="130.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Import img" />
+            <Button id="addBtn" fx:id="imgBtn5" layoutX="34.0" layoutY="169.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Import img" />
+         </children>
+      </Pane>
+      <VBox layoutX="200.0" prefHeight="400.0" prefWidth="400.0">
+         <children>
+            <Pane prefHeight="70.0" prefWidth="400.0">
+               <children>
+                  <Label layoutX="26.0" layoutY="10.0" prefHeight="30.0" prefWidth="213.0" text="Add Room">
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="26.0" layoutY="32.0" text="create a new and link to host object" textFill="#838383">
+                     <font>
+                        <Font name="Calibri" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="70.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="numField" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="92.0" />
+                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="92.0" text="Room number" />
+                  <Label fx:id="numNof" layoutX="37.0" layoutY="48.0" prefHeight="17.0" prefWidth="92.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="priceField" layoutX="191.0" layoutY="22.0" prefHeight="25.0" prefWidth="85.0" />
+                  <Label layoutX="191.0" layoutY="5.0" prefHeight="17.0" prefWidth="92.0" text="Price/month ($)" />
+                  <Label fx:id="priceNof" layoutX="190.0" layoutY="48.0" prefHeight="17.0" prefWidth="85.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="74.0" prefWidth="400.0">
+               <children>
+                  <Label layoutX="37.0" layoutY="4.0" prefHeight="17.0" prefWidth="111.0" text="Apartment" />
+                  <Label fx:id="apartmentNof" layoutX="37.0" layoutY="48.0" prefHeight="17.0" prefWidth="213.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="apartmentBox" layoutX="37.0" layoutY="21.0" prefHeight="25.0" prefWidth="213.0" promptText="Choose Apartment" />
+               </children>
+            </Pane>
+            <Pane prefHeight="70.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="37.0" layoutY="2.0" prefHeight="17.0" prefWidth="111.0" text="Room type" />
+                  <Label fx:id="typeNof" layoutX="37.0" layoutY="44.0" prefHeight="17.0" prefWidth="213.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="typeBox" layoutX="37.0" layoutY="19.0" prefHeight="25.0" prefWidth="213.0" promptText="Choose Type" />
+               </children>
+            </Pane>
+            <Pane prefHeight="190.0" prefWidth="400.0">
+               <children>
+                  <TextField fx:id="desField" alignment="TOP_LEFT" layoutX="37.0" layoutY="23.0" prefHeight="55.0" prefWidth="337.0" />
+                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="Description" />
+                  <Button id="cancleBtn" fx:id="cancleBtn" layoutX="323.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Cancle" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="desNof" layoutX="38.0" layoutY="80.0" prefHeight="17.0" prefWidth="275.0" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/TableStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.ClientController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../cssStyle/TableStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.ApartmentController">
    <children>
       <TextField alignment="CENTER_RIGHT" layoutX="274.0" layoutY="14.0" prefHeight="25.0" prefWidth="168.0" promptText="search..." style="-fx-background-color: none;" />
       <Label layoutX="7.0" layoutY="9.0" text="Apartment list">
@@ -59,7 +59,7 @@
       </HBox>
       <ScrollPane id="scrollPane" layoutY="80.0" prefHeight="400.0" prefWidth="700.0">
          <content>
-            <VBox fx:id="vboxList" layoutX="10.0" prefHeight="800.0" prefWidth="680.0">
+            <VBox fx:id="vboxList" layoutX="10.0" prefHeight="400.0" prefWidth="680.0">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -73,7 +73,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Button>
-      <Button id="addClientBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add" textFill="WHITE">
+      <Button id="addClientBtn" fx:id="addBtn" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Add" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

@@ -1,5 +1,6 @@
 package com.example.app.Controller.items;
 
+import com.example.app.DB.GetRootLink;
 import com.example.app.Entity.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,7 +37,7 @@ public class ClientItem implements Initializable {
 
     public void setData(Client client){
         labelId.setText(client.getClientId());
-        Image image = new Image(getClass().getResourceAsStream(client.getClientImage()));
+        Image image = new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString());
         circleImage.setFill(new ImagePattern(image));
         labelName.setText(client.getClientName());
         labelMail.setText(client.getClientEmail());

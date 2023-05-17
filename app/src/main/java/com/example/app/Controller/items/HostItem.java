@@ -1,5 +1,6 @@
 package com.example.app.Controller.items;
 
+import com.example.app.DB.GetRootLink;
 import com.example.app.Entity.Host;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,9 +36,9 @@ public class HostItem implements Initializable {
     private Label labelPhone;
 
     public void setData(Host host){
-        labelId.setText(host.getHostId());;
-//        Image image = new Image(getClass().getResourceAsStream("/imageData/login.jpg"));
-//        circleImage.setFill(new ImagePattern(image));;
+        labelId.setText(host.getHostId());
+        Image image = new Image(GetRootLink.getRootPath(host.getHostImage()).toString());
+        circleImage.setFill(new ImagePattern(image));
         labelName.setText(host.getHostName());
         labelMail.setText(host.getHostEmail());
         labelPhone.setText(host.getHostPhone());
