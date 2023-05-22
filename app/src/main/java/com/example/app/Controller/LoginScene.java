@@ -91,7 +91,7 @@ public class LoginScene implements Initializable {
                 System.out.println("vaoo game");
                 // vao home
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/SelectMenuScene.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/HomeScene.fxml"));
                     Scene scene = new Scene(root);
                     getStage.setScene(scene);
                     getStage.setTitle("Apartment Management");

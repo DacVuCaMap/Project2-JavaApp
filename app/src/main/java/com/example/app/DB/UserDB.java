@@ -13,7 +13,7 @@ public class UserDB implements DBGeneric<User>{
 
     @Override
     public void insertData(User user) {
-        String sql="insert into admintbl(adminId,adminName,adminMail,adminPass) VALUES (?,?,?,?)";
+        String sql="insert into tbladmin(id,adminName,adminEmail,adminPass) VALUES (?,?,?,?)";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);

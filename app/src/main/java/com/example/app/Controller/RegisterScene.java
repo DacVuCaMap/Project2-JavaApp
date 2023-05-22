@@ -111,7 +111,7 @@ public class RegisterScene implements Initializable {
 
     }
     public void backToLogin(ActionEvent e){
-        // back to login
+        // back to loginscene
         System.out.println("get back to login");
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/LoginScene.fxml"));

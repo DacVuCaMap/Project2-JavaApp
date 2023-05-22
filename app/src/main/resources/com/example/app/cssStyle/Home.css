@@ -1,51 +1,23 @@
-
-#background{
-    -fx-background-color: #FFFAFA;
+.button {
+    -fx-background-color: none;
 }
 
-#bottom{
-    -fx-background-color: #FFFAF0;
-}
-
-#Btn1{
-    -fx-background-color: #F5F5F5;
-<<<<<<< HEAD
-    -fx-text-fill: black;
-}
-
-#Btn1:hover {
-    -fx-text-fill: #7B68EE;
-=======
-}
-
-#Btn1:hover {
-    -fx-background-color: #FFFAF0 ;
-}
-
-#textBtn1 {
-    -fx-font-weight: bold;
-    -fx-text-fill: black;
-}
-
-#textBtn1:hover {
-    -fx-text-fill: red;
-    -fx-cursor: hand;
->>>>>>> 354f44274b007986d8fdee3176743d72889cde95
-}
-
-#menuButton{
-    -fx-background-color: lightgray;
-    -fx-text-fill: white;
-}
-
-#menuButton:hover {
-    -fx-background-color: black;
-    -fx-text-fill: #7B68EE;
+.btnInside {
+    -fx-background-color: none;
+    -fx-background-radius: 5px;
     -fx-cursor: hand;
 }
-
-#menuBar{
-    -fx-background-color: #FFFAF0;
+.icon{
+    -fx-fill: #041E42;
+}
+.btnInside:hover {
+    -fx-background-color: #041E42;
 }
 
+.btnInside:hover .icon {
+    -fx-fill: white;
+}
 
+.btnInside:hover .textInside {
+    -fx-fill: white;
+}

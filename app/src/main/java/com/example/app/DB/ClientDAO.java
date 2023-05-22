@@ -104,4 +104,13 @@ public class ClientDAO implements DBGeneric<Client>{
     public boolean checkUser(Client client) {
         return false;
     }
+    public Client searchClientByRoomId(String roomId){
+        List<Client> clientList = getAllData();
+        for (Client client : clientList){
+            if(client.getRoom().getRoomId().equals(roomId)){
+                return client;
+            }
+        }
+        return null;
+    }
 }

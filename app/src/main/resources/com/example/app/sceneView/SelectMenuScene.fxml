@@ -86,7 +86,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button id="backToMenu" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Menu">
+            <Button id="backToMenu" fx:id="btnMenu" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Menu">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
