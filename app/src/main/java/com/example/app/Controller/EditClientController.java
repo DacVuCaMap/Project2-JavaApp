@@ -21,23 +21,50 @@ import java.util.ResourceBundle;
 
 
 public class EditClientController implements Initializable {
-    @FXML TextField name;
-    @FXML TextField dob;
-    @FXML TextField phone;
-    @FXML TextField email;
-    @FXML TextField citizenID;
-    @FXML TextField room;
-    @FXML TextArea address;
-    @FXML TextField clientId;
-    @FXML ImageView avatar;
-    @FXML Button btnImg;
-    @FXML Button btnEdit;
-    @FXML Button btnSave;
-    @FXML Button btnDelete;
-    @FXML Button btnRefresh;
+    @FXML
+    private TextArea address;
+
+    @FXML
+    private ImageView avatar;
+
+    @FXML
+    private Button btnDelete;
+
+    @FXML
+    private Button btnEdit;
+
+    @FXML
+    private Button btnImg;
+
+    @FXML
+    private Button btnRefresh;
+
+    @FXML
+    private Button btnSave;
+
+    @FXML
+    private TextField citizenID;
+
+    @FXML
+    private TextField clientId;
+
+    @FXML
+    private TextField dob;
+
+    @FXML
+    private TextField email;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private TextField phone;
+
+    @FXML
+    private TextField room;
     Image image = null;
     public void setDetail(Client client){
-        image = new Image(client.getClientImage());
+//        image = new Image(client.getClientImage());
         clientId.setText(client.getClientId());
         avatar.setImage(image);
         name.setText(client.getClientName());
