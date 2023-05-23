@@ -7,6 +7,7 @@ import com.example.app.DB.DBGeneric;
 import com.example.app.DB.RoomDAO;
 import com.example.app.Entity.Apartment;
 import com.example.app.Entity.Room;
+import com.example.app.Entity.sharedMenuData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,6 +53,8 @@ public class RoomController implements Initializable {
                 dialogStage.setScene(dialogScene);
                 dialogStage.setTitle("My Dialog");
                 dialogStage.showAndWait();
+                //update head bar
+                sharedMenuData.getMenuController.headBarUpdate();
                 //update list
                 updateList();
             } catch (IOException ex) {

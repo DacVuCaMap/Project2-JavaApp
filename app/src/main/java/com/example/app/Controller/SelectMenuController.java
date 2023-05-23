@@ -1,6 +1,7 @@
 package com.example.app.Controller;
 
-import com.example.app.DB.UserDB;
+import com.example.app.DB.*;
+import com.example.app.Entity.sharedMenuData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -32,8 +34,18 @@ public class SelectMenuController implements Initializable {
     Button apartmentBtn;
     @FXML
     Button btnMenu;
+    @FXML
+    private Label countClient;
+    @FXML
+    private Label countRoom;
+    @FXML
+    private Label countHost;
+    @FXML
+    private Label countApartment;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        sharedMenuData.getMenuController = this;
+        headBarUpdate();
         // mac dinh vao client
         clearAllBtn();
         toClient();
@@ -117,6 +129,8 @@ public class SelectMenuController implements Initializable {
     public void toClient(){
         System.out.println("get to client");
         Parent newScene ;
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/example/app/sceneView/ClientScene.fxml"));
         try {
             newScene = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/ClientScene.fxml"));
         } catch (IOException ex) {
@@ -137,5 +151,11 @@ public class SelectMenuController implements Initializable {
     public void selectedButton(Button btn){
         btn.getStyleClass().remove("disableBtn");
         btn.getStyleClass().add("selectedBtn");
+    }
+    public void headBarUpdate(){
+        this.countClient.setText(String.valueOf(new ClientDAO().getAllData().size()));
+        this.countRoom.setText(String.valueOf(new RoomDAO().getAllData().size()));
+        this.countHost.setText(String.valueOf(new HostDAO().getAllData().size()));
+        this.countApartment.setText(String.valueOf(new ApartmentDAO().getAllData().size()));
     }
 }

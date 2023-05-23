@@ -4,6 +4,7 @@ import com.example.app.DB.*;
 import com.example.app.Entity.Client;
 import com.example.app.Entity.Host;
 import com.example.app.Entity.Room;
+import com.example.app.Entity.Validation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -86,10 +87,34 @@ public class AddClient implements Initializable {
         addBtn.setOnAction(e->{
             boolean flag = true;
             //validation
-
-
+            if (!Validation.isEmail(mailField.getText())){
+                flag = false;
+                mailNof.setText("* Invalid email");
+            }
+            //room chua co
+            if (!Validation.isUserName(nameField.getText())){
+                flag=false;
+                nameNof.setText("* Invalid name");
+            }
+            if(!Validation.isNbr(idField.getText())){
+                flag=false;
+                idNof.setText("* Invalid ID");
+            }
+            if (!Validation.isNbr(phoneField.getText()) || phoneField.getText().length()<10){
+                flag=false;
+                phoneNof.setText("* Invalid phone");
+            }
+            if (dobField.getValue() == null){
+                flag= false;
+                dobNof.setText("* Not empty");
+            }
+            if (addressField.getText().length()<3){
+                flag = false;
+                addressNof.setText("* Invalid address");
+            }
             //add
             if (flag){
+
                 String clientId = buildId();
                 String image = imgLink;
                 String clientName = nameField.getText();
@@ -98,15 +123,18 @@ public class AddClient implements Initializable {
                 String address = addressField.getText();
                 LocalDate clientDOB = dobField.getValue();
                 String citizenID = idField.getText();
-                Room room = getRoomMap(roomBox.getValue());
-                System.out.println(room);
-
+                //Room
+                Room room;
+                if (roomBox.getValue()==null){
+                    room=null;
+                }
+                else {
+                    room = getRoomMap(roomBox.getValue());
+                }
                 //insert
                 Client client = new Client(clientId,image,clientName,clientEmail,phone,address,clientDOB
                 ,citizenID,room);
                 clientDBGeneric.insertData(client);
-
-
                 //close
                 Stage stage = (Stage) addBtn.getScene().getWindow();
                 stage.close();
@@ -167,7 +195,9 @@ public class AddClient implements Initializable {
     public List<String> getRoomBoxList(){
         List<String> list = new ArrayList<>();
         for (Room room : new RoomDAO().getAllData()){
-            list.add(room.getApartment().getApartmentName() + "    room:"+room.getRoomNumber());
+            if (room.getStatus().getLabel()!="AVAILABLE"){
+                list.add(room.getApartment().getApartmentName() + "    room:"+room.getRoomNumber());
+            }
         }
         return list;
     }

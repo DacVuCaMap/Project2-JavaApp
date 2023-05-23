@@ -8,6 +8,7 @@ import com.example.app.DB.RoomDAO;
 import com.example.app.Entity.Client;
 import com.example.app.Entity.Room;
 import com.example.app.Entity.User;
+import com.example.app.Entity.sharedMenuData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,6 +33,10 @@ public class ClientController implements Initializable {
     @FXML
     Button addBtn;
     private Stage primaryStage = LoginScene.getStage;
+    private SelectMenuController selectMenuController;
+    public void setSelectMenuController(SelectMenuController selectMenuController){
+        this.selectMenuController = selectMenuController;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setVboxList();
@@ -52,6 +57,8 @@ public class ClientController implements Initializable {
                 dialogStage.setScene(dialogScene);
                 dialogStage.setTitle("My Dialog");
                 dialogStage.showAndWait();
+                //update head
+                sharedMenuData.getMenuController.headBarUpdate();
                 //update list
                 updateList();
             } catch (IOException ex) {

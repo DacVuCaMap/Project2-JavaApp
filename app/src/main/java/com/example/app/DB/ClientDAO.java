@@ -26,7 +26,11 @@ public class ClientDAO implements DBGeneric<Client>{
             pst.setString(5, client.getClientPhone());
             pst.setString(6, client.getClientImage());
             pst.setString(7, client.getClientEmail());
-            pst.setString(8, client.getRoom().getRoomId());
+            String roomId = null;
+            if (client.getRoom()!=null){
+                roomId=client.getRoom().getRoomId();
+            }
+            pst.setString(8, roomId);
             pst.setString(9,client.getCitizenID());
             pst.executeUpdate();
             //con.commit(); con.close(); transaction;

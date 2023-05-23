@@ -58,17 +58,17 @@ public class RoomItem {
         apartment.setText(room.getApartment().getApartmentName());
 
         switch (room.getStatus().getLabel()){
+            case "OCCUPIED":
+                status.setFill(Color.web("#ff2121"));
+                statusText.setText("OCCUPIED");
+                break;
+            case"MAINTENANCE":
+                status.setFill(Color.web("#ffc621"));
+                statusText.setText("MAINTENANCE");
+                break;
             case "AVAILABLE":
                 status.setFill(Color.web("#38ff1f"));
                 statusText.setText("AVAILABLE");
-                break;
-            case"OCCUPIED":
-                status.setFill(Color.web("#ffc621"));
-                statusText.setText("OCCUPIED");
-                break;
-            case "MAINTENANCE":
-                status.setFill(Color.web("#ff2121"));
-                statusText.setText("MAINTENANCE");
                 break;
         }
     }
