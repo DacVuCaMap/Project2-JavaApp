@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+
+<HBox prefHeight="70.0" prefWidth="680.0" stylesheets="@../../cssStyle/ClientItem.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.Contract.ContractItem">
+   <children>
+      <HBox id="itemBox" onMouseClicked="#getClick" prefHeight="50.0" prefWidth="680.0" style="-fx-cursor: hand;">
+         <children>
+            <Label fx:id="labelId" prefHeight="50.0" prefWidth="58.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Label>
+            <Circle fx:id="circleImage" fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Circle>
+            <Label prefHeight="50.0" prefWidth="14.0" text="  " />
+            <Label fx:id="labelName" prefHeight="50.0" prefWidth="157.0" />
+            <Label fx:id="labelRoom" prefHeight="50.0" prefWidth="121.0" />
+            <Label fx:id="labelTime" prefHeight="50.0" prefWidth="125.0" />
+            <Label fx:id="labelTime2" prefHeight="50.0" prefWidth="106.0" />
+            <Label fx:id="labelTotal" prefHeight="50.0" prefWidth="51.0" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" top="10.0" />
+   </padding>
+</HBox>

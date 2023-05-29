@@ -2,7 +2,6 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -59,16 +58,14 @@
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="mailField" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
+                  <TextField fx:id="mailField" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="337.0" />
                   <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Email" />
                   <Label fx:id="mailNof" layoutX="37.0" layoutY="48.0" prefHeight="17.0" prefWidth="171.0" textFill="RED">
                      <font>
                         <Font name="Calibri Bold" size="11.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="roomBox" layoutX="241.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" promptText="Choose Room" />
-                  <Label layoutX="241.0" layoutY="6.0" prefHeight="17.0" prefWidth="92.0" text="Room" />
-                  <Label fx:id="roomNof" layoutX="241.0" layoutY="48.0" prefHeight="17.0" prefWidth="131.0" textFill="RED">
+                  <Label fx:id="nameNof" layoutX="243.0" layoutY="48.0" prefHeight="17.0" prefWidth="138.0" textFill="RED">
                      <font>
                         <Font name="Calibri Bold" size="11.0" />
                      </font>
@@ -77,20 +74,15 @@
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="nameField" layoutX="37.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
-                  <Label layoutX="37.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Name" />
                   <TextField fx:id="idField" layoutX="241.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" />
                   <Label layoutX="241.0" layoutY="6.0" prefHeight="17.0" prefWidth="76.0" text="ID (citizenID)" />
-                  <Label fx:id="nameNof" layoutX="37.0" layoutY="48.0" prefHeight="17.0" prefWidth="171.0" textFill="RED">
-                     <font>
-                        <Font name="Calibri Bold" size="11.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="idNof" layoutX="241.0" layoutY="48.0" prefHeight="17.0" prefWidth="131.0" textFill="RED">
                      <font>
                         <Font name="Calibri Bold" size="11.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="nameField" layoutX="36.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
+                  <Label layoutX="36.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Name" />
                </children>
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">

@@ -59,7 +59,7 @@ public class SelectMenuController implements Initializable {
         });
         //click room
         roomBtn.setOnAction(e->{
-            toRoom();
+             toRoom();
         });
         //click host
         hostBtn.setOnAction(e->{

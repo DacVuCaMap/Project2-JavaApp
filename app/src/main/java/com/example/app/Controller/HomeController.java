@@ -28,7 +28,16 @@ public class HomeController implements Initializable {
     private Connection conn;
     @FXML
     private Button btnManagement;
-
+    @FXML
+    private Button btnContract;
+    @FXML
+    private Button btnSetting;
+    @FXML
+    private Button btnAboutUs;
+    @FXML
+    private Button btnDocs;
+    @FXML
+    private Button btnAccount;
 
     public void initialize() {
         try {
@@ -63,6 +72,17 @@ public class HomeController implements Initializable {
         btnManagement.setOnAction(e->{
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/SelectMenuScene.fxml"));
+                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        btnContract.setOnAction(e->{
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/Contract/ContractMenuScene.fxml"));
                 Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

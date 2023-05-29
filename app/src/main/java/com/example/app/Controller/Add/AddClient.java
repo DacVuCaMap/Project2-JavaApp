@@ -6,11 +6,15 @@ import com.example.app.Entity.Host;
 import com.example.app.Entity.Room;
 import com.example.app.Entity.Validation;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -73,17 +77,10 @@ public class AddClient implements Initializable {
 
     @FXML
     private Label phoneNof;
-
-    @FXML
-    private ComboBox<String> roomBox;
-
-    @FXML
-    private Label roomNof;
     private DBGeneric<Client> clientDBGeneric = new ClientDAO();
     private String imgLink="user-default.png";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        roomBox.getItems().addAll(getRoomBoxList());
         addBtn.setOnAction(e->{
             boolean flag = true;
             //validation
@@ -123,17 +120,9 @@ public class AddClient implements Initializable {
                 String address = addressField.getText();
                 LocalDate clientDOB = dobField.getValue();
                 String citizenID = idField.getText();
-                //Room
-                Room room;
-                if (roomBox.getValue()==null){
-                    room=null;
-                }
-                else {
-                    room = getRoomMap(roomBox.getValue());
-                }
                 //insert
                 Client client = new Client(clientId,image,clientName,clientEmail,phone,address,clientDOB
-                ,citizenID,room);
+                ,citizenID);
                 clientDBGeneric.insertData(client);
                 //close
                 Stage stage = (Stage) addBtn.getScene().getWindow();
@@ -183,14 +172,6 @@ public class AddClient implements Initializable {
             numberStr=Integer.toString(number);
         }
         return "CL"+numberStr;
-    }
-    public Room getRoomMap(String str){
-        Map<String,Room> mapRoom = new HashMap<>();
-        for(Room room : new RoomDAO().getAllData()){
-            mapRoom.put(room.getApartment().getApartmentName() + "    room:"+room.getRoomNumber(),room);
-        }
-        Room room = mapRoom.get(str);
-        return room;
     }
     public List<String> getRoomBoxList(){
         List<String> list = new ArrayList<>();

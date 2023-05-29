@@ -12,4 +12,6 @@
     opens com.example.app.Controller to javafx.fxml;
     opens com.example.app.Controller.items to javafx.fxml;
     opens com.example.app.Controller.Add to javafx.fxml;
+    opens com.example.app.Controller.Contract to javafx.fxml;
+    opens com.example.app.Controller.Contract.ContractClick to javafx.fxml;
 }

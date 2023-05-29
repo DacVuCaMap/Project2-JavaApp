@@ -1,0 +1,10 @@
+.box:hover{
+    -fx-background-color: #dadada;
+    -fx-cursor: hand;
+}
+.box:pressed{
+    -fx-background-color: #797979;
+}
+.mainPane{
+    -fx-background-color: #e0e0e0;
+}

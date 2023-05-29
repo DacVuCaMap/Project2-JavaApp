@@ -24,3 +24,19 @@
     -fx-cursor: hand;
     -fx-background-color: #8B0000;
 }
+#addRoom{
+    -fx-background-color: #1B2845;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+#addRoom:hover{
+    -fx-background-color: #4a5573;
+}
+#addNew2{
+    -fx-background-color: #4a5573;
+    -fx-cursor: hand;
+}
+#addNew2:hover{
+    -fx-background-color: #1B2845;
+    -fx-text-fill: white;
+}

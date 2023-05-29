@@ -70,17 +70,20 @@ public class HostController implements Initializable {
         vboxList.getChildren().clear();
         DBGeneric<Host> hostDBGeneric = new HostDAO();
         List<Host> hostList = hostDBGeneric.getAllData();
-        for (Host host : hostList){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/HostItem.fxml"));
-            try{
-                HBox hBox = fxmlLoader.load();
-                HostItem item = fxmlLoader.getController();
-                item.setData(host);
-                vboxList.getChildren().add(hBox);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        if (hostList!=null){
+            for (Host host : hostList){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/HostItem.fxml"));
+                try{
+                    HBox hBox = fxmlLoader.load();
+                    HostItem item = fxmlLoader.getController();
+                    item.setData(host);
+                    vboxList.getChildren().add(hBox);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
+
     }
 }

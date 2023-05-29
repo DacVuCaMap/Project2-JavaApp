@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="slideScene" prefHeight="400.0" prefWidth="340.0" style="-fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.Contract.ContractClick.ClientContract">
+   <children>
+      <Pane layoutX="10.0" layoutY="15.0" prefHeight="370.0" prefWidth="320.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+         <children>
+            <VBox layoutY="70.0" prefHeight="300.0" prefWidth="320.0">
+               <children>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Client ID">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="clientId" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Client Name">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="clientName" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Date of birth">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="clientDob" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="ID (citizen id)">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="citizenId" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Email">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="clientEmail" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Phone number">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="phoneNumber" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Address">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="address" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Label layoutX="89.0" layoutY="21.0" text="Client">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+            <Circle fx:id="circleImage" fill="DODGERBLUE" layoutX="44.0" layoutY="32.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+         </children></Pane>
+   </children>
+</AnchorPane>

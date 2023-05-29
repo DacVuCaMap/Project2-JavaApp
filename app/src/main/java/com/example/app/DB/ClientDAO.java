@@ -12,8 +12,8 @@ public class ClientDAO implements DBGeneric<Client>{
     private Connection conn;
     @Override
     public void insertData(Client client) {
-        String sql = "INSERT INTO tblClient(clientId,clientName,dob,address,phone,image,email,roomId,citizenID)" +
-                " VALUES(?,?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO tblClient(clientId,clientName,dob,address,phone,image,email,citizenID)" +
+                " VALUES(?,?,?,?,?,?,?,?) ";
         try{
             //Convert string sql to SQL Statement
             conn = MySQLConnection.getConnection();
@@ -26,12 +26,7 @@ public class ClientDAO implements DBGeneric<Client>{
             pst.setString(5, client.getClientPhone());
             pst.setString(6, client.getClientImage());
             pst.setString(7, client.getClientEmail());
-            String roomId = null;
-            if (client.getRoom()!=null){
-                roomId=client.getRoom().getRoomId();
-            }
-            pst.setString(8, roomId);
-            pst.setString(9,client.getCitizenID());
+            pst.setString(8,client.getCitizenID());
             pst.executeUpdate();
             //con.commit(); con.close(); transaction;
         }catch(SQLException e){
@@ -95,8 +90,7 @@ public class ClientDAO implements DBGeneric<Client>{
                 String address = rs.getString("address");
                 LocalDate dob = rs.getDate("dob").toLocalDate();
                 String citizentId = rs.getString("citizenID");
-                Room room = new RoomDAO().findRoomById(rs.getString("roomId"));
-                clientList.add(new Client(id,image,name,email,phone,address,dob,citizentId,room));
+                clientList.add(new Client(id,image,name,email,phone,address,dob,citizentId));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -108,10 +102,10 @@ public class ClientDAO implements DBGeneric<Client>{
     public boolean checkUser(Client client) {
         return false;
     }
-    public Client searchClientByRoomId(String roomId){
+    public Client searchClientById(String id){
         List<Client> clientList = getAllData();
         for (Client client : clientList){
-            if(client.getRoom().getRoomId().equals(roomId)){
+            if (client.getClientId().equals(id)){
                 return client;
             }
         }

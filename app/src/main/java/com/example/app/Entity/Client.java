@@ -11,19 +11,6 @@ public class Client {
     private String clientAddress;
     private LocalDate clientDOB;
     private String citizenID;
-    private Room room;
-
-    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID, Room room) {
-        this.room = room;
-        this.clientId = clientId;
-        this.clientImage = clientImage;
-        this.clientName = clientName;
-        this.clientEmail = clientEmail;
-        this.clientPhone = clientPhone;
-        this.clientAddress = clientAddress;
-        this.clientDOB = clientDOB;
-        this.citizenID = citizenID;
-    }
 
     public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID) {
         this.clientId = clientId;
@@ -92,14 +79,6 @@ public class Client {
         this.clientDOB = clientDOB;
     }
 
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
     public String getCitizenID() {
         return citizenID;
     }
@@ -120,9 +99,7 @@ public class Client {
                 ", clientPhone='" + clientPhone + '\'' +
                 ", clientAddress='" + clientAddress + '\'' +
                 ", clientDOB=" + clientDOB +
-                ", citizenID='" + citizenID + '\'' +
-                ", room=" + room +
-
+                ", citizenID='" + citizenID +
                 '}';
     }
 }

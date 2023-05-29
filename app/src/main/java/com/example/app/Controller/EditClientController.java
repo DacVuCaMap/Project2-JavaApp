@@ -73,7 +73,6 @@ public class EditClientController implements Initializable {
         email.setText(client.getClientEmail());
         address.setText(client.getClientAddress());
         citizenID.setText(client.getClientId());
-        room.setText(client.getRoom().getRoomNumber());
     }
 
     @Override
@@ -109,8 +108,7 @@ public class EditClientController implements Initializable {
                         phone.getText(),
                         address.getText(),
                         LocalDate.parse(dob.getText(), formatter),
-                        citizenID.getText(),
-                        null
+                        citizenID.getText()
                 );
 
                 clientDAO.update(newClient, clientId.getText());

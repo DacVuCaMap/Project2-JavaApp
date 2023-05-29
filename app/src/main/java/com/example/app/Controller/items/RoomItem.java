@@ -44,17 +44,17 @@ public class RoomItem {
         number.setText(room.getRoomNumber());
 
         //Client area
-        Client client = new ClientDAO().searchClientByRoomId(room.getRoomId());
-        if (client != null){
-            clientName.setText(client.getClientName());
-            clientImage.setFill(new ImagePattern(new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString())));
-        }
-        else {
-            clientName.setText("Empty");
-            clientImage.setVisible(false);
-        }
+//        Client client = new ClientDAO().searchClientByRoomId(room.getRoomId());
+//        if (client != null){
+//            clientName.setText(client.getClientName());
+//            clientImage.setFill(new ImagePattern(new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString())));
+//        }
+//        else {
+//            clientName.setText("Empty");
+//            clientImage.setVisible(false);
+//        }
 
-        price.setText(String.valueOf(room.getPrice())+" $");
+        price.setText(room.getPrice()+" $");
         apartment.setText(room.getApartment().getApartmentName());
 
         switch (room.getStatus().getLabel()){

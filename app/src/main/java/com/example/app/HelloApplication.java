@@ -1,6 +1,7 @@
 
 package com.example.app;
 
+import com.example.app.Controller.Contract.AddContract;
 import com.example.app.Controller.LoginScene;
 import com.example.app.DB.DBGeneric;
 import com.example.app.DB.HostDAO;
@@ -25,7 +26,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         LoginScene.getStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/SelectMenuScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/HomeScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Apartment Management");

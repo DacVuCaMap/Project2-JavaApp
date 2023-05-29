@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="slideScene" prefHeight="400.0" prefWidth="340.0" style="-fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.Contract.ContractClick.RoomContract">
+   <children>
+      <Pane layoutX="10.0" layoutY="15.0" prefHeight="370.0" prefWidth="320.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+         <children>
+            <VBox layoutY="70.0" prefHeight="300.0" prefWidth="320.0">
+               <children>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Room Id">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="roomId" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Room number">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="roomNumber" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Room type">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="roomType" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="35.0" prefWidth="200.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" text="Description">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="74.0" prefWidth="320.0" styleClass="box">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow fx:id="description" layoutX="14.0" layoutY="2.0" prefHeight="68.0" prefWidth="291.0" style="-fx-background-color: #e0e0e0;">
+                           <children>
+                              <Text fx:id="textDes" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="58.0" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Label layoutX="138.0" layoutY="28.0" text="Room">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</AnchorPane>

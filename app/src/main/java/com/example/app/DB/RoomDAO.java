@@ -10,7 +10,9 @@ import javafx.scene.paint.Color;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RoomDAO implements DBGeneric<Room>{
     private Connection conn;
@@ -108,7 +110,7 @@ public class RoomDAO implements DBGeneric<Room>{
         }
         return null;
     }
-    public static Room findRoomById(String id){
+    public static Room searchRoomById(String id){
         List<Room> list = new RoomDAO().getAllData();
         for (Room room : list){
             if (room.getRoomId().equals(id)){
@@ -117,5 +119,13 @@ public class RoomDAO implements DBGeneric<Room>{
         }
         return null;
 
+    }
+    public static Room getRoomMap(String str){
+        Map<String,Room> mapRoom = new HashMap<>();
+        for(Room room : new RoomDAO().getAllData()){
+            mapRoom.put("Room number:"+room.getRoomNumber()+"   Appartment:"+room.getApartment().getApartmentName(),room);
+        }
+        Room room = mapRoom.get(str);
+        return room;
     }
 }
