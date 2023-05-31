@@ -26,7 +26,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         LoginScene.getStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/HomeScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sceneView/LoginScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Apartment Management");

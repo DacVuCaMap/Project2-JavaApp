@@ -34,7 +34,7 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="clientName" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                        <Label fx:id="clientName" alignment="CENTER_RIGHT" layoutX="107.0" layoutY="10.0" prefHeight="17.0" prefWidth="182.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
@@ -76,7 +76,7 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="clientEmail" alignment="CENTER_RIGHT" layoutX="158.0" layoutY="10.0" prefHeight="17.0" prefWidth="131.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
+                        <Label fx:id="clientEmail" alignment="CENTER_RIGHT" layoutX="99.0" layoutY="10.0" prefHeight="17.0" prefWidth="190.0" text="Contract-CT001   &gt;" textFill="#7c7c7c">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>

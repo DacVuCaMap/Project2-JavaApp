@@ -3,6 +3,7 @@ package com.example.app.Controller;
 import com.example.app.DB.DBGeneric;
 import com.example.app.DB.UserDB;
 import com.example.app.Entity.User;
+import com.example.app.Entity.UserSession;
 import com.example.app.HelloApplication;
 import com.example.app.MyFXMLLoader;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +27,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 public class LoginScene implements Initializable {
     @FXML
     AnchorPane scenePane;
@@ -35,6 +38,8 @@ public class LoginScene implements Initializable {
     Stage stage;
     @FXML
     Button linkRegister;
+    @FXML
+    private CheckBox rememberCheckBox;
     @FXML
     Pane viewPane;
     // check to login
@@ -70,6 +75,16 @@ public class LoginScene implements Initializable {
                 checkToLogin();
             }
         });
+
+        //remember password
+        Preferences prefs = Preferences.userNodeForPackage(LoginScene.class);
+        String storedMail = prefs.get("userName","");
+        String storedPassword = prefs.get("password","");
+        if (!storedPassword.isEmpty() && !storedMail.isEmpty()){
+            emailForm.setText(storedMail);
+            pwdForm.setText(storedPassword);
+            rememberCheckBox.setSelected(true);
+        }
     }
     public void checkToLogin() {
         String email = emailForm.getText();
@@ -88,9 +103,21 @@ public class LoginScene implements Initializable {
             User user = new User(null,email,null,pwd);
             DBGeneric<User> userDBGeneric = new UserDB();
             if (userDBGeneric.checkUser(user)){
-                System.out.println("vaoo game");
+                System.out.println("vaoo");
                 // vao home
                 try {
+                    UserSession.userMail = user.getUserMail();
+                    if (rememberCheckBox.isSelected()){
+                        //store password
+                        Preferences prefs = Preferences.userNodeForPackage(LoginScene.class);
+                        prefs.put("userName",email);
+                        prefs.put("password",pwd);
+                    }else {
+                        //clear the stored password
+                        Preferences prefs = Preferences.userNodeForPackage(LoginScene.class);
+                        prefs.remove("userName");
+                        prefs.remove("password");
+                    }
                     Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/sceneView/HomeScene.fxml"));
                     Scene scene = new Scene(root);
                     getStage.setScene(scene);

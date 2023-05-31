@@ -128,4 +128,16 @@ public class RoomDAO implements DBGeneric<Room>{
         Room room = mapRoom.get(str);
         return room;
     }
+    public void changeRoomStatus(Room room){
+        String sql = "update tblroom set roomStatus = ? where roomId=?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,"OCCUPIED");
+            pstm.setString(2,room.getRoomId());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

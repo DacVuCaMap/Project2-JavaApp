@@ -1,8 +1,10 @@
 package com.example.app.Controller.items;
 
 import com.example.app.DB.ClientDAO;
+import com.example.app.DB.ContractDAO;
 import com.example.app.DB.GetRootLink;
 import com.example.app.Entity.Client;
+import com.example.app.Entity.Contract;
 import com.example.app.Entity.Room;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,26 +46,26 @@ public class RoomItem {
         number.setText(room.getRoomNumber());
 
         //Client area
-//        Client client = new ClientDAO().searchClientByRoomId(room.getRoomId());
-//        if (client != null){
-//            clientName.setText(client.getClientName());
-//            clientImage.setFill(new ImagePattern(new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString())));
-//        }
-//        else {
-//            clientName.setText("Empty");
-//            clientImage.setVisible(false);
-//        }
-
+        if (room.getStatus().getLabel().equals("OCCUPIED")){
+            Contract contract = new ContractDAO().searchContractByRoomId(room.getRoomId());
+            System.out.println(contract);
+            clientName.setText(contract.getClient().getClientName());
+            clientImage.setFill(new ImagePattern(new Image(GetRootLink.getRootPathForClient(contract.getClient().getClientImage()).toString())));
+        }
+        else {
+            clientName.setText("Empty");
+            clientImage.setVisible(false);
+        }
         price.setText(room.getPrice()+" $");
         apartment.setText(room.getApartment().getApartmentName());
 
         switch (room.getStatus().getLabel()){
             case "OCCUPIED":
-                status.setFill(Color.web("#ff2121"));
+                status.setFill(Color.web("#ffc621"));
                 statusText.setText("OCCUPIED");
                 break;
             case"MAINTENANCE":
-                status.setFill(Color.web("#ffc621"));
+                status.setFill(Color.web("#ff2121"));
                 statusText.setText("MAINTENANCE");
                 break;
             case "AVAILABLE":
