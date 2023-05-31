@@ -2,6 +2,7 @@ package com.example.app.DB;
 
 import com.example.app.Controller.Add.AddApartment;
 import com.example.app.Entity.Apartment;
+import com.example.app.Entity.Client;
 import com.example.app.Entity.Enum.RoomType;
 import com.example.app.Entity.Enum.StatusRoom;
 import com.example.app.Entity.Host;
@@ -38,8 +39,29 @@ public class RoomDAO implements DBGeneric<Room>{
     }
 
     @Override
-    public void update(Room room,String str) {
-
+    public void update(Room room,String id) {
+        String sql="UPDATE tblroom SET roomNumber = ?, price = ?, " +
+                "typeRoom = ?, desRoom = ?, image = ?, image2 = ?, image3 = ?, " +
+                "image4 = ?, image5 = ?, roomStatus = ? WHERE roomId  = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,room.getRoomNumber());
+            pstm.setDouble(2, room.getPrice());
+            pstm.setString(3, String.valueOf(room.getRoomType()));
+            pstm.setString(4, room.getDesRoom());
+            pstm.setString(5,room.getImg1());
+            pstm.setString(6,room.getImg2());
+            pstm.setString(7, room.getImg3());
+            pstm.setString(8, room.getImg4());
+            pstm.setString(9, room.getImg5());
+            pstm.setString(10, String.valueOf(room.getStatus()));
+            pstm.setString(11, id);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -59,18 +81,19 @@ public class RoomDAO implements DBGeneric<Room>{
             while (rs.next()){
                 RoomType roomType = getRoomType(rs.getString("typeRoom"));
                 StatusRoom statusRoom = getStatusRoom(rs.getString("roomStatus"));
-                List<String> imageRoom = roomImageDAO.getRoomImageFromDB(rs.getString("roomId"));
+//                List<String> imageRoom = roomImageDAO.getRoomImageFromDB(rs.getString("roomId"));
+
                 Apartment apartment = new ApartmentDAO().getApartmentbyId(rs.getString("apartmentId"));
 
                 roomList.add(new Room(rs.getString("roomId")
                         ,rs.getString("roomNumber")
                         ,rs.getDouble("price")
                         ,roomType
-                        ,imageRoom.get(0)
-                        ,imageRoom.get(1)
-                        ,imageRoom.get(2)
-                        ,imageRoom.get(3)
-                        ,imageRoom.get(4)
+                        ,null
+                        ,null
+                        ,null
+                        ,null
+                        ,null
                         ,statusRoom
                         ,apartment
                         ,rs.getString("desRoom")));
@@ -126,6 +149,34 @@ public class RoomDAO implements DBGeneric<Room>{
             mapRoom.put("Room number:"+room.getRoomNumber()+"   Appartment:"+room.getApartment().getApartmentName(),room);
         }
         Room room = mapRoom.get(str);
+        return room;
+    }
+
+    public Room findByRoomId(String roomId){
+        String sql = "SELECT * FROM tblroom WHERE roomId = ?";
+        Room room = new Room();
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,roomId);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                room.setRoomId(roomId);
+                room.setRoomNumber(rs.getString("roomNumber"));
+                room.setPrice(rs.getDouble("price"));
+                room.setRoomType(RoomType.valueOf(rs.getString("typeRoom")));
+                room.setDesRoom(rs.getString("desRoom"));
+                room.setImg1(rs.getString("image"));
+                room.setImg2(rs.getString("image2"));
+                room.setImg3(rs.getString("image3"));
+                room.setImg4(rs.getString("image4"));
+                room.setImg5(rs.getString("image5"));
+                room.setStatus(StatusRoom.valueOf(rs.getString("roomStatus")));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return room;
     }
 }

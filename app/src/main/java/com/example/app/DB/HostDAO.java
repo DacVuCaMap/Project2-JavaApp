@@ -1,5 +1,6 @@
 package com.example.app.DB;
 
+import com.example.app.Entity.Client;
 import com.example.app.Entity.Host;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -40,11 +41,6 @@ public class HostDAO implements DBGeneric<Host>{
     }
 
     @Override
-    public void update(Host host, String i) {
-
-    }
-
-    @Override
     public void delete(String i) {}
 
 
@@ -75,6 +71,28 @@ public class HostDAO implements DBGeneric<Host>{
         }
 
         return hostList;
+    }
+    @Override
+    public void update(Host host, String id) {
+        String sql="UPDATE tblHost SET hostId = ?, hostName = ?, dob = ?, " +
+                "address = ?, citizenID = ?,  phone = ?, image = ?, email = ? WHERE hostId  = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,host.getHostId());
+            pstm.setString(2,host.getHostName());
+            pstm.setString(3, String.valueOf(host.getDob()));
+            pstm.setString(4,host.getAddress());
+            pstm.setString(5, host.getCitizenId());
+            pstm.setString(6,host.getHostPhone());
+            pstm.setString(7,host.getHostImage());
+            pstm.setString(8, host.getHostEmail());
+            pstm.setString(9,id);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

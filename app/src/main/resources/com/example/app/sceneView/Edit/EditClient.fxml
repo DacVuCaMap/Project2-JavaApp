@@ -144,8 +144,8 @@
                <children>
                   <AnchorPane prefHeight="110.0" prefWidth="700.0">
                      <children>
-                        <ImageView fx:id="avatar" fitHeight="110.0" fitWidth="159.0" layoutX="137.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="btnImg" disable="true" layoutX="314.0" layoutY="43.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="72.0" text="Chọn ảnh" />
+                        <ImageView fx:id="avatar" fitHeight="110.0" fitWidth="110.0" layoutX="310.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="changeImg" disable="true" layoutX="627.0" layoutY="85.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="72.0" text="Đổi ảnh" />
                      </children>
                   </AnchorPane>
                </children>

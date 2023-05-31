@@ -35,6 +35,20 @@ public class Room {
         this.desRoom = desRoom;
     }
 
+    public Room(String roomId, String roomNumber, double price, RoomType roomType, String img1, String img2, String img3, String img4, String img5, StatusRoom status,  String desRoom) {
+        this.roomId = roomId;
+        this.roomNumber = roomNumber;
+        this.price = price;
+        this.roomType = roomType;
+        this.img1 = img1;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
+        this.img5 = img5;
+        this.status = status;
+        this.desRoom = desRoom;
+    }
+
     public String getRoomId() {
         return roomId;
     }

@@ -49,8 +49,9 @@ public class ClientItem implements Initializable {
     public void setData(Client client){
         this.client=client;
         labelId.setText(client.getClientId());
-        Image image = new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString());
-        circleImage.setFill(new ImagePattern(image));
+//        Image image = new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString());
+//
+//        circleImage.setFill(new ImagePattern(image));
         labelName.setText(client.getClientName());
         labelMail.setText(client.getClientEmail());
         labelPhone.setText(client.getClientPhone());

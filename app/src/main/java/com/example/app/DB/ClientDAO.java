@@ -37,7 +37,7 @@ public class ClientDAO implements DBGeneric<Client>{
     @Override
     public void update(Client client, String id) {
         String sql="UPDATE tblClient SET clientId = ?, clientName = ?, dob = ?, " +
-                "addess = ?, phone = ?,  clientImage = ?, email = ?, citizenID = ? WHERE clientId  = ?";
+                "address = ?, phone = ?,  image = ?, email = ?, citizenID = ? WHERE clientId  = ?";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -91,11 +91,37 @@ public class ClientDAO implements DBGeneric<Client>{
                 LocalDate dob = rs.getDate("dob").toLocalDate();
                 String citizentId = rs.getString("citizenID");
                 clientList.add(new Client(id,image,name,email,phone,address,dob,citizentId));
+                String roomId = rs.getString("roomId");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return clientList;
+    }
+
+    public Client getDataById(String id) {
+        String sql = "Select * from tblClient where clientId = ?";
+        Client client = new Client();
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,id);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                client.setClientId(id);
+                client.setClientImage(rs.getString("image"));
+                client.setClientName(rs.getString("clientName"));
+                client.setClientEmail(rs.getString("email"));
+                client.setClientPhone(rs.getString("phone"));
+                client.setClientAddress(rs.getString("address"));
+                client.setClientDOB(rs.getDate("dob").toLocalDate());
+                client.setCitizenID(rs.getString("citizenID"));
+                client.setRoomId(rs.getString("roomId"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return client;
     }
 
     @Override
