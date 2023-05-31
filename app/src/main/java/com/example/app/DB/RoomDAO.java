@@ -141,8 +141,8 @@ public class RoomDAO implements DBGeneric<Room>{
             }
         }
         return null;
-
     }
+
     public static Room getRoomMap(String str){
         Map<String,Room> mapRoom = new HashMap<>();
         for(Room room : new RoomDAO().getAllData()){
@@ -152,15 +152,15 @@ public class RoomDAO implements DBGeneric<Room>{
         return room;
     }
 
-    public Room findByRoomId(String roomId){
+    public Room findByRoomId(String roomId) {
         String sql = "SELECT * FROM tblroom WHERE roomId = ?";
         Room room = new Room();
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1,roomId);
+            pstm.setString(1, roomId);
             ResultSet rs = pstm.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 room.setRoomId(roomId);
                 room.setRoomNumber(rs.getString("roomNumber"));
                 room.setPrice(rs.getDouble("price"));
@@ -179,4 +179,18 @@ public class RoomDAO implements DBGeneric<Room>{
         }
         return room;
     }
+
+    public void changeRoomStatus(Room room){
+        String sql = "update tblroom set roomStatus = ? where roomId=?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,"OCCUPIED");
+            pstm.setString(2,room.getRoomId());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

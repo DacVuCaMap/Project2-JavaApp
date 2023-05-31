@@ -131,6 +131,7 @@ public class AddContract implements Initializable {
                 Contract contract = new Contract(id,startDate,startMonth,endMonth,des,client,room,total);
                 //insert
                 new ContractDAO().insertData(contract);
+                new RoomDAO().changeRoomStatus(room);
                 //close
                 Stage stage =(Stage) cancleBtn.getScene().getWindow();
                 stage.close();

@@ -57,7 +57,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <CheckBox layoutX="184.0" layoutY="440.0" mnemonicParsing="false" text="Remember me" />
+            <CheckBox fx:id="rememberCheckBox" layoutX="184.0" layoutY="440.0" mnemonicParsing="false" text="Remember me" />
             <Button id="linkRegister" fx:id="linkRegister" layoutX="143.0" layoutY="541.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Register" underline="true">
                <font>
                   <Font name="Calibri Bold Italic" size="14.0" />

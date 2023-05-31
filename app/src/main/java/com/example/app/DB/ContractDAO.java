@@ -40,8 +40,16 @@ public class ContractDAO implements DBGeneric<Contract>{
     }
 
     @Override
-    public void delete(String i) {
-
+    public void delete(String id) {
+        String sql="DELETE FROM tblContract where contractId=?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,id);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -71,5 +79,14 @@ public class ContractDAO implements DBGeneric<Contract>{
     @Override
     public boolean checkUser(Contract contract) {
         return false;
+    }
+    public Contract searchContractByRoomId(String roomId){
+        List<Contract> contractList = getAllData();
+        for (Contract contract : contractList){
+            if (contract.getRoom().getRoomId().equals(roomId)){
+                return contract;
+            }
+        }
+        return null;
     }
 }

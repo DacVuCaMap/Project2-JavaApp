@@ -3,6 +3,7 @@ package com.example.app.Controller.Contract;
 import com.example.app.DB.ContractDAO;
 import com.example.app.DB.DBGeneric;
 import com.example.app.Entity.Contract;
+import com.example.app.Entity.sharedMenuData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,7 @@ public class ContractList implements Initializable {
     private Button btnContract;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        sharedMenuData.contractListController = this;
         upDateList();
 
         btnContract.setOnAction(e->{
@@ -44,18 +46,18 @@ public class ContractList implements Initializable {
                 dialogStage.setScene(dialogScene);
                 dialogStage.setTitle("Contract");
                 dialogStage.showAndWait();
+                upDateList();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
     public void upDateList(){
+        vboxList.getChildren().clear();
         DBGeneric<Contract> contractDBGeneric = new ContractDAO();
         List<Contract> contractList = contractDBGeneric.getAllData();
-        System.out.println("get here");
         if (contractList!=null){
             for (Contract contract : contractList){
-                System.out.println(contract.toString());
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/Contract/ContractItem.fxml"));
                 try{

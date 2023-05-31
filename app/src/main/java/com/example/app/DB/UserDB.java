@@ -77,4 +77,35 @@ public class UserDB implements DBGeneric<User>{
         }
         return false;
     }
+    public User getUserByMail(String str){
+        List<User> userList = getAllData();
+        for (User user:userList){
+            if (user.getUserMail().equals(str)){
+                return user;
+            }
+        }
+        return null;
+    }
+    public void changeName(String name,String id){
+        String sql="Update tbladmin set adminName=? where id=?";
+        try{
+            conn=MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,name);
+            pstm.setString(2,id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void changePassword(String pwd,String id){
+        String sql="Update tbladmin set adminPass=? where id=?";
+        try{
+            conn=MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,pwd);
+            pstm.setString(2,id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -1,17 +1,23 @@
 package com.example.app.Controller.Contract;
 
 import com.example.app.Controller.Contract.ContractClick.*;
+import com.example.app.DB.ContractDAO;
 import com.example.app.Entity.Apartment;
 import com.example.app.Entity.Contract;
+import com.example.app.Entity.sharedMenuData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,9 +60,33 @@ public class ContractDetails implements Initializable {
     private Label endDateLabel;
     @FXML
     private Parent newScene;
+    @FXML
+    private Button deleteBtn;
     private Contract contract;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        deleteBtn.setOnAction(e->{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Are you sure you want to delete?");
+            alert.setContentText("Click Yes or No.");
+            ButtonType buttonTypeYes = new ButtonType("Yes");
+            ButtonType buttonTypeNo = new ButtonType("No");
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+            alert.showAndWait().ifPresent(buttonType -> {
+                if (buttonType == buttonTypeYes) {
+                    System.out.println("User clicked Yes");
+                    new ContractDAO().delete(contract.getContractId());
+                    sharedMenuData.contractListController.upDateList();
+                    Stage stage = (Stage)deleteBtn.getScene().getWindow();
+                    stage.close();
+                    // Perform the desired action for Yes
+                } else if (buttonType == buttonTypeNo) {
+                    System.out.println("User clicked No");
+                    // Perform the desired action for No
+                }
+            });
+        });
     }
     public void setData(Contract contract){
         this.contract = contract;
