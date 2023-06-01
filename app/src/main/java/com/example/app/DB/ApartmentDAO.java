@@ -33,16 +33,24 @@ public class ApartmentDAO implements DBGeneric<Apartment>{
     }
 
     @Override
-    public void update(Apartment apartment, String id) {
-
+    public void update(Apartment ap, String id) {
+        String sql="UPDATE tblapartment SET apartmentName = ?, address = ?, image = ? WHERE apartmentId  = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,ap.getApartmentName());
+            pstm.setString(2,ap.getAddress());
+            pstm.setString(3,ap.getApartmentImage());
+            pstm.setString(4,id);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void delete(String i) {}
-
-    public void update(Apartment apartment) {
-
-    }
 
 
     @Override

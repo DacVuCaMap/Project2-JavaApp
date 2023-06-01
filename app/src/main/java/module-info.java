@@ -10,7 +10,10 @@
      requires java.prefs;
      opens com.example.app to javafx.fxml;
     exports com.example.app;
+
     opens com.example.app.Controller to javafx.fxml;
+    exports com.example.app.Controller;
+
     opens com.example.app.Controller.items to javafx.fxml;
     opens com.example.app.Controller.Add to javafx.fxml;
     opens com.example.app.Controller.Contract to javafx.fxml;

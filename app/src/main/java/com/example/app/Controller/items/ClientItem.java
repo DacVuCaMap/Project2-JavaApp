@@ -74,7 +74,7 @@ public class ClientItem implements Initializable {
                 Scene dialogScene = new Scene(sceneRoot);
                 dialogStage.setResizable(false);
                 dialogStage.setScene(dialogScene);
-                dialogStage.setTitle("My Dialog");
+                dialogStage.setTitle("Client details");
                 dialogStage.showAndWait();
 
             } catch (IOException ex) {

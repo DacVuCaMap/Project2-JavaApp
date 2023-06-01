@@ -11,6 +11,19 @@ public class Client {
     private String clientAddress;
     private LocalDate clientDOB;
     private String citizenID;
+    private String roomId;
+    public Client() {;}
+    public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID, String roomId) {
+        this.clientId = clientId;
+        this.clientImage = clientImage;
+        this.clientName = clientName;
+        this.clientEmail = clientEmail;
+        this.clientPhone = clientPhone;
+        this.clientAddress = clientAddress;
+        this.clientDOB = clientDOB;
+        this.citizenID = citizenID;
+        this.roomId = roomId;
+    }
 
     public Client(String clientId, String clientImage, String clientName, String clientEmail, String clientPhone, String clientAddress, LocalDate clientDOB, String citizenID) {
         this.clientId = clientId;
@@ -86,8 +99,13 @@ public class Client {
         this.citizenID = citizenID;
     }
 
+    public String getRoomId() {
+        return roomId;
+    }
 
-
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
 
     @Override
     public String toString() {
