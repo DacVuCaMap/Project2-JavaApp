@@ -44,13 +44,12 @@ public class RoomItem {
     public void setData(Room room){
         roomID.setText(room.getRoomId());
         number.setText(room.getRoomNumber());
-
+        System.out.println(room.getStatus().getLabel().equals("OCCUPIED"));
+        System.out.println(room.getClient());
         //Client area
         if (room.getStatus().getLabel().equals("OCCUPIED")){
-            Contract contract = new ContractDAO().searchContractByRoomId(room.getRoomId());
-            System.out.println(contract);
-            clientName.setText(contract.getClient().getClientName());
-            clientImage.setFill(new ImagePattern(new Image(GetRootLink.getRootPathForClient(contract.getClient().getClientImage()).toString())));
+            clientName.setText(room.getClient().getClientName());
+            clientImage.setFill(new ImagePattern(new Image(GetRootLink.getRootPathForClient(room.getClient().getClientImage()).toString())));
         }
         else {
             clientName.setText("Empty");

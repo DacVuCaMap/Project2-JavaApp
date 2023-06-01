@@ -51,9 +51,9 @@
             <Insets left="20.0" />
          </padding>
       </HBox>
-      <ScrollPane id="scrollPane" layoutY="90.0" prefHeight="511.0" prefWidth="710.0">
+      <ScrollPane id="scrollPane" layoutY="90.0" prefHeight="505.0" prefWidth="710.0">
          <content>
-            <VBox fx:id="vboxList" layoutX="10.0" prefHeight="510.0" prefWidth="694.0">
+            <VBox fx:id="vboxList" layoutX="10.0" prefHeight="500.0" prefWidth="694.0">
                <padding>
                   <Insets left="20.0" />
                </padding>

@@ -2,6 +2,7 @@ package com.example.app.Controller.Contract;
 
 import com.example.app.Controller.Contract.ContractClick.*;
 import com.example.app.DB.ContractDAO;
+import com.example.app.DB.RoomDAO;
 import com.example.app.Entity.Apartment;
 import com.example.app.Entity.Contract;
 import com.example.app.Entity.sharedMenuData;
@@ -77,6 +78,7 @@ public class ContractDetails implements Initializable {
                 if (buttonType == buttonTypeYes) {
                     System.out.println("User clicked Yes");
                     new ContractDAO().delete(contract.getContractId());
+                    new RoomDAO().changeRoomStatus(contract.getRoom(),"AVAILABLE");
                     sharedMenuData.contractListController.upDateList();
                     Stage stage = (Stage)deleteBtn.getScene().getWindow();
                     stage.close();

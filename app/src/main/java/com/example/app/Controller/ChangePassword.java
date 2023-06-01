@@ -54,7 +54,8 @@ public class ChangePassword implements Initializable {
                 flag=false;
                 newLabel.setText("* Invalid password");
             }
-            if (!newField.equals(reField)){
+            System.out.println(newField + " and "+reField);
+            if (!newField.getText().equals(reField.getText())){
                 flag=false;
                 reLabel.setText("* Invalid");
             }

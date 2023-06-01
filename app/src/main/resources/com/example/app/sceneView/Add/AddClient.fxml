@@ -74,6 +74,7 @@
             </Pane>
             <Pane prefHeight="70.0" prefWidth="200.0">
                <children>
+                  <TextField fx:id="nameField" layoutX="36.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
                   <TextField fx:id="idField" layoutX="241.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" />
                   <Label layoutX="241.0" layoutY="6.0" prefHeight="17.0" prefWidth="76.0" text="ID (citizenID)" />
                   <Label fx:id="idNof" layoutX="241.0" layoutY="48.0" prefHeight="17.0" prefWidth="131.0" textFill="RED">
@@ -81,7 +82,6 @@
                         <Font name="Calibri Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nameField" layoutX="36.0" layoutY="23.0" prefHeight="25.0" prefWidth="171.0" />
                   <Label layoutX="36.0" layoutY="6.0" prefHeight="17.0" prefWidth="44.0" text="Name" />
                </children>
             </Pane>

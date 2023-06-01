@@ -131,7 +131,8 @@ public class AddContract implements Initializable {
                 Contract contract = new Contract(id,startDate,startMonth,endMonth,des,client,room,total);
                 //insert
                 new ContractDAO().insertData(contract);
-                new RoomDAO().changeRoomStatus(room);
+                new RoomDAO().changeRoomStatus(room,"OCCUPIED");
+                new RoomDAO().addClient(room,client);
                 //close
                 Stage stage =(Stage) cancleBtn.getScene().getWindow();
                 stage.close();
@@ -165,7 +166,7 @@ public class AddContract implements Initializable {
         int currentMonth = currentDate.getMonthValue();
         int monthValue=0;
         int year = currentDate.getYear();
-        for (int i=0;i<7;i++){
+        for (int i=0;i<3;i++){
             if ((currentMonth+i-monthValue)>12){
                 monthValue+=12;
                 year++;

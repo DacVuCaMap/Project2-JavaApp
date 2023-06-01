@@ -2,6 +2,7 @@ package com.example.app.DB;
 
 import com.example.app.Controller.Add.AddApartment;
 import com.example.app.Entity.Apartment;
+import com.example.app.Entity.Client;
 import com.example.app.Entity.Enum.RoomType;
 import com.example.app.Entity.Enum.StatusRoom;
 import com.example.app.Entity.Host;
@@ -61,7 +62,7 @@ public class RoomDAO implements DBGeneric<Room>{
                 StatusRoom statusRoom = getStatusRoom(rs.getString("roomStatus"));
                 List<String> imageRoom = roomImageDAO.getRoomImageFromDB(rs.getString("roomId"));
                 Apartment apartment = new ApartmentDAO().getApartmentbyId(rs.getString("apartmentId"));
-
+                Client client = new ClientDAO().searchClientById(rs.getString("clientId"));
                 roomList.add(new Room(rs.getString("roomId")
                         ,rs.getString("roomNumber")
                         ,rs.getDouble("price")
@@ -73,7 +74,8 @@ public class RoomDAO implements DBGeneric<Room>{
                         ,imageRoom.get(4)
                         ,statusRoom
                         ,apartment
-                        ,rs.getString("desRoom")));
+                        ,rs.getString("desRoom")
+                        ,client));
             }
             return roomList;
         } catch (SQLException e) {
@@ -128,12 +130,24 @@ public class RoomDAO implements DBGeneric<Room>{
         Room room = mapRoom.get(str);
         return room;
     }
-    public void changeRoomStatus(Room room){
+    public void changeRoomStatus(Room room,String str){
         String sql = "update tblroom set roomStatus = ? where roomId=?";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1,"OCCUPIED");
+            pstm.setString(1,str);
+            pstm.setString(2,room.getRoomId());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void addClient(Room room, Client client){
+        String sql = "update tblroom set clientId = ? where roomId=?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,client.getClientId());
             pstm.setString(2,room.getRoomId());
             pstm.executeUpdate();
         } catch (SQLException e) {

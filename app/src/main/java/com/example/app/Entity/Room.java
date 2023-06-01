@@ -16,9 +16,26 @@ public class Room {
     private StatusRoom status;
     private Apartment apartment;
     private String desRoom;
+    private Client client;
 
     //define enum
     public Room(){;}
+
+    public Room(String roomId, String roomNumber, double price, RoomType roomType, String img1, String img2, String img3, String img4, String img5, StatusRoom status, Apartment apartment, String desRoom, Client client) {
+        this.roomId = roomId;
+        this.roomNumber = roomNumber;
+        this.price = price;
+        this.roomType = roomType;
+        this.img1 = img1;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
+        this.img5 = img5;
+        this.status = status;
+        this.apartment = apartment;
+        this.desRoom = desRoom;
+        this.client = client;
+    }
 
     public Room(String roomId, String roomNumber, double price, RoomType roomType, String img1, String img2, String img3, String img4, String img5, StatusRoom status, Apartment apartment, String desRoom) {
         this.roomId = roomId;
@@ -34,6 +51,7 @@ public class Room {
         this.apartment = apartment;
         this.desRoom = desRoom;
     }
+
 
     public String getRoomId() {
         return roomId;
@@ -131,6 +149,14 @@ public class Room {
         this.desRoom = desRoom;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
@@ -146,6 +172,7 @@ public class Room {
                 ", status=" + status +
                 ", apartment=" + apartment +
                 ", desRoom='" + desRoom + '\'' +
+                ", client=" + client +
                 '}';
     }
 }

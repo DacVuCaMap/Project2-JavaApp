@@ -93,6 +93,7 @@ public class UserDB implements DBGeneric<User>{
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,name);
             pstm.setString(2,id);
+            pstm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

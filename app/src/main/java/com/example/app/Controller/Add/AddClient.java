@@ -11,7 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -145,10 +147,12 @@ public class AddClient implements Initializable {
 
                 //target file
                 fileName = buildId()+"img.png";
-                fileName = imgLink;
-                Path targetFile = GetRootLink.getRootPathForRoom(fileName);
+                imgLink = fileName;
+                Path targetFile = GetRootLink.getRootPathForClient(fileName);
                 try {
                     Files.copy(sourceFile,targetFile, StandardCopyOption.REPLACE_EXISTING);
+                    circleImg.setFill(new ImagePattern(new Image(targetFile.toString())));
+                    circleText.setText("");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
