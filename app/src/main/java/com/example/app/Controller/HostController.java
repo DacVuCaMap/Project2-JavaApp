@@ -23,6 +23,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -33,10 +34,17 @@ public class HostController implements Initializable {
     Button addBtn;
     @FXML
     Stage stage;
+    @FXML
+    Button searchBtn;
+    @FXML
+    TextField searchInput;
     private static Stage primaryStage = LoginScene.getStage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             setVboxList(primaryStage);
+            searchBtn.setOnAction(e->{
+                updateSearch(searchInput.getText());
+            });
 
     }
     public void setVboxList(Stage primaryStage) {
@@ -84,6 +92,26 @@ public class HostController implements Initializable {
                 }
             }
         }
-
+    }
+    public void updateSearch(String str){
+        vboxList.getChildren().clear();
+        DBGeneric<Host> hostDBGeneric = new HostDAO();
+        List<Host> hostList = hostDBGeneric.getAllData();
+        if (hostList!=null){
+            for (Host host : hostList){
+                if (host.getHostName().contains(str) || host.getHostId().contains(str)){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/HostItem.fxml"));
+                    try{
+                        HBox hBox = fxmlLoader.load();
+                        HostItem item = fxmlLoader.getController();
+                        item.setData(host);
+                        vboxList.getChildren().add(hBox);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
     }
 }

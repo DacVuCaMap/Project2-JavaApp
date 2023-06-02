@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -28,6 +29,10 @@ public class ContractList implements Initializable {
     private VBox vboxList;
     @FXML
     private Button btnContract;
+    @FXML
+    private Button searchBtn;
+    @FXML
+    private TextField searchInput;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sharedMenuData.contractListController = this;
@@ -51,6 +56,10 @@ public class ContractList implements Initializable {
                 throw new RuntimeException(ex);
             }
         });
+        searchBtn.setOnAction(e->{
+            updateSearch(searchInput.getText());
+        });
+
     }
     public void upDateList(){
         vboxList.getChildren().clear();
@@ -67,6 +76,27 @@ public class ContractList implements Initializable {
                     vboxList.getChildren().add(hBox);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+    public void updateSearch(String str){
+        vboxList.getChildren().clear();
+        DBGeneric<Contract> contractDBGeneric = new ContractDAO();
+        List<Contract> contractList = contractDBGeneric.getAllData();
+        if (contractList!=null){
+            for (Contract contract : contractList){
+                if (contract.getContractId().contains(str) || contract.getClient().getClientName().contains(str)){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/Contract/ContractItem.fxml"));
+                    try{
+                        HBox hBox = fxmlLoader.load();
+                        ContractItem contractItem = fxmlLoader.getController();
+                        contractItem.setData(contract);
+                        vboxList.getChildren().add(hBox);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         }

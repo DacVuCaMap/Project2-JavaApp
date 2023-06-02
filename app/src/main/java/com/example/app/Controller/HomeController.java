@@ -59,7 +59,8 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label userName;
-
+    @FXML
+    private Button logoutBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,6 +98,10 @@ public class HomeController implements Initializable {
         });
         btnDocs.setOnAction(e->{
             setStage("UserManualScene.fxml",e);
+        });
+        logoutBtn.setOnAction(e->{
+            UserSession.userMail="";
+            setStage("LoginScene.fxml",e);
         });
     }
     public void setStage(String str,ActionEvent e){

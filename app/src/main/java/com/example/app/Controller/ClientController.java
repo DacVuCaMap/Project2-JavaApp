@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -32,6 +33,10 @@ public class ClientController implements Initializable {
     VBox vboxList;
     @FXML
     Button addBtn;
+    @FXML
+    TextField searchInput;
+    @FXML
+    Button searchBtn;
     private Stage primaryStage = LoginScene.getStage;
     private SelectMenuController selectMenuController;
     public void setSelectMenuController(SelectMenuController selectMenuController){
@@ -40,6 +45,9 @@ public class ClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setVboxList();
+        searchBtn.setOnAction(e->{
+            updateSearch(searchInput.getText());
+        });
     }
     public void setVboxList() {
         updateList();
@@ -73,6 +81,31 @@ public class ClientController implements Initializable {
         List<Client> clientList = clientDBGeneric.getAllData();
         if (clientList!=null){
             for (Client client  : clientList){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/ClientItem.fxml"));
+                try{
+                    HBox hBox = fxmlLoader.load();
+                    ClientItem item = fxmlLoader.getController();
+                    item.setData(client);
+                    vboxList.getChildren().add(hBox);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+    public void updateSearch(String str){
+        vboxList.getChildren().clear();
+        List<Client> rs = new ArrayList<>();
+        DBGeneric<Client> clientDBGeneric = new ClientDAO();
+        List<Client> clientList = clientDBGeneric.getAllData();
+        if (clientList!=null){
+            for (Client client : clientList){
+                if (client.getClientName().contains(str) || client.getClientId().contains(str)){
+                    rs.add(client);
+                }
+            }
+            for (Client client : rs){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/ClientItem.fxml"));
                 try{

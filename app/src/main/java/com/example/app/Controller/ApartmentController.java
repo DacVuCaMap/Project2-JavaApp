@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -30,9 +31,16 @@ public class ApartmentController implements Initializable {
     Button addBtn;
     @FXML
     VBox vboxList;
+    @FXML
+    Button searchBtn;
+    @FXML
+    TextField searchInput;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setVboxList();
+        searchBtn.setOnAction(e->{
+            updateSearch(searchInput.getText());
+        });
     }
     public void setVboxList() {
         updateList();
@@ -77,6 +85,26 @@ public class ApartmentController implements Initializable {
                 }
             }
         }
-
+    }
+    public void updateSearch(String str){
+        vboxList.getChildren().clear();
+        DBGeneric<Apartment> apartmentDBGeneric = new ApartmentDAO();
+        List<Apartment> apartmentList = apartmentDBGeneric.getAllData();
+        if (apartmentList!=null){
+            for (Apartment apartment : apartmentList){
+                if (apartment.getApartmentName().contains(str) || apartment.getApartmentId().contains(str)){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/items/ApartmentItem.fxml"));
+                    try{
+                        HBox hBox = fxmlLoader.load();
+                        ApartmentItem item = fxmlLoader.getController();
+                        item.setData(apartment);
+                        vboxList.getChildren().add(hBox);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
     }
 }

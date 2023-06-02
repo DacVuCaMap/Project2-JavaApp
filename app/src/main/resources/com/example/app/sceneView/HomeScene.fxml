@@ -160,5 +160,6 @@
             <Image url="@../../../../imageData/building.png" />
          </image>
       </ImageView>
+      <Button id="backToMenu" fx:id="logoutBtn" layoutX="780.0" layoutY="559.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" stylesheets="@../cssStyle/SelectMenu.css" text="Logout" />
    </children>
 </AnchorPane>
