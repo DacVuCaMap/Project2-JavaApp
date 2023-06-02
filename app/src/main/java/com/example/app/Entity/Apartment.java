@@ -7,9 +7,21 @@ public class Apartment {
     private String address;
     private String apartmentImage;
 
+    public Apartment() {;}
     public Apartment(String apartmentId, Host host, String apartmentName, String address, String apartmentImage) {
         this.apartmentId = apartmentId;
         this.host = host;
+        this.apartmentName = apartmentName;
+        this.address = address;
+        this.apartmentImage = apartmentImage;
+    }
+
+    public Apartment(String apartmentName, String address) {
+        this.apartmentName = apartmentName;
+        this.address = address;
+    }
+
+    public Apartment(String apartmentName, String address, String apartmentImage) {
         this.apartmentName = apartmentName;
         this.address = address;
         this.apartmentImage = apartmentImage;

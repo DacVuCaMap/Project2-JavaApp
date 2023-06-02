@@ -41,7 +41,18 @@ public class HostDAO implements DBGeneric<Host>{
     }
 
     @Override
-    public void delete(String i) {}
+    public void delete(String i) {
+        String sql="DELETE FROM tblhost WHERE hostId = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,i);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
@@ -93,6 +104,52 @@ public class HostDAO implements DBGeneric<Host>{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void updateNoImg(Host host, String id) {
+        String sql="UPDATE tblHost SET hostId = ?, hostName = ?, dob = ?, " +
+                "address = ?, citizenID = ?,  phone = ?, email = ? WHERE hostId  = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,host.getHostId());
+            pstm.setString(2,host.getHostName());
+            pstm.setString(3, String.valueOf(host.getDob()));
+            pstm.setString(4,host.getAddress());
+            pstm.setString(5, host.getCitizenId());
+            pstm.setString(6,host.getHostPhone());
+            pstm.setString(7, host.getHostEmail());
+            pstm.setString(8,id);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Host getHostById(String id) {
+        String sql = "Select * from tblhost where hostId = ?";
+        Host host = new Host();
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,id);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                host.setHostId(id);
+                host.setHostImage(rs.getString("image"));
+                host.setHostName(rs.getString("hostName"));
+                host.setHostEmail(rs.getString("email"));
+                host.setHostPhone(rs.getString("phone"));
+                host.setAddress(rs.getString("address"));
+                host.setDob(rs.getDate("dob").toLocalDate());
+                host.setCitizenId(rs.getString("citizenID"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return host;
     }
 
     @Override

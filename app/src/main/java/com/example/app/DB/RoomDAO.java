@@ -65,6 +65,11 @@ public class RoomDAO implements DBGeneric<Room>{
     }
 
     @Override
+    public void updateNoImg(Room room, String id) {
+
+    }
+
+    @Override
     public void delete(String i) {
 
     }

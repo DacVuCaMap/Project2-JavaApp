@@ -4,6 +4,7 @@ import com.example.app.DB.ClientDAO;
 import com.example.app.DB.GetRootLink;
 import com.example.app.DB.RoomDAO;
 import com.example.app.Entity.Client;
+import com.example.app.FormatDate;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -54,8 +56,7 @@ public class EditClientController implements Initializable {
     private TextField name;
     @FXML
     private TextField phone;
-    @FXML
-    private TextField room;
+    @FXML Label tmpURL;
     Image image = null;
     public void setDetail(Client client){
         RoomDAO roomDAO = new RoomDAO();
@@ -63,7 +64,7 @@ public class EditClientController implements Initializable {
         clientId.setText(client.getClientId());
         avatar.setImage(image);
         name.setText(client.getClientName());
-        dob.setText(String.valueOf(client.getClientDOB()));
+        dob.setText(FormatDate.formatDateString(String.valueOf(client.getClientDOB())));
         phone.setText(String.valueOf(client.getClientPhone()));
         email.setText(client.getClientEmail());
         address.setText(client.getClientAddress());
@@ -73,7 +74,6 @@ public class EditClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         TextField textFields[] = {name, dob, phone, email, citizenID};
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy");
         ClientDAO clientDAO = new ClientDAO();
 //        Sự kiện khi click vào nút Edit sẽ cho phép sửa các ô input
         btnEdit.setOnMouseClicked(e->{
@@ -95,28 +95,59 @@ public class EditClientController implements Initializable {
                     // Tải ảnh từ tệp tin được chọn lên ImageView
                     Image image = new Image(selectedFile.toURI().toString());
                     avatar.setImage(image);
+                    tmpURL.setText(selectedFile.toString());
+                    System.out.println(selectedFile.toString());
                 }});
 
 //            Sự kiện khi chọn nút Save
             btnSave.setOnMouseClicked(event->{
+                if(tmpURL.getText()==""){
+                    Client clientUpdate = new Client(
+                            clientId.getText(),
+                            name.getText(),
+                            email.getText(),
+                            phone.getText(),
+                            address.getText(),
+                            LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
+                            citizenID.getText()
+                    );
+                   clientDAO.updateNoImg(clientUpdate, clientId.getText());
+                }else {
+                    String absolute = tmpURL.getText();
+                    Path absolutePath = Path.of(absolute);
+                    Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/clientIMG");
+                    try {
+                        Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    Path path = Paths.get(absolute);
+                    String fileName = path.getFileName().toString();
 
-                Client newClient = new Client(
-                        clientId.getText(),
-                        avatar.getImage().getUrl(),
-                        name.getText(),
-                        email.getText(),
-                        phone.getText(),
-                        address.getText(),
-                        LocalDate.parse(dob.getText(), formatter),
-                        citizenID.getText()
-                );
+                    Client newClient = new Client(
+                            clientId.getText(),
+                            fileName,
+                            name.getText(),
+                            email.getText(),
+                            phone.getText(),
+                            address.getText(),
+                            LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
+                            citizenID.getText()
+                    );
 
-                clientDAO.update(newClient, clientId.getText());
+                    clientDAO.update(newClient, clientId.getText());
+                }
+                tmpURL.setText("");
                 for(TextField i: textFields){
                     i.setEditable(false);
                 }
                 address.setEditable(false);
                 changeImg.setDisable(true);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Edit success");
+                alert.setHeaderText(null);
+                alert.setContentText("Your update is complete!");
+                alert.showAndWait();
             });
         });
 
@@ -124,11 +155,11 @@ public class EditClientController implements Initializable {
         btnRefresh.setOnMouseClicked(event->{
             Client client = new Client();
             client = clientDAO.getDataById(clientId.getText());
-            image = new Image(String.valueOf(getClass().getResource(client.getClientImage())));
+            image = new Image(GetRootLink.getRootPathForClient(client.getClientImage()).toString());
             clientId.setText(client.getClientId());
             avatar.setImage(image);
             name.setText(client.getClientName());
-            dob.setText(String.valueOf(client.getClientDOB()));
+            dob.setText(FormatDate.formatDateString(String.valueOf(client.getClientDOB())));
             phone.setText(String.valueOf(client.getClientPhone()));
             email.setText(client.getClientEmail());
             address.setText(client.getClientAddress());
@@ -142,15 +173,15 @@ public class EditClientController implements Initializable {
 
 //        Sự kiện khi click vào nút delete
         btnDelete.setOnMouseClicked(event->{
-            clientDAO.delete(clientId.getText());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Xóa thành công");
-            alert.setHeaderText(null);
-            alert.setContentText("Bản ghi đã được xóa thành công.");
-            alert.showAndWait();
-            // Đóng cửa sổ hiện tại của bản ghi đó
-            Stage stage = (Stage) btnDelete.getScene().getWindow();
-            stage.close();
+//            clientDAO.delete(clientId.getText());
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Xóa thành công");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Bản ghi đã được xóa thành công.");
+//            alert.showAndWait();
+//            // Đóng cửa sổ hiện tại của bản ghi đó
+//            Stage stage = (Stage) btnDelete.getScene().getWindow();
+//            stage.close();
         });
 
     }

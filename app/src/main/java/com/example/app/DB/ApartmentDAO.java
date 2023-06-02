@@ -50,7 +50,34 @@ public class ApartmentDAO implements DBGeneric<Apartment>{
     }
 
     @Override
-    public void delete(String i) {}
+    public void updateNoImg(Apartment ap, String id) {
+        String sql="UPDATE tblapartment SET apartmentName = ?, address = ? WHERE apartmentId  = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,ap.getApartmentName());
+            pstm.setString(2,ap.getAddress());
+            pstm.setString(3,id);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void delete(String i) {
+        String sql="DELETE FROM tblapartment WHERE apartmentId = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,i);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     @Override
@@ -89,6 +116,25 @@ public class ApartmentDAO implements DBGeneric<Apartment>{
             }
         }
         return null;
+    }
+
+    public Apartment getApById(String id) {
+        String sql = "Select * from tblapartment where apartmentId = ?";
+        Apartment apartment = new Apartment();
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,id);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                apartment.setApartmentName(rs.getString("apartmentName"));
+                apartment.setAddress(rs.getString("address"));
+                apartment.setApartmentImage(rs.getString("image"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return apartment;
     }
 
 

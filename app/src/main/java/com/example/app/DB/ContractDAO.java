@@ -40,6 +40,11 @@ public class ContractDAO implements DBGeneric<Contract>{
     }
 
     @Override
+    public void updateNoImg(Contract contract, String id) {
+
+    }
+
+    @Override
     public void delete(String id) {
         String sql="DELETE FROM tblContract where contractId=?";
         try {

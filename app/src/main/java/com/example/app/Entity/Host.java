@@ -24,7 +24,15 @@ public class Host {
         this.hostEmail = hostEmail;
         this.hostPhone = hostPhone;
     }
-
+    public Host(String hostId, String hostName, LocalDate dob, String address, String citizenId, String hostEmail, String hostPhone) {
+        this.hostId = hostId;
+        this.hostName = hostName;
+        this.dob = dob;
+        this.address = address;
+        this.citizenId = citizenId;
+        this.hostEmail = hostEmail;
+        this.hostPhone = hostPhone;
+    }
     public String getHostId() {
         return hostId;
     }

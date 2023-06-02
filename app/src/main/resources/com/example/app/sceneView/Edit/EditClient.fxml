@@ -10,20 +10,20 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditClientController">
    <children>
-      <VBox layoutX="52.0" layoutY="108.0" prefHeight="350.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <VBox layoutX="52.0" layoutY="108.0" prefHeight="320.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <children>
-            <HBox prefHeight="60.0" prefWidth="700.0">
+            <HBox prefHeight="80.0" prefWidth="700.0">
                <children>
                   <VBox prefHeight="60.0" prefWidth="350.0">
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="19.0" text="Họ và Tên">
+                              <Label layoutX="14.0" layoutY="28.0" text="Name">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="name" editable="false" layoutX="116.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="name" editable="false" layoutX="116.0" layoutY="25.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -32,30 +32,27 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="27.0" layoutY="18.0" text="ID" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="18.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="clientId" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Button fx:id="changeImg" disable="true" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="72.0" text="Avatar" />
+                              <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="110.0" layoutX="166.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="tmpURL" layoutX="289.0" layoutY="32.0" prefHeight="25.0" prefWidth="38.0" visible="false" />
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="60.0" prefWidth="700.0">
+            <HBox prefHeight="80.0" prefWidth="700.0">
                <children>
                   <VBox prefHeight="60.0" prefWidth="350.0">
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="19.0" text="Số điện thoại">
+                              <Label layoutX="14.0" layoutY="28.0" text="ID" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="phone" editable="false" layoutX="116.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="clientId" editable="false" layoutX="114.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -64,30 +61,30 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="27.0" layoutY="18.0" text="Ngày sinh" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="18.0">
+                              <TextField fx:id="phone" editable="false" layoutX="136.0" layoutY="25.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Label layoutX="21.0" layoutY="28.0" text="Phone">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="dob" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="60.0" prefWidth="700.0">
+            <HBox prefHeight="80.0" prefWidth="700.0">
                <children>
                   <VBox prefHeight="60.0" prefWidth="350.0">
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="18.0" text="Địa chỉ">
+                              <Label layoutX="14.0" layoutY="28.0" text="Address">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="address" editable="false" layoutX="115.0" layoutY="9.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
+                              <TextArea fx:id="address" editable="false" layoutX="115.0" layoutY="19.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -96,83 +93,73 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="28.0" layoutY="18.0" text="Email" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="18.0">
+                              <Label layoutX="22.0" layoutY="28.0" text="Data of Birth" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="email" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="dob" editable="false" layoutX="136.0" layoutY="25.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="60.0" prefWidth="700.0">
+            <HBox prefHeight="68.0" prefWidth="700.0">
                <children>
                   <VBox prefHeight="60.0" prefWidth="350.0">
                      <children>
-                        <AnchorPane prefHeight="60.0" prefWidth="200.0">
+                        <AnchorPane prefHeight="76.0" prefWidth="350.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="18.0" text="Số CCCD">
+                              <Label layoutX="14.0" layoutY="22.0" text="CitizenID">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="citizenID" editable="false" layoutX="114.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="citizenID" editable="false" layoutX="115.0" layoutY="20.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
                   <VBox prefHeight="60.0" prefWidth="350.0">
                      <children>
-                        <AnchorPane prefHeight="60.0" prefWidth="200.0">
+                        <AnchorPane prefHeight="80.0" prefWidth="350.0">
                            <children>
-                              <Label layoutX="29.0" layoutY="18.0" text="Phòng thuê" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="18.0">
+                              <Label layoutX="28.0" layoutY="22.0" text="Email" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="22.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="room" editable="false" layoutX="136.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="email" editable="false" layoutX="136.0" layoutY="20.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="110.0" prefWidth="700.0">
-               <children>
-                  <AnchorPane prefHeight="110.0" prefWidth="700.0">
-                     <children>
-                        <ImageView fx:id="avatar" fitHeight="110.0" fitWidth="110.0" layoutX="310.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="changeImg" disable="true" layoutX="627.0" layoutY="85.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="72.0" text="Đổi ảnh" />
-                     </children>
-                  </AnchorPane>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="Thông tin chi tiết" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="INFO DETAIL" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btnEdit" layoutX="100.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Sửa">
+      <Button fx:id="btnEdit" layoutX="100.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Edit">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="297.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Lưu">
+      <Button fx:id="btnSave" layoutX="297.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Save">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnRefresh" layoutX="516.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Nạp lại">
+      <Button fx:id="btnRefresh" layoutX="516.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Refresh">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="714.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Xóa">
+      <Button fx:id="btnDelete" layoutX="714.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Delete">
          <font>
             <Font size="16.0" />
          </font>
