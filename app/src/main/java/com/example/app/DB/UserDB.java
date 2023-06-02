@@ -35,6 +35,11 @@ public class UserDB implements DBGeneric<User>{
     }
 
     @Override
+    public void updateNoImg(User user, String id) {
+
+    }
+
+    @Override
     public void delete(String i) {
 
     }

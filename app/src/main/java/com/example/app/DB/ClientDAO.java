@@ -1,7 +1,6 @@
 package com.example.app.DB;
 
 import com.example.app.Entity.Client;
-import com.example.app.Entity.Room;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -50,6 +49,28 @@ public class ClientDAO implements DBGeneric<Client>{
             pstm.setString(7,client.getClientEmail());
             pstm.setString(8, client.getCitizenID());
             pstm.setString(9,id);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateNoImg(Client client, String id) {
+        String sql="UPDATE tblClient SET clientId = ?, clientName = ?, dob = ?, " +
+                "address = ?, phone = ?, email = ?, citizenID = ? WHERE clientId  = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,client.getClientId());
+            pstm.setString(2,client.getClientName());
+            pstm.setString(3, String.valueOf(client.getClientDOB()));
+            pstm.setString(4,client.getClientAddress());
+            pstm.setString(5, client.getClientPhone());
+            pstm.setString(6,client.getClientEmail());
+            pstm.setString(7, client.getCitizenID());
+            pstm.setString(8,id);
             pstm.executeUpdate();
             pstm.close();
         } catch (SQLException e) {
@@ -115,7 +136,6 @@ public class ClientDAO implements DBGeneric<Client>{
                 client.setClientAddress(rs.getString("address"));
                 client.setClientDOB(rs.getDate("dob").toLocalDate());
                 client.setCitizenID(rs.getString("citizenID"));
-                client.setRoomId(rs.getString("roomId"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
