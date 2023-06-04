@@ -92,6 +92,8 @@ public class EditHostController implements Initializable {
                     hostImg.setImage(image);
                     tmpURL.setText(selectedFile.toString());
                 }
+
+
             });
 
 //            Sự kiện khi chọn nút Save

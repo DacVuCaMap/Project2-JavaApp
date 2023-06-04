@@ -135,7 +135,7 @@ public class AddRoom implements Initializable {
                 Double price = Double.parseDouble(priceField.getText());
                 Room room = new Room(buildId(),numField.getText(),price
                 ,new RoomDAO().getRoomType(typeBox.getValue()),listImg[0],listImg[1]
-                ,listImg[2],listImg[3],listImg[4],StatusRoom.A,apartment,desField.getText());
+                ,listImg[2],listImg[3],listImg[4],StatusRoom.AVAILABLE,apartment,desField.getText());
                 roomDBGeneric.insertData(room);
 
                 //close scene

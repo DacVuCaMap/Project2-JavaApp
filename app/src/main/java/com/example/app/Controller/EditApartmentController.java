@@ -123,7 +123,8 @@ public class EditApartmentController implements Initializable {
         btnRefresh.setOnMouseClicked(event->{
             Apartment apartment = new Apartment();
             apartment = apartmentDAO.getApById(apId.getText());
-            img = new Image(GetRootLink.getRootPathForClient(apartment.getApartmentImage()).toString());
+            System.out.println(apartment);
+            img = new Image(GetRootLink.getRootPathForApartment(apartment.getApartmentImage()).toString());
             imageAp.setImage(img);
             apartmentName.setText(apartment.getApartmentName());
             address.setText(apartment.getAddress());

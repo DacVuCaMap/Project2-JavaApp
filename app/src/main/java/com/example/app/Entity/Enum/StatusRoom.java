@@ -1,7 +1,7 @@
 package com.example.app.Entity.Enum;
 
 public enum StatusRoom {
-    A("AVAILABLE"),O("OCCUPIED"),M("MAINTENANCE");
+    AVAILABLE("AVAILABLE"),OCCUPIED("OCCUPIED"),MAINTENANCE("MAINTENANCE");
 
     private String label;
 
@@ -15,5 +15,14 @@ public enum StatusRoom {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public static StatusRoom fromValue(String value) {
+        for (StatusRoom status : StatusRoom.values()) {
+            if (status.getLabel().equalsIgnoreCase(value)) {
+                return status;
+            }
+        }
+        throw new IllegalArgumentException("Invalid status value: " + value);
     }
 }

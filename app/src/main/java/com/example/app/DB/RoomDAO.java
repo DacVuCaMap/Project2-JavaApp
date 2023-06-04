@@ -41,8 +41,7 @@ public class RoomDAO implements DBGeneric<Room>{
     @Override
     public void update(Room room,String id) {
         String sql="UPDATE tblroom SET roomNumber = ?, price = ?, " +
-                "typeRoom = ?, desRoom = ?, image = ?, image2 = ?, image3 = ?, " +
-                "image4 = ?, image5 = ?, roomStatus = ? WHERE roomId  = ?";
+                "typeRoom = ?, desRoom = ?, roomStatus = ? WHERE roomId  = ?";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -50,13 +49,8 @@ public class RoomDAO implements DBGeneric<Room>{
             pstm.setDouble(2, room.getPrice());
             pstm.setString(3, String.valueOf(room.getRoomType()));
             pstm.setString(4, room.getDesRoom());
-            pstm.setString(5,room.getImg1());
-            pstm.setString(6,room.getImg2());
-            pstm.setString(7, room.getImg3());
-            pstm.setString(8, room.getImg4());
-            pstm.setString(9, room.getImg5());
-            pstm.setString(10, String.valueOf(room.getStatus()));
-            pstm.setString(11, id);
+            pstm.setString(5, String.valueOf(room.getStatus()));
+            pstm.setString(6, id);
             pstm.executeUpdate();
             pstm.close();
         } catch (SQLException e) {
@@ -86,19 +80,18 @@ public class RoomDAO implements DBGeneric<Room>{
             while (rs.next()){
                 RoomType roomType = getRoomType(rs.getString("typeRoom"));
                 StatusRoom statusRoom = getStatusRoom(rs.getString("roomStatus"));
-//                List<String> imageRoom = roomImageDAO.getRoomImageFromDB(rs.getString("roomId"));
-
+                List<String> imageRoom = roomImageDAO.getRoomImageFromDB(rs.getString("roomId"));
                 Apartment apartment = new ApartmentDAO().getApartmentbyId(rs.getString("apartmentId"));
                 Client client = new ClientDAO().searchClientById(rs.getString("clientId"));
                 roomList.add(new Room(rs.getString("roomId")
                         ,rs.getString("roomNumber")
                         ,rs.getDouble("price")
                         ,roomType
-                        ,null
-                        ,null
-                        ,null
-                        ,null
-                        ,null
+                        ,imageRoom.get(0)
+                        ,imageRoom.get(1)
+                        ,imageRoom.get(2)
+                        ,imageRoom.get(3)
+                        ,imageRoom.get(4)
                         ,statusRoom
                         ,apartment
                         ,rs.getString("desRoom")
@@ -131,11 +124,11 @@ public class RoomDAO implements DBGeneric<Room>{
     public StatusRoom getStatusRoom(String str){
         switch (str){
             case "AVAILABLE":
-                return StatusRoom.A;
+                return StatusRoom.AVAILABLE;
             case"OCCUPIED":
-                return StatusRoom.O;
+                return StatusRoom.OCCUPIED;
             case "MAINTENANCE":
-                return StatusRoom.M;
+                return StatusRoom.MAINTENANCE;
         }
         return null;
     }
