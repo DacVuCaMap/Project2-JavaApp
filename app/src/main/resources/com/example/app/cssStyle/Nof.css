@@ -1,0 +1,9 @@
+.bg{
+    -fx-background-color: white;
+}
+.paneBg{
+    -fx-background-radius: 10px;
+    -fx-background-color: #ffffff;
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
+}

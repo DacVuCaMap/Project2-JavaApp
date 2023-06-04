@@ -114,4 +114,14 @@ public class UserDB implements DBGeneric<User>{
             throw new RuntimeException(e);
         }
     }
+    public boolean checkMailUnique(String mail){
+        List<User> userList = getAllData();
+        for (User user : userList){
+            System.out.println(user);
+            if (user.getUserMail().equals(mail)){
+                return false;
+            }
+        }
+        return true;
+    }
 }

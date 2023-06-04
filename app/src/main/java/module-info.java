@@ -8,6 +8,10 @@
      //jBcrypt
      requires jBCrypt;
      requires java.prefs;
+     requires java.mail;
+     requires java.desktop;
+
+
      opens com.example.app to javafx.fxml;
     exports com.example.app;
 

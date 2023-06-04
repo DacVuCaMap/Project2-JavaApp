@@ -12,3 +12,6 @@
 #validation{
     -fx-text-fill: red;
 }
+.resendEmail:hover{
+    -fx-text-fill: #006AE8;
+}
