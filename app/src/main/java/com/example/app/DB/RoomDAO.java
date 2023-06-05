@@ -21,10 +21,13 @@ public class RoomDAO implements DBGeneric<Room>{
     @Override
     public void insertData(Room room) {
         String sql = "Insert into tblRoom(roomId,roomNumber,price,TypeRoom,desRoom,roomStatus,apartmentId) " +
-                "values (?,?,?,?,?,?,?)";
+                "values (?,?,?,?,?,?,?) ";
+        String sql2 = "INSERT INTO tblRoomImg(roomId,img1,img2,img3,img4,img5)" +
+                "values (?,?,?,?,?,?)";
         try{
             conn = MySQLConnection.getConnection();
             PreparedStatement ptm = conn.prepareStatement(sql);
+            PreparedStatement ptm2 = conn.prepareStatement(sql2);
             ptm.setString(1,room.getRoomId());
             ptm.setString(2,room.getRoomNumber());
             ptm.setDouble(3,room.getPrice());
@@ -32,7 +35,20 @@ public class RoomDAO implements DBGeneric<Room>{
             ptm.setString(5,room.getDesRoom());
             ptm.setString(6,room.getStatus().getLabel());
             ptm.setString(7,room.getApartment().getApartmentId());
+
+            //ptm2
+            ptm2.setString(1,room.getRoomId());
+            ptm2.setString(2,room.getImg1());
+            ptm2.setString(3,room.getImg2());
+            ptm2.setString(4,room.getImg3());
+            ptm2.setString(5,room.getImg4());
+            ptm2.setString(6,room.getImg5());
+            // Start the transaction
+            conn.setAutoCommit(false);
             ptm.executeUpdate();
+            ptm2.executeUpdate();
+            //commit transaction
+            conn.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -119,12 +135,12 @@ public class RoomDAO implements DBGeneric<Room>{
         switch (str){
             case "Studio":
                 return RoomType.Studio;
-            case"k1n1":
+            case"1k1n":
                 return RoomType.k1n1;
             case "Duplex":
                 return RoomType.Duplex;
-            case "k2n1":
-                return RoomType.k2n1;
+            case "1k2n":
+                return RoomType.k1n2;
         }
         return null;
     }
