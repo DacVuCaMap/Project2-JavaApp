@@ -141,7 +141,7 @@ public class AddRoom implements Initializable {
                         ,listImg[2]
                         ,listImg[3]
                         ,listImg[4]
-                        ,StatusRoom.A
+                        ,StatusRoom.AVAILABLE
                         ,apartment
                         ,desField.getText());
                 System.out.println(room);

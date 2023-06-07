@@ -52,6 +52,14 @@ public class Room {
         this.desRoom = desRoom;
     }
 
+    public Room(String roomNumber, double price, RoomType roomType, StatusRoom status, String desRoom) {
+        this.roomNumber = roomNumber;
+        this.price = price;
+        this.roomType = roomType;
+        this.status = status;
+        this.desRoom = desRoom;
+    }
+
 
     public String getRoomId() {
         return roomId;

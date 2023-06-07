@@ -15,6 +15,9 @@ public class GetRootLink {
     }
     public static Path getRootPathForRoom(String fileName){
         String projectRoot = System.getProperty("user.dir");
+        if(fileName==null){
+            return Path.of(projectRoot + "/src/main/resources/imageData/objectData/roomIMG/"+"roomdefault.jpg");
+        }
         String resourcePath = projectRoot + "/src/main/resources/imageData/objectData/roomIMG/"+fileName;
         return Path.of(resourcePath);
     }

@@ -8,21 +8,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditApartmentController">
+<AnchorPane id="anchor" prefHeight="600.0" prefWidth="900.0" stylesheets="@../../cssStyle/EditClient.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditApartmentController">
    <children>
-      <VBox layoutX="52.0" layoutY="108.0" prefHeight="350.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <VBox id="vbox" layoutX="52.0" layoutY="108.0" prefHeight="350.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <children>
             <HBox prefHeight="70.0" prefWidth="700.0">
                <children>
                   <AnchorPane prefHeight="70.0" prefWidth="700.0">
                      <children>
-                        <TextField fx:id="hostName" editable="false" layoutX="239.0" layoutY="22.0" prefHeight="37.0" prefWidth="327.0">
+                        <TextField fx:id="hostName" disable="true" editable="false" layoutX="239.0" layoutY="22.0" prefHeight="37.0" prefWidth="327.0">
                            <font>
                               <Font size="14.0" />
                            </font></TextField>
-                        <Label layoutX="100.0" layoutY="25.0" prefHeight="25.0" prefWidth="80.0" text="Host Name">
+                        <Label layoutX="100.0" layoutY="25.0" prefHeight="25.0" prefWidth="86.0" text="Host Name">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
                      </children>
@@ -35,7 +35,7 @@
                      <children>
                         <Label layoutX="101.0" layoutY="23.0" prefHeight="25.0" prefWidth="86.0" text="Apartment">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="apartmentName" editable="false" layoutX="236.0" layoutY="17.0" prefHeight="37.0" prefWidth="333.0">
@@ -52,7 +52,7 @@
                      <children>
                         <Label layoutX="101.0" layoutY="23.0" prefHeight="25.0" prefWidth="64.0" text="Address">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="address" editable="false" layoutX="233.0" layoutY="17.0" prefHeight="37.0" prefWidth="333.0">
@@ -69,10 +69,10 @@
                      <children>
                         <Label layoutX="102.0" layoutY="28.0" prefHeight="25.0" prefWidth="58.0" text="ID">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="apId" editable="false" layoutX="234.0" layoutY="17.0" prefHeight="37.0" prefWidth="80.0" />
+                        <TextField fx:id="apId" disable="true" editable="false" layoutX="234.0" layoutY="17.0" prefHeight="37.0" prefWidth="80.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -90,27 +90,27 @@
             </HBox>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="INFO DETAIL" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="APARTMENT DETAIL" textAlignment="CENTER" textFill="#9e7e15" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
          <font>
-            <Font size="40.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btnEdit" layoutX="100.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Edit">
+      <Button id="btn" fx:id="btnEdit" layoutX="115.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="113.0" text="Edit">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="297.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Save">
+      <Button id="btn" fx:id="btnSave" layoutX="297.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="113.0" text="Save">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnRefresh" layoutX="516.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Refresh">
+      <Button id="btn" fx:id="btnRefresh" layoutX="490.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" text="Refresh">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="714.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Delete">
+      <Button id="btn" fx:id="btnDelete" layoutX="670.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" text="Delete">
          <font>
             <Font size="16.0" />
          </font>

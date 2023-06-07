@@ -1,6 +1,8 @@
 package com.example.app.Controller;
 
 import com.example.app.DB.*;
+import com.example.app.Entity.User;
+import com.example.app.Entity.UserSession;
 import com.example.app.Entity.sharedMenuData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +13,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,8 +47,24 @@ public class SelectMenuController implements Initializable {
     private Label countHost;
     @FXML
     private Label countApartment;
+    @FXML
+    private Circle userImg;
+    @FXML
+    private Label userName;
+    @FXML
+    private Label userMail;
+    @FXML
+    private Label characterUser;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // head user
+        if (UserSession.userMail!=null){
+            User user = new UserDB().getUserByMail(UserSession.userMail);
+            userMail.setText(user.getUserMail());
+            userName.setText(user.getUserName());
+            characterUser.setText(user.getUserName().substring(0,1).toUpperCase());
+        }
+
         sharedMenuData.getMenuController = this;
         headBarUpdate();
         // mac dinh vao client

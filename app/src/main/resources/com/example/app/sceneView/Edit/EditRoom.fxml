@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditRoomController">
+<AnchorPane id="anchor" prefHeight="600.0" prefWidth="900.0" stylesheets="@../../cssStyle/EditClient.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditRoomController">
    <children>
-      <VBox layoutX="52.0" layoutY="108.0" prefHeight="350.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <VBox id="vbox" layoutX="52.0" layoutY="108.0" prefHeight="350.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <children>
             <HBox prefHeight="60.0" prefWidth="700.0">
                <children>
@@ -18,12 +18,12 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="19.0" text="Số Phòng">
+                              <Label layoutX="9.0" layoutY="19.0" text="Room Number">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="roomNumber" editable="false" layoutX="116.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="roomNumber" editable="false" layoutX="128.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -32,12 +32,12 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="27.0" layoutY="18.0" text="ID" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="18.0">
+                              <Label layoutX="39.0" layoutY="18.0" text="ID" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="18.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="roomId" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="roomId" disable="true" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -50,12 +50,12 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="19.0" text="Giá Phòng">
+                              <Label layoutX="10.0" layoutY="19.0" text="Price">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="price" editable="false" layoutX="116.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="price" editable="false" layoutX="127.0" layoutY="17.0" prefHeight="30.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -64,9 +64,9 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="27.0" layoutY="18.0" text="Loại Phòng" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="18.0">
+                              <Label layoutX="37.0" layoutY="17.0" text="RoomType" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="17.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="roomType" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
@@ -82,12 +82,12 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="18.0" text="Mô Tả">
+                              <Label layoutX="11.0" layoutY="18.0" text="Describle">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="describle" editable="false" layoutX="115.0" layoutY="9.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
+                              <TextArea fx:id="describle" editable="false" layoutX="127.0" layoutY="9.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -96,9 +96,9 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="28.0" layoutY="18.0" text="Tình Trạng" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="18.0">
+                              <Label layoutX="39.0" layoutY="18.0" text="Status" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="18.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="status" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
@@ -112,12 +112,18 @@
                <children>
                   <AnchorPane prefHeight="60.0" prefWidth="701.0">
                      <children>
-                        <TextField fx:id="apartment" editable="false" layoutX="170.0" layoutY="16.0" prefHeight="30.0" prefWidth="461.0" />
-                        <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="114.0" text="Căn hộ hiện tại">
+                        <TextField fx:id="apartment" disable="true" editable="false" layoutX="128.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="114.0" text="Apartment">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
+                        <Label layoutX="386.0" layoutY="18.0" prefHeight="25.0" prefWidth="47.0" text="Client">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="client" disable="true" editable="false" layoutX="484.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -126,44 +132,53 @@
                <children>
                   <AnchorPane prefHeight="110.0" prefWidth="700.0">
                      <children>
-                        <ImageView fx:id="img1" fitHeight="110.0" fitWidth="110.0" layoutX="81.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="btnImg" disable="true" layoutX="629.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Chọn ảnh" />
-                        <ImageView fx:id="img2" fitHeight="110.0" fitWidth="110.0" layoutX="191.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="img3" fitHeight="110.0" fitWidth="110.0" layoutX="295.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="img4" fitHeight="110.0" fitWidth="110.0" layoutX="405.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="img5" fitHeight="110.0" fitWidth="110.0" layoutX="516.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="14.0" layoutY="43.0" prefHeight="25.0" prefWidth="72.0" text="Hình ảnh">
+                        <ImageView fx:id="img5" fitHeight="90.0" fitWidth="90.0" layoutX="516.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img1" fitHeight="90.0" fitWidth="90.0" layoutX="86.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img2" fitHeight="90.0" fitWidth="90.0" layoutX="193.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img3" fitHeight="90.0" fitWidth="90.0" layoutX="304.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img4" fitHeight="90.0" fitWidth="90.0" layoutX="411.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="14.0" layoutY="43.0" prefHeight="25.0" prefWidth="72.0" text="Image">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
+                        <Button id="btnImgRoom" fx:id="btnImg3" disable="true" layoutX="303.0" layoutY="8.0" mnemonicParsing="false" opacity="0.06" prefHeight="92.0" prefWidth="92.0" />
+                        <Button id="btnImgRoom" fx:id="btnImg2" disable="true" layoutX="192.0" layoutY="8.0" mnemonicParsing="false" opacity="0.06" prefHeight="92.0" prefWidth="92.0" />
+                        <Button id="btnImgRoom" fx:id="btnImg4" disable="true" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" opacity="0.06" prefHeight="92.0" prefWidth="92.0" />
+                        <Button id="btnImgRoom" fx:id="btnImg1" disable="true" layoutX="85.0" layoutY="8.0" mnemonicParsing="false" opacity="0.06" prefHeight="92.0" prefWidth="92.0" />
+                        <Button id="btnImgRoom" fx:id="btnImg5" disable="true" layoutX="515.0" layoutY="7.0" mnemonicParsing="false" opacity="0.06" prefHeight="92.0" prefWidth="92.0" />
+                        <Label fx:id="tmpURL4" layoutX="635.0" layoutY="64.0" visible="false" />
+                        <Label fx:id="tmpURL1" layoutX="635.0" layoutY="9.0" visible="false" />
+                        <Label fx:id="tmpURL2" layoutX="635.0" layoutY="26.0" visible="false" />
+                        <Label fx:id="tmpURL3" layoutX="635.0" layoutY="44.0" visible="false" />
+                        <Label fx:id="tmpURL5" layoutX="635.0" layoutY="81.0" visible="false" />
                      </children>
                   </AnchorPane>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="Thông tin chi tiết" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="ROOM DETAIL" textAlignment="CENTER" textFill="#9e7e15" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
          <font>
-            <Font size="40.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btnEdit" layoutX="100.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Sửa">
+      <Button id="btn" fx:id="btnEdit" layoutX="120.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="124.0" text="Edit">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="297.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Lưu">
+      <Button id="btn" fx:id="btnSave" layoutX="311.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="114.0" text="Save">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnRefresh" layoutX="516.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Nạp lại">
+      <Button id="btn" fx:id="btnRefresh" layoutX="489.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="124.0" text="Refresh">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="714.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Xóa">
+      <Button id="btn" fx:id="btnDelete" layoutX="676.0" layoutY="493.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="124.0" text="Delete">
          <font>
             <Font size="16.0" />
          </font>

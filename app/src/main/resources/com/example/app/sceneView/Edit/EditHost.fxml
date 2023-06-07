@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditHostController">
+<AnchorPane id="anchor" prefHeight="600.0" prefWidth="900.0" stylesheets="@../../cssStyle/EditClient.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.EditHostController">
    <children>
-      <VBox layoutX="52.0" layoutY="108.0" prefHeight="322.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <VBox id="vbox" layoutX="52.0" layoutY="108.0" prefHeight="322.0" prefWidth="700.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="700.0">
                <children>
@@ -27,7 +27,7 @@
                            <children>
                               <Label layoutX="14.0" layoutY="34.0" text="Host Name">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="name" editable="false" layoutX="116.0" layoutY="32.0" prefHeight="30.0" prefWidth="200.0" />
@@ -56,7 +56,7 @@
                            <children>
                               <Label layoutX="14.0" layoutY="19.0" text="Phone">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="phone" editable="false" layoutX="116.0" layoutY="16.0" prefHeight="30.0" prefWidth="200.0" />
@@ -70,7 +70,7 @@
                            <children>
                               <Label layoutX="27.0" layoutY="18.0" text="Date of birth" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="18.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="dob" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
@@ -88,7 +88,7 @@
                            <children>
                               <Label layoutX="14.0" layoutY="28.0" text="Address">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextArea fx:id="address" editable="false" layoutX="115.0" layoutY="19.0" prefHeight="43.0" prefWidth="200.0" wrapText="true" />
@@ -102,7 +102,7 @@
                            <children>
                               <Label layoutX="28.0" layoutY="28.0" text="Email" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="28.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="email" editable="false" layoutX="136.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
@@ -120,7 +120,7 @@
                            <children>
                               <Label layoutX="14.0" layoutY="20.0" text="CitizenID">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="citizenID" editable="false" layoutX="113.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
@@ -132,10 +132,10 @@
                      <children>
                         <AnchorPane prefHeight="102.0" prefWidth="350.0">
                            <children>
-                              <TextField fx:id="hostId" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="hostId" disable="true" editable="false" layoutX="136.0" layoutY="15.0" prefHeight="30.0" prefWidth="200.0" />
                               <Label layoutX="28.0" layoutY="18.0" text="ID" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="18.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
                            </children>
@@ -146,27 +146,27 @@
             </HBox>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="INFO DETAIL" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+      <Label alignment="CENTER" layoutX="316.0" layoutY="23.0" prefHeight="58.0" prefWidth="300.0" text="HOST DETAIL" textAlignment="CENTER" textFill="#9e7e15" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
          <font>
-            <Font size="40.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btnEdit" layoutX="100.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Edit">
+      <Button id="btn" fx:id="btnEdit" layoutX="120.0" layoutY="478.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="113.0" text="Edit">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="297.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Save">
+      <Button id="btn" fx:id="btnSave" layoutX="303.0" layoutY="478.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="113.0" text="Save">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnRefresh" layoutX="516.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Refresh">
+      <Button id="btn" fx:id="btnRefresh" layoutX="486.0" layoutY="478.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="123.0" text="Refresh">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="714.0" layoutY="493.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="86.0" text="Delete">
+      <Button id="btn" fx:id="btnDelete" layoutX="660.0" layoutY="478.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="123.0" text="Delete">
          <font>
             <Font size="16.0" />
          </font>
