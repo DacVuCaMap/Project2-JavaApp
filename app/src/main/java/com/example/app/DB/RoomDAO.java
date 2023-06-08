@@ -144,11 +144,11 @@ public class RoomDAO implements DBGeneric<Room>{
         switch (str){
             case "Studio":
                 return RoomType.Studio;
-            case"1k1n":
+            case"k1n1":
                 return RoomType.k1n1;
             case "Duplex":
                 return RoomType.Duplex;
-            case "1k2n":
+            case "k1n2":
                 return RoomType.k1n2;
         }
         return null;
@@ -205,6 +205,27 @@ public class RoomDAO implements DBGeneric<Room>{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Room getRoomById(String id){
+        String sql = "Select * from tblroom where roomId = ?";
+        Room room = new Room();
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,id);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                room.setRoomNumber(rs.getString("roomNumber"));
+                room.setPrice(Double.parseDouble(rs.getString("price")));
+                room.setRoomType(RoomType.valueOf(rs.getString("typeRoom")));
+                room.setStatus(StatusRoom.valueOf(rs.getString("roomStatus")));
+                room.setDesRoom(rs.getString("desRoom"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return room;
     }
 
 }

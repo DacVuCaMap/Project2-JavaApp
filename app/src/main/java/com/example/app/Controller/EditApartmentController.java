@@ -79,43 +79,58 @@ public class EditApartmentController implements Initializable {
 
 //            Sự kiện khi chọn nút Save
             btnSave.setOnMouseClicked(event->{
-                if(tmpURL.getText()==""){
-                    Apartment apartmentUpdate = new Apartment(
-                            apartmentName.getText(),
-                            address.getText()
-                    );
-                    apartmentDAO.updateNoImg(apartmentUpdate, apId.getText());
-                }else {
-                    String absolute = tmpURL.getText();
-                    Path absolutePath = Path.of(absolute);
-                    Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/apartmentIMG");
-                    try {
-                        Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                Boolean flag = true;
+
+                if (apartmentName.getText().length()==0 || apartmentName.getText().length()<4){
+                    apartmentName.setText("* Invalid Name");
+                    flag=false;
+                    apartmentName.setStyle("-fx-text-fill: red;");
+                }
+                if (address.getText().length()<5){
+                    flag=false;
+                    address.setText("* Invalid address");
+                    address.setStyle("-fx-text-fill: red;");
+                }
+                if(flag){
+                    if(tmpURL.getText()==""){
+                        Apartment apartmentUpdate = new Apartment(
+                                apartmentName.getText(),
+                                address.getText()
+                        );
+                        apartmentDAO.updateNoImg(apartmentUpdate, apId.getText());
+                    }else {
+                        String absolute = tmpURL.getText();
+                        Path absolutePath = Path.of(absolute);
+                        Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/apartmentIMG");
+                        try {
+                            Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        Path path = Paths.get(absolute);
+                        String fileName = path.getFileName().toString();
+
+                        Apartment newApartment = new Apartment(
+                                apartmentName.getText(),
+                                address.getText(),
+                                fileName
+                        );
+
+                        apartmentDAO.update(newApartment, apId.getText());
                     }
-                    Path path = Paths.get(absolute);
-                    String fileName = path.getFileName().toString();
-
-                    Apartment newApartment = new Apartment(
-                            apartmentName.getText(),
-                            address.getText(),
-                            fileName
-                    );
-
-                    apartmentDAO.update(newApartment, apId.getText());
+                    tmpURL.setText("");
+                    for(TextField i: textFields){
+                        i.setEditable(false);
+                    }
+                    address.setEditable(false);
+                    btnImg.setDisable(true);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Edit success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Your update is complete!");
+                    alert.showAndWait();
                 }
-                tmpURL.setText("");
-                for(TextField i: textFields){
-                    i.setEditable(false);
-                }
-                address.setEditable(false);
-                btnImg.setDisable(true);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Edit success");
-                alert.setHeaderText(null);
-                alert.setContentText("Your update is complete!");
-                alert.showAndWait();
+
             });
         });
 

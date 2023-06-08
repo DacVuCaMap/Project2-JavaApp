@@ -3,6 +3,7 @@ import com.example.app.DB.GetRootLink;
 import com.example.app.DB.HostDAO;
 import com.example.app.Entity.Client;
 import com.example.app.Entity.Host;
+import com.example.app.Entity.Validation;
 import com.example.app.FormatDate;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -98,55 +99,90 @@ public class EditHostController implements Initializable {
 
 //            Sự kiện khi chọn nút Save
             btnSave.setOnMouseClicked(event->{
+                Boolean flag = true;
+                if (!Validation.isUserName(name.getText()) || name.getText().length()==0){
+                    flag=false;
+                    name.setText("* Invalid host name");
+                    name.setStyle("-fx-text-fill: red;");
+                }
+                if((dob.getText()==null)){
+                    flag=false;
+                    dob.setText("* Date of birth not empty");
+                    dob.setStyle("-fx-text-fill: red;");
+                }
+                if (address.getText().length()<5){
+                    flag=false;
+                    address.setText("* Invalid address");
+                    address.setStyle("-fx-text-fill: red;");
+                }
+                //check citizenId is number
+                if (!Validation.isNbr(citizenID.getText()) || citizenID.getText().length()<5){
+                    flag=false;
+                    citizenID.setText("* Invalid ID");
+                    citizenID.setStyle("-fx-text-fill: red;");
+                }
+                if (!Validation.isEmail(email.getText())){
+                    flag=false;
+                    email.setText("* Invalid email");
+                    email.setStyle("-fx-text-fill: red;");
+                }
+                if (!Validation.isNbr(phone.getText()) || phone.getText().length()!=10){
+                    flag=false;
+                    phone.setText("* Invalid phone number");
+                    phone.setStyle("-fx-text-fill: red;");
+                }
 
-                if(tmpURL.getText()==""){
-                    Host hostUpdate = new Host(
-                            hostId.getText(),
-                            name.getText(),
-                            LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
-                            address.getText(),
-                            citizenID.getText(),
-                            email.getText(),
-                            phone.getText()
+                if(flag){
+                    if(tmpURL.getText()==""){
+                        Host hostUpdate = new Host(
+                                hostId.getText(),
+                                name.getText(),
+                                LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
+                                address.getText(),
+                                citizenID.getText(),
+                                email.getText(),
+                                phone.getText()
 
-                    );
-                    hostDAO.updateNoImg(hostUpdate, hostId.getText());
-                }else {
-                    String absolute = tmpURL.getText();
-                    Path absolutePath = Path.of(absolute);
-                    Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/hostIMG");
-                    try {
-                        Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        );
+                        hostDAO.updateNoImg(hostUpdate, hostId.getText());
+                    }else {
+                        String absolute = tmpURL.getText();
+                        Path absolutePath = Path.of(absolute);
+                        Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/hostIMG");
+                        try {
+                            Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        Path path = Paths.get(absolute);
+                        String fileName = path.getFileName().toString();
+
+                        Host newHost = new Host(
+                                hostId.getText(),
+                                name.getText(),
+                                LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
+                                address.getText(),
+                                citizenID.getText(),
+                                fileName,
+                                email.getText(),
+                                phone.getText()
+                        );
+
+                        hostDAO.update(newHost, hostId.getText());
                     }
-                    Path path = Paths.get(absolute);
-                    String fileName = path.getFileName().toString();
-
-                    Host newHost = new Host(
-                            hostId.getText(),
-                            name.getText(),
-                            LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
-                            address.getText(),
-                            citizenID.getText(),
-                            fileName,
-                            email.getText(),
-                            phone.getText()
-                    );
-
-                    hostDAO.update(newHost, hostId.getText());
+                    tmpURL.setText("");
+                    for(TextField i: textFields){
+                        i.setEditable(false);
+                    }
+                    address.setEditable(false);
+                    btnImg.setDisable(true);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Edit success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Your update is complete!");
+                    alert.showAndWait();
                 }
-                tmpURL.setText("");
-                for(TextField i: textFields){
-                    i.setEditable(false);
-                }
-                address.setEditable(false);
-                btnImg.setDisable(true);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Edit success");
-                alert.setHeaderText(null);
-                alert.setContentText("Your update is complete!");
-                alert.showAndWait();
+
             });
         });
 
