@@ -84,6 +84,24 @@
             <Pane prefHeight="38.0" prefWidth="200.0">
                <children>
                   <Line endX="120.0" endY="19.0" layoutX="63.0" layoutY="19.0" startX="-49.0" startY="19.0" stroke="#9499a8" strokeWidth="0.5" />
+                  <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="61.0" text="Monthly" textFill="#9e9e9e">
+                     <font>
+                        <Font name="Calibri Bold" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button id="selectBtn" fx:id="monthlyBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../cssStyle/SelectMenu.css" text="Monthly" textFill="#9e9e9e">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Pane prefHeight="38.0" prefWidth="200.0">
+               <children>
+                  <Line endX="120.0" endY="19.0" layoutX="63.0" layoutY="19.0" startX="-49.0" startY="19.0" stroke="#9499a8" strokeWidth="0.5" />
                   <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="61.0" text="Back to Menu" textFill="#9e9e9e">
                      <font>
                         <Font name="Calibri Bold" size="10.0" />

@@ -1,16 +1,16 @@
 package com.example.app.Controller.Contract;
 
-import com.example.app.DB.ClientDAO;
-import com.example.app.DB.ContractDAO;
-import com.example.app.DB.DBGeneric;
-import com.example.app.DB.RoomDAO;
+import com.example.app.DB.*;
 import com.example.app.Entity.Client;
 import com.example.app.Entity.Contract;
+import com.example.app.Entity.Monthly;
 import com.example.app.Entity.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -66,6 +66,7 @@ public class AddContract implements Initializable {
     @FXML
     private Label labelTotal;
     private DBGeneric<Contract> contractDBGeneric = new ContractDAO();
+    private DBGeneric<Monthly> monthlyDBGeneric = new MonthlyDAO();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> listTime = FXCollections.observableArrayList();
@@ -91,6 +92,8 @@ public class AddContract implements Initializable {
 
         //insert
         btnAdd.setOnAction(e->{
+            Scene scene = btnAdd.getScene();
+            scene.setCursor(Cursor.WAIT);
             //validation
             clientNof.setText("");
             roomNof.setText("");
@@ -133,9 +136,11 @@ public class AddContract implements Initializable {
                 new ContractDAO().insertData(contract);
                 new RoomDAO().changeRoomStatus(room,"OCCUPIED");
                 new RoomDAO().addClient(room,client);
+                insertMonthly(startMonth,endMonth,contract);
                 //close
                 Stage stage =(Stage) cancleBtn.getScene().getWindow();
                 stage.close();
+                scene.setCursor(Cursor.DEFAULT);
             }
         });
         //cancle
@@ -221,5 +226,12 @@ public class AddContract implements Initializable {
             numberStr=Integer.toString(number);
         }
         return "CT"+numberStr;
+    }
+    public void insertMonthly(LocalDate startMonth,LocalDate endMonth,Contract contract){
+        while(startMonth.isBefore(endMonth)){
+            Monthly monthly = new Monthly(1,contract,"Enter bill",LocalDate.of(startMonth.getYear(),startMonth.getMonth(),01));
+            monthlyDBGeneric.insertData(monthly);
+            startMonth=startMonth.plusMonths(1);
+        }
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: none;" stylesheets="@../../cssStyle/Monthly.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.items.MonthlyItem">
+   <children>
+      <Pane layoutX="25.0" layoutY="10.0" onMouseClicked="#clickItem" prefHeight="100.0" prefWidth="150.0" styleClass="item">
+         <children>
+            <Label fx:id="numberLabel" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="88.0" text="Room 101">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="idLabel" layoutX="15.0" layoutY="41.0" prefHeight="17.0" prefWidth="63.0" text="ID:RM001" textFill="#8a8a8a">
+               <font>
+                  <Font name="Calibri" size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="clientLabel" layoutX="14.0" layoutY="56.0" prefHeight="17.0" prefWidth="118.0" text="Client: Vu Hai Nam" textFill="#8a8a8a">
+               <font>
+                  <Font name="Calibri" size="11.0" />
+               </font>
+            </Label>
+            <Rectangle fx:id="billStatus" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="19.0" layoutX="98.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
+            <Label fx:id="billText" layoutX="106.0" layoutY="12.0" text="Enter bill" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="apartmentLabel" layoutX="14.0" layoutY="71.0" prefHeight="17.0" prefWidth="118.0" text="Apartment: building 1" textFill="#8a8a8a">
+               <font>
+                  <Font name="Calibri" size="11.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</Pane>

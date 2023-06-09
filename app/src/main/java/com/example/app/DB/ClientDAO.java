@@ -113,6 +113,7 @@ public class ClientDAO implements DBGeneric<Client>{
                 String citizentId = rs.getString("citizenID");
                 clientList.add(new Client(id,image,name,email,phone,address,dob,citizentId));
             }
+            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

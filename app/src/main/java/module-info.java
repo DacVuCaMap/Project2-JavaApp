@@ -22,4 +22,5 @@
     opens com.example.app.Controller.Add to javafx.fxml;
     opens com.example.app.Controller.Contract to javafx.fxml;
     opens com.example.app.Controller.Contract.ContractClick to javafx.fxml;
+    opens com.example.app.Controller.Monthly to javafx.fxml;
 }

@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContractDAO implements DBGeneric<Contract>{
-    private Connection conn=MySQLConnection.getConnection();
+    private Connection conn;
+    private List<Room> roomList=new RoomDAO().getAllData();
+    private List<Client> clientList = new ClientDAO().getAllData();
     @Override
     public void insertData(Contract contract) {
         String sql="insert into tblContract(contractId,startDate,startMonth,endMonth,desContract,clientId,roomId,totalPrice)" +
@@ -18,6 +20,7 @@ public class ContractDAO implements DBGeneric<Contract>{
         System.out.println(contract.getClient().getClientId());
         System.out.println(contract.getRoom().getRoomId());
         try{
+            conn=MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,contract.getContractId());
             pstm.setDate(2, Date.valueOf(contract.getStartDate()));
@@ -47,6 +50,9 @@ public class ContractDAO implements DBGeneric<Contract>{
     @Override
     public void delete(String id) {
         String sql="DELETE FROM tblContract where contractId=?";
+        Contract contract = getContractById(id);
+        new RoomDAO().deleteClient(contract.getRoom());
+        new MonthlyDAO().deleteByContract(id);
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -62,6 +68,7 @@ public class ContractDAO implements DBGeneric<Contract>{
         List<Contract> contractList = new ArrayList<>();
         String sql="Select * from tblContract";
         try{
+            conn=MySQLConnection.getConnection();
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()){
@@ -70,8 +77,8 @@ public class ContractDAO implements DBGeneric<Contract>{
                 LocalDate startMonth = rs.getDate("startMonth").toLocalDate();
                 LocalDate endMonth = rs.getDate("endMonth").toLocalDate();
                 String des = rs.getString("desContract");
-                Client client = new ClientDAO().searchClientById(rs.getString("clientId"));
-                Room room = new RoomDAO().searchRoomById(rs.getString("roomId"));
+                Client client = searchClientById(rs.getString("clientId"));
+                Room room = searchRoomById(rs.getString("roomId"));
                 Double total = rs.getDouble("totalPrice");
                 contractList.add(new Contract(id,startDate,startMonth,endMonth,des,client,room,total));
             }
@@ -90,6 +97,31 @@ public class ContractDAO implements DBGeneric<Contract>{
         for (Contract contract : contractList){
             if (contract.getRoom().getRoomId().equals(roomId)){
                 return contract;
+            }
+        }
+        return null;
+    }
+    public Contract getContractById(String id){
+        List<Contract> contractList = getAllData();
+        for (Contract contract : contractList){
+            if (contract.getContractId().equals(id)){
+                return contract;
+            }
+        }
+        return null;
+    }
+    public Room searchRoomById(String id){
+        for (Room room : roomList){
+            if (room.getRoomId().equals(id)){
+                return room;
+            }
+        }
+        return null;
+    }
+    public Client searchClientById(String id){
+        for (Client client : clientList){
+            if (client.getClientId().equals(id)){
+                return client;
             }
         }
         return null;

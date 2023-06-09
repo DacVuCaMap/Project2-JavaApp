@@ -77,6 +77,7 @@ public class HostDAO implements DBGeneric<Host>{
                 );
                 hostList.add(newHost);
             }
+            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

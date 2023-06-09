@@ -1,0 +1,12 @@
+.item{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+.item:hover{
+    -fx-background-color: #e3e3e3;
+}
+.scrollPane{
+    -fx-background-color: transparent; -fx-background: null; -fx-border-color: transparent
+}

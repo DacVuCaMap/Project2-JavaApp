@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="571.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller.Monthly.MonthlyDetailsScene">
+   <children>
+      <ScrollPane prefHeight="400.0" prefWidth="200.0">
+         <content>
+            <VBox fx:id="vboxMonth" prefHeight="398.0" prefWidth="198.0">
+               <children>
+                  <Pane prefHeight="33.0" prefWidth="198.0" style="-fx-background-color: #b2b2b2;">
+                     <children>
+                        <Label layoutX="51.0" layoutY="9.0" text="monthly bill list" textFill="#575757">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <TableView fx:id="tableView" prefHeight="364.0" prefWidth="198.0">
+                    <columns>
+                      <TableColumn fx:id="tableId" prefWidth="58.0" text="ID" />
+                      <TableColumn fx:id="tableMonth" prefWidth="139.0" text="Month" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutX="251.0" layoutY="14.0" prefHeight="22.0" prefWidth="255.0" text="Monthly bill details" textFill="#575757">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="createAt" alignment="CENTER_RIGHT" layoutX="424.0" layoutY="36.0" prefHeight="17.0" prefWidth="133.0" text=" create at: 2-2-2023" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="212.0" layoutY="103.0" prefHeight="17.0" prefWidth="45.0" text="Client" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="clientName" layoutX="235.0" layoutY="120.0" prefHeight="17.0" prefWidth="218.0" text="Client name : " textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="clientEmail" layoutX="235.0" layoutY="154.0" prefHeight="17.0" prefWidth="218.0" text="Client email :" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="clientPhone" layoutX="235.0" layoutY="137.0" prefHeight="17.0" prefWidth="218.0" text="Client phone : " textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="hostName" layoutX="235.0" layoutY="188.0" prefHeight="17.0" prefWidth="186.0" text="Host name : " textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="apartmentName" layoutX="212.0" layoutY="225.0" prefHeight="17.0" prefWidth="218.0" text="Apartment Name :" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="hostPhone" layoutX="235.0" layoutY="205.0" prefHeight="17.0" prefWidth="186.0" text="Host phone : " textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="212.0" layoutY="171.0" prefHeight="17.0" prefWidth="45.0" text="Host" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="roomNumber" layoutX="212.0" layoutY="249.0" prefHeight="17.0" prefWidth="200.0" text="Room Number:" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="212.0" layoutY="274.0" prefHeight="17.0" prefWidth="107.0" text="Price" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="elecPrice" layoutX="240.0" layoutY="291.0" prefHeight="17.0" prefWidth="155.0" text="Electric price :" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="servicePrice" layoutX="240.0" layoutY="325.0" prefHeight="17.0" prefWidth="155.0" text="Client email :" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="waterPrice" layoutX="240.0" layoutY="308.0" prefHeight="17.0" prefWidth="167.0" text="Client phone : " textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="elecNumber" layoutX="414.0" layoutY="291.0" prefHeight="17.0" prefWidth="147.0" text="Electric price :" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="waterNumber" layoutX="414.0" layoutY="308.0" prefHeight="17.0" prefWidth="147.0" text="Client phone : " textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="monthLabel" layoutX="212.0" layoutY="67.0" text="June-2023" textFill="#575757">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalLabel" layoutX="212.0" layoutY="355.0" prefHeight="17.0" prefWidth="186.0" text="Total:" textFill="#6b6b6b">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Pane fx:id="paneToHide" layoutX="200.0" layoutY="4.0" prefHeight="393.0" prefWidth="370.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="101.0" layoutY="186.0" text="Please select a column" textFill="#5e5e5e">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

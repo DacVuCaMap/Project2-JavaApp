@@ -129,6 +129,7 @@ public class RoomDAO implements DBGeneric<Room>{
                         ,rs.getString("desRoom")
                         ,client));
             }
+            conn.close();
             return roomList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -139,6 +140,17 @@ public class RoomDAO implements DBGeneric<Room>{
     @Override
     public boolean checkUser(Room room) {
         return false;
+    }
+    public void deleteClient(Room room){
+        String sql="Update tblRoom set ClientId=null where roomId=?";
+        try{
+            conn=MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,room.getRoomId());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     public RoomType getRoomType(String str){
         switch (str){
@@ -153,6 +165,7 @@ public class RoomDAO implements DBGeneric<Room>{
         }
         return null;
     }
+
     public StatusRoom getStatusRoom(String str){
         switch (str){
             case "AVAILABLE":
@@ -205,6 +218,16 @@ public class RoomDAO implements DBGeneric<Room>{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public List<Room> roomHasClient(){
+        List<Room> roomList = getAllData();
+        List<Room> rs = new ArrayList<>();
+        for (Room room : roomList){
+            if (room.getClient()!=null){
+                rs.add(room);
+            }
+        }
+        return rs;
     }
 
 }

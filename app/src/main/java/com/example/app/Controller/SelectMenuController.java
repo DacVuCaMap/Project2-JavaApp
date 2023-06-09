@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -55,6 +57,8 @@ public class SelectMenuController implements Initializable {
     private Label userMail;
     @FXML
     private Label characterUser;
+    @FXML
+    private Button monthlyBtn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // head user
@@ -99,6 +103,24 @@ public class SelectMenuController implements Initializable {
                 stage.show();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
+            }
+        });
+        monthlyBtn.setOnAction(e->{
+            // diagram scene
+            Stage dialogStage = new Stage();
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(LoginScene.getStage);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/example/app/sceneView/monthly/MonthlyScene.fxml"));
+                AnchorPane sceneRoot = fxmlLoader.load();
+                Scene dialogScene = new Scene(sceneRoot);
+                dialogStage.setResizable(false);
+                dialogStage.setScene(dialogScene);
+                dialogStage.setTitle("MonthLy");
+                dialogStage.showAndWait();
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         });
     }
@@ -168,6 +190,7 @@ public class SelectMenuController implements Initializable {
         roomBtn.getStyleClass().add("disableBtn");
         hostBtn.getStyleClass().add("disableBtn");
         apartmentBtn.getStyleClass().add("disableBtn");
+        monthlyBtn.getStyleClass().add("disableBtn");
     }
     public void selectedButton(Button btn){
         btn.getStyleClass().remove("disableBtn");

@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ContractDetails implements Initializable {
@@ -66,6 +67,8 @@ public class ContractDetails implements Initializable {
     private Contract contract;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         deleteBtn.setOnAction(e->{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation");
@@ -100,6 +103,11 @@ public class ContractDetails implements Initializable {
         startDateLabel.setText(contract.getStartMonth().toString());
         endDateLabel.setText(contract.getEndMonth().toString());
         creatAtLabel.setText(contract.getStartDate().toString());
+        //set date
+        LocalDate currentDate = LocalDate.now();
+        if (!currentDate.isAfter(contract.getStartMonth()) && !currentDate.isBefore(contract.getEndMonth())){
+            deleteBtn.setDisable(true);
+        }
     }
     @FXML
     void getApartment(MouseEvent event) {

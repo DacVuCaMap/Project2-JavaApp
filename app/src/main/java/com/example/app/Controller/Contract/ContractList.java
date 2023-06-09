@@ -36,8 +36,14 @@ public class ContractList implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sharedMenuData.contractListController = this;
-        upDateList();
-
+//        upDateList();
+        Runnable Task = new Runnable() {
+            @Override
+            public void run() {
+                upDateList();
+            }
+        };
+        Task.run();
         btnContract.setOnAction(e->{
             Stage dialogStage = new Stage();
             Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
