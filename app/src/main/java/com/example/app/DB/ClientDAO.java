@@ -1,6 +1,8 @@
 package com.example.app.DB;
 
 import com.example.app.Entity.Client;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -156,5 +158,33 @@ public class ClientDAO implements DBGeneric<Client>{
             }
         }
         return null;
+    }
+
+    public static ClientDAO getInstance(){
+      return new ClientDAO();
+      }
+    public ObservableList<Client> getComboBox(){
+        ObservableList<Client> clients = FXCollections.observableArrayList();
+        try{
+            String sql = "SELECT * FROM tblclient";
+            conn = MySQLConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Client client = new Client();
+                client.setClientId(rs.getString("clientID"));
+                client.setClientImage(rs.getString("image"));
+                client.setClientName(rs.getString("clientName"));
+                client.setClientEmail(rs.getString("email"));
+                client.setClientPhone(rs.getString("phone"));
+                client.setClientAddress(rs.getString("address"));
+                client.setClientDOB(rs.getDate("dob").toLocalDate());
+                client.setCitizenID(rs.getString("citizenID"));
+                clients.add(client);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return clients;
     }
 }

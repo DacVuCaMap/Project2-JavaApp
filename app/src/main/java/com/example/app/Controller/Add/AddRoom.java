@@ -91,7 +91,7 @@ public class AddRoom implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         apartmentBox.getItems().addAll(getApartmentList());
-        String[] typeIntoChoiceBox = {"Studio","1k2n","1k1n","Duplex"};
+        String[] typeIntoChoiceBox = {"Studio","k1n1","k1n2","Duplex"};
         typeBox.getItems().addAll(typeIntoChoiceBox);
         btnAdd.setOnAction(e->{
             boolean flag = true;

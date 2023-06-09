@@ -39,3 +39,9 @@
     -fx-opacity: 0.3;
     -fx-cursor: hand;
 }
+
+#imgView{
+    -fx-fit-width: 100%;
+    -fx-fit-height: 100%;
+    -fx-viewport-shape: "M0,0 H1 V0.6 H0 V0 Z";
+}

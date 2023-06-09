@@ -57,7 +57,7 @@ public class RoomDAO implements DBGeneric<Room>{
     @Override
     public void update(Room room,String id) {
         String sql="UPDATE tblroom SET roomNumber = ?, price = ?, " +
-                "typeRoom = ?, desRoom = ?, roomStatus = ? WHERE roomId  = ?";
+                "typeRoom = ?, desRoom = ?, roomStatus = ?, clientId = ? WHERE roomId  = ?";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -66,7 +66,8 @@ public class RoomDAO implements DBGeneric<Room>{
             pstm.setString(3, String.valueOf(room.getRoomType()));
             pstm.setString(4, room.getDesRoom());
             pstm.setString(5, String.valueOf(room.getStatus()));
-            pstm.setString(6, id);
+            pstm.setString(6, room.getClient().getClientId());
+            pstm.setString(7, id);
             pstm.executeUpdate();
             pstm.close();
         } catch (SQLException e) {
@@ -81,7 +82,16 @@ public class RoomDAO implements DBGeneric<Room>{
 
     @Override
     public void delete(String i) {
-
+        String sql="DELETE FROM tblroom WHERE roomId = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,i);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -156,11 +166,11 @@ public class RoomDAO implements DBGeneric<Room>{
         switch (str){
             case "Studio":
                 return RoomType.Studio;
-            case"1k1n":
+            case"k1n1":
                 return RoomType.k1n1;
             case "Duplex":
                 return RoomType.Duplex;
-            case "1k2n":
+            case "k1n2":
                 return RoomType.k1n2;
         }
         return null;
@@ -228,6 +238,27 @@ public class RoomDAO implements DBGeneric<Room>{
             }
         }
         return rs;
+    }
+
+    public Room getRoomById(String id){
+        String sql = "Select * from tblroom where roomId = ?";
+        Room room = new Room();
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,id);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                room.setRoomNumber(rs.getString("roomNumber"));
+                room.setPrice(Double.parseDouble(rs.getString("price")));
+                room.setRoomType(RoomType.valueOf(rs.getString("typeRoom")));
+                room.setStatus(StatusRoom.valueOf(rs.getString("roomStatus")));
+                room.setDesRoom(rs.getString("desRoom"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return room;
     }
 
 }

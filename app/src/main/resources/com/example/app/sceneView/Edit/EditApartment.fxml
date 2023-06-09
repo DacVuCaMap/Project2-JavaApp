@@ -82,7 +82,7 @@
                   <AnchorPane prefHeight="110.0" prefWidth="700.0">
                      <children>
                         <Button fx:id="btnImg" disable="true" layoutX="96.0" layoutY="17.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" text="Image" />
-                        <ImageView fx:id="imageAp" fitHeight="70.0" fitWidth="86.0" layoutX="234.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="imgView" fx:id="imageAp" fitHeight="60.0" fitWidth="60.0" layoutX="234.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="tmpURL" layoutX="468.0" layoutY="24.0" visible="false" />
                      </children>
                   </AnchorPane>

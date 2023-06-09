@@ -4,6 +4,7 @@ import com.example.app.DB.ClientDAO;
 import com.example.app.DB.GetRootLink;
 import com.example.app.DB.RoomDAO;
 import com.example.app.Entity.Client;
+import com.example.app.Entity.Validation;
 import com.example.app.FormatDate;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +23,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -101,53 +103,88 @@ public class EditClientController implements Initializable {
 
 //            Sự kiện khi chọn nút Save
             btnSave.setOnMouseClicked(event->{
-                if(tmpURL.getText()==""){
-                    Client clientUpdate = new Client(
-                            clientId.getText(),
-                            name.getText(),
-                            email.getText(),
-                            phone.getText(),
-                            address.getText(),
-                            LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
-                            citizenID.getText()
-                    );
-                   clientDAO.updateNoImg(clientUpdate, clientId.getText());
-                }else {
-                    String absolute = tmpURL.getText();
-                    Path absolutePath = Path.of(absolute);
-                    Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/clientIMG");
-                    try {
-                        Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                boolean flag = true;
+                //validation
+                if (!Validation.isEmail(email.getText())){
+                    flag = false;
+                    email.setText("* Invalid email");
+                    email.setStyle("-fx-text-fill: red;");
+                }
+                //room chua co
+                if (!Validation.isUserName(name.getText())){
+                    flag=false;
+                    name.setText("* Invalid name");
+                    name.setStyle("-fx-text-fill: red;");
+                }
+
+                if (!Validation.isNbr(phone.getText()) || phone.getText().length()<10){
+                    flag=false;
+                    phone.setText("* Invalid phone");
+                    phone.setStyle("-fx-text-fill: red;");
+                }
+                if (dob.getText() == null){
+                    flag= false;
+                    dob.setText("* Not empty");
+                    dob.setStyle("-fx-text-fill: red;");
+                }
+                if (address.getText().length()<3){
+                    flag = false;
+                    address.setText("* Invalid address");
+                    address.setStyle("-fx-text-fill: red;");
+                }
+
+                if(flag){
+                    if(tmpURL.getText()==""){
+                        Client clientUpdate = new Client(
+                                clientId.getText(),
+                                name.getText(),
+                                email.getText(),
+                                phone.getText(),
+                                address.getText(),
+                                LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
+                                citizenID.getText()
+                        );
+                        clientDAO.updateNoImg(clientUpdate, clientId.getText());
+                    }else {
+                        String absolute = tmpURL.getText();
+                        Path absolutePath = Path.of(absolute);
+                        Path destination = Path.of(System.getProperty("user.dir"), "src/main/resources/imageData/objectData/clientIMG");
+                        try {
+                            Files.copy(absolutePath, destination.resolve(absolutePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        Path path = Paths.get(absolute);
+                        String fileName = path.getFileName().toString();
+
+                        Client newClient = new Client(
+                                clientId.getText(),
+                                fileName,
+                                name.getText(),
+                                email.getText(),
+                                phone.getText(),
+                                address.getText(),
+                                LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
+                                citizenID.getText()
+                        );
+
+                        clientDAO.update(newClient, clientId.getText());
                     }
-                    Path path = Paths.get(absolute);
-                    String fileName = path.getFileName().toString();
+                    tmpURL.setText("");
+                    for(TextField i: textFields){
+                        i.setEditable(false);
+                    }
+                    address.setEditable(false);
+                    changeImg.setDisable(true);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Edit success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Your update is complete!");
+                    alert.showAndWait();
 
-                    Client newClient = new Client(
-                            clientId.getText(),
-                            fileName,
-                            name.getText(),
-                            email.getText(),
-                            phone.getText(),
-                            address.getText(),
-                            LocalDate.parse(FormatDate.formatDateReverse(dob.getText())),
-                            citizenID.getText()
-                    );
+                }
 
-                    clientDAO.update(newClient, clientId.getText());
-                }
-                tmpURL.setText("");
-                for(TextField i: textFields){
-                    i.setEditable(false);
-                }
-                address.setEditable(false);
-                changeImg.setDisable(true);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Edit success");
-                alert.setHeaderText(null);
-                alert.setContentText("Your update is complete!");
-                alert.showAndWait();
+
             });
         });
 
@@ -173,15 +210,33 @@ public class EditClientController implements Initializable {
 
 //        Sự kiện khi click vào nút delete
         btnDelete.setOnMouseClicked(event->{
-//            clientDAO.delete(clientId.getText());
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("Xóa thành công");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Bản ghi đã được xóa thành công.");
-//            alert.showAndWait();
-//            // Đóng cửa sổ hiện tại của bản ghi đó
-//            Stage stage = (Stage) btnDelete.getScene().getWindow();
-//            stage.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Delete Confirmation");
+            alert.setContentText("Are you sure you want to delete the host?");
+
+            ButtonType cancelButton = new ButtonType("Cancel");
+            ButtonType okButton = new ButtonType("OK");
+
+            alert.getButtonTypes().setAll(cancelButton, okButton);
+
+            // Hiển thị hộp thoại cảnh báo và chờ người dùng phản hồi
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // Xử lý phản hồi của người dùng
+            if (result.isPresent() && result.get() == okButton) {
+                ClientDAO clientDao = new ClientDAO();
+                Client client = clientDao.getDataById(clientId.getText());
+                File file = new File(GetRootLink.getRootPathForRoom(client.getClientImage()).toString());
+                file.delete();
+                clientDao.delete(clientId.getText());
+                Stage currentStage = (Stage) btnDelete.getScene().getWindow();
+                currentStage.close();
+//                primaryStage.close();
+            } else {
+                // Người dùng đã chọn nút Cancel hoặc đóng hộp thoại
+                // Không thực hiện việc xóa và không đóng cửa sổ
+            }
         });
 
     }
