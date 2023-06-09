@@ -57,7 +57,7 @@ public class RoomDAO implements DBGeneric<Room>{
     @Override
     public void update(Room room,String id) {
         String sql="UPDATE tblroom SET roomNumber = ?, price = ?, " +
-                "typeRoom = ?, desRoom = ?, roomStatus = ? WHERE roomId  = ?";
+                "typeRoom = ?, desRoom = ?, roomStatus = ?, clientId = ? WHERE roomId  = ?";
         try {
             conn = MySQLConnection.getConnection();
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -66,7 +66,8 @@ public class RoomDAO implements DBGeneric<Room>{
             pstm.setString(3, String.valueOf(room.getRoomType()));
             pstm.setString(4, room.getDesRoom());
             pstm.setString(5, String.valueOf(room.getStatus()));
-            pstm.setString(6, id);
+            pstm.setString(6, room.getClient().getClientId());
+            pstm.setString(7, id);
             pstm.executeUpdate();
             pstm.close();
         } catch (SQLException e) {
@@ -81,7 +82,16 @@ public class RoomDAO implements DBGeneric<Room>{
 
     @Override
     public void delete(String i) {
-
+        String sql="DELETE FROM tblroom WHERE roomId = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,i);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

@@ -1,18 +1,13 @@
 package com.example.app.Controller;
 
-import com.example.app.DB.ApartmentDAO;
-import com.example.app.DB.ClientDAO;
-import com.example.app.DB.GetRootLink;
-import com.example.app.DB.RoomDAO;
+import com.example.app.DB.*;
 import com.example.app.Entity.Apartment;
 import com.example.app.Entity.Client;
+import com.example.app.Entity.Host;
 import com.example.app.FormatDate;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -26,6 +21,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EditApartmentController implements Initializable {
@@ -150,15 +146,33 @@ public class EditApartmentController implements Initializable {
         });
 
         btnDelete.setOnMouseClicked(event->{
-            apartmentDAO.delete(apId.getText());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Xóa thành công");
-            alert.setHeaderText(null);
-            alert.setContentText("Bản ghi đã được xóa thành công.");
-            alert.showAndWait();
-            // Đóng cửa sổ hiện tại của bản ghi đó
-            Stage stage = (Stage) btnDelete.getScene().getWindow();
-            stage.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Delete Confirmation");
+            alert.setContentText("Are you sure you want to delete the host?");
+
+            ButtonType cancelButton = new ButtonType("Cancel");
+            ButtonType okButton = new ButtonType("OK");
+
+            alert.getButtonTypes().setAll(cancelButton, okButton);
+
+            // Hiển thị hộp thoại cảnh báo và chờ người dùng phản hồi
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // Xử lý phản hồi của người dùng
+            if (result.isPresent() && result.get() == okButton) {
+                ApartmentDAO apDao = new ApartmentDAO();
+                Apartment apartment = apDao.getApById(apId.getText());
+                File file = new File(GetRootLink.getRootPathForRoom(apartment.getApartmentImage()).toString());
+                file.delete();
+                apDao.delete(apId.getText());
+                Stage currentStage = (Stage) btnDelete.getScene().getWindow();
+                currentStage.close();
+//                primaryStage.close();
+            } else {
+                // Người dùng đã chọn nút Cancel hoặc đóng hộp thoại
+                // Không thực hiện việc xóa và không đóng cửa sổ
+            }
         });
     }
 }

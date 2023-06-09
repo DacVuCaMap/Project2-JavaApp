@@ -7,6 +7,8 @@ import com.example.app.DB.RoomImageDAO;
 import com.example.app.Entity.*;
 import com.example.app.Entity.Enum.RoomType;
 import com.example.app.Entity.Enum.StatusRoom;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,8 +27,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class EditRoomController implements Initializable {
@@ -101,10 +103,16 @@ public class EditRoomController implements Initializable {
 
         roomType.getItems().addAll(RoomType.values());
         status.getItems().addAll(StatusRoom.values());
-        List<Client> clients = ClientDAO.getInstance().getAllData();
-        clients.stream().forEach(client -> {
-            clientBox.getItems().addAll(client.getClientName());
-        });
+        List<Client> clients = ClientDAO.getInstance().getComboBox();
+        Map<String, Client> clientMap = new HashMap<>();
+        for (Client client : clients) {
+            clientMap.put(client.getClientName(), client);
+        }
+
+        // Tạo một ComboBox và thiết lập các giá trị từ danh sách clients
+        clientBox.setItems(FXCollections.observableArrayList(clientMap.keySet()));
+
+
         TextField textFields[] = {roomNumber,  price };
 
 //        Sự kiện khi click vào nút Edit sẽ cho phép sửa các ô input
@@ -205,8 +213,7 @@ public class EditRoomController implements Initializable {
                 newTmpURL[2] = tmpURL3.getText();
                 newTmpURL[3] = tmpURL4.getText();
                 newTmpURL[4] = tmpURL5.getText();
-//                System.out.println(tmpURL[0]);
-//                System.out.println(newTmpURL[0]);
+
                 for(int j=0; j<5; j++) {
                     if (imgURL[j] != newTmpURL[j]) {
 
@@ -243,8 +250,12 @@ public class EditRoomController implements Initializable {
                 }
 
                 if(flag){
+                    String selectedClientName = String.valueOf(clientBox.getValue());
+                    Client selectedClient = clientMap.get(selectedClientName);
+
                     Room newRoom = new Room(
                             roomNumber.getText(),
+                            selectedClient,
                             Double.parseDouble(price.getText()),
                             RoomType.valueOf(String.valueOf(roomType.getValue())),
                             StatusRoom.valueOf(String.valueOf(status.getValue())),
@@ -270,40 +281,14 @@ public class EditRoomController implements Initializable {
                     btnImg3.setDisable(true);
                     btnImg4.setDisable(true);
                     btnImg5.setDisable(true);
-
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Edit success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Your update is complete!");
+                    alert.showAndWait();
                 }
-                Room newRoom = new Room(
-                        roomNumber.getText(),
-                        Double.parseDouble(price.getText()),
-                        RoomType.valueOf(String.valueOf(roomType.getValue())),
-                        StatusRoom.valueOf(String.valueOf(status.getValue())),
-                        describle.getText()
-                );
 
-                RoomImg newRoomImg = new RoomImg(
-                        newTmpURL[0],
-                        newTmpURL[1],
-                        newTmpURL[2],
-                        newTmpURL[3],
-                        newTmpURL[4]
-                );
 
-                roomDAO.update(newRoom, roomId.getText());
-                roomImgDao.update(newRoomImg,roomId.getText());
-                for(TextField i: textFields){
-                    i.setEditable(false);
-                }
-                describle.setEditable(false);
-                btnImg1.setDisable(true);
-                btnImg2.setDisable(true);
-                btnImg3.setDisable(true);
-                btnImg4.setDisable(true);
-                btnImg5.setDisable(true);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Edit success");
-                alert.setHeaderText(null);
-                alert.setContentText("Your update is complete!");
-                alert.showAndWait();
             });
 
         });
@@ -330,7 +315,47 @@ public class EditRoomController implements Initializable {
             describle.setText(room.getDesRoom());
             roomType.setValue(room.getRoomType());
             status.setValue(room.getStatus());
-            System.out.println(clientBox.getValue());
+
+        });
+        btnDelete.setOnMouseClicked(e->{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Delete Confirmation");
+            alert.setContentText("Are you sure you want to delete the room?");
+
+            ButtonType cancelButton = new ButtonType("Cancel");
+            ButtonType okButton = new ButtonType("OK");
+
+            alert.getButtonTypes().setAll(cancelButton, okButton);
+
+            // Hiển thị hộp thoại cảnh báo và chờ người dùng phản hồi
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // Xử lý phản hồi của người dùng
+            if (result.isPresent() && result.get() == okButton) {
+                File[] files = new File[5];
+                RoomImageDAO roomImageDAO = new RoomImageDAO();
+                RoomDAO roomDao = new RoomDAO();
+                RoomImg roomImg = roomImageDAO.getRoomImageById(roomId.getText());
+                files[0] = new File(GetRootLink.getRootPathForRoom(roomImg.getImg1()).toString());
+                files[1] = new File(GetRootLink.getRootPathForRoom(roomImg.getImg2()).toString());
+                files[2] = new File(GetRootLink.getRootPathForRoom(roomImg.getImg3()).toString());
+                files[3] = new File(GetRootLink.getRootPathForRoom(roomImg.getImg4()).toString());
+                files[4] = new File(GetRootLink.getRootPathForRoom(roomImg.getImg5()).toString());
+                for(File i : files){
+                    i.delete();
+                }
+                roomImageDAO.delete(roomId.getText());
+                roomDao.delete(roomId.getText());
+                Stage currentStage = (Stage) btnDelete.getScene().getWindow();
+                currentStage.close();
+//                primaryStage.close();
+            } else {
+                // Người dùng đã chọn nút Cancel hoặc đóng hộp thoại
+                // Không thực hiện việc xóa và không đóng cửa sổ
+            }
+
+
         });
 
     }

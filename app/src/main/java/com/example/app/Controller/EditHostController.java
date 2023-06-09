@@ -1,8 +1,11 @@
 package com.example.app.Controller;
 import com.example.app.DB.GetRootLink;
 import com.example.app.DB.HostDAO;
+import com.example.app.DB.RoomDAO;
+import com.example.app.DB.RoomImageDAO;
 import com.example.app.Entity.Client;
 import com.example.app.Entity.Host;
+import com.example.app.Entity.RoomImg;
 import com.example.app.Entity.Validation;
 import com.example.app.FormatDate;
 import javafx.fxml.FXML;
@@ -22,6 +25,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EditHostController implements Initializable {
@@ -207,15 +211,33 @@ public class EditHostController implements Initializable {
 
 //        Sự kiện khi click vào nút delete
         btnDelete.setOnMouseClicked(event->{
-            hostDAO.delete(hostId.getText());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Xóa thành công");
-            alert.setHeaderText(null);
-            alert.setContentText("Bản ghi đã được xóa thành công.");
-            alert.showAndWait();
-            // Đóng cửa sổ hiện tại của bản ghi đó
-            Stage stage = (Stage) btnDelete.getScene().getWindow();
-            stage.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Delete Confirmation");
+            alert.setContentText("Are you sure you want to delete the host?");
+
+            ButtonType cancelButton = new ButtonType("Cancel");
+            ButtonType okButton = new ButtonType("OK");
+
+            alert.getButtonTypes().setAll(cancelButton, okButton);
+
+            // Hiển thị hộp thoại cảnh báo và chờ người dùng phản hồi
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // Xử lý phản hồi của người dùng
+            if (result.isPresent() && result.get() == okButton) {
+                HostDAO hostDao = new HostDAO();
+                Host host = hostDao.getHostById(hostId.getText());
+                File file = new File(GetRootLink.getRootPathForRoom(host.getHostImage()).toString());
+                file.delete();
+                hostDao.delete(hostId.getText());
+                Stage currentStage = (Stage) btnDelete.getScene().getWindow();
+                currentStage.close();
+//                primaryStage.close();
+            } else {
+                // Người dùng đã chọn nút Cancel hoặc đóng hộp thoại
+                // Không thực hiện việc xóa và không đóng cửa sổ
+            }
         });
 
 

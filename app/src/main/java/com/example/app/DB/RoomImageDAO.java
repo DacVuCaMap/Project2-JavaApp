@@ -71,4 +71,17 @@ public class RoomImageDAO {
         }
         return roomImg;
     }
+
+    public void delete(String i) {
+        String sql="DELETE FROM tblroomimg WHERE roomId = ?";
+        try {
+            conn = MySQLConnection.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,i);
+            pstm.executeUpdate();
+            pstm.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -52,8 +52,9 @@ public class Room {
         this.desRoom = desRoom;
     }
 
-    public Room(String roomNumber, double price, RoomType roomType, StatusRoom status, String desRoom) {
+    public Room(String roomNumber,Client client, double price, RoomType roomType, StatusRoom status, String desRoom) {
         this.roomNumber = roomNumber;
+        this.client=client;
         this.price = price;
         this.roomType = roomType;
         this.status = status;
